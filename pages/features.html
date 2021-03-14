@@ -1,0 +1,345 @@
+<html>
+    <link rel="icon" type=image/png href="../site_images/favicon-32x32.png" sizes="32x32">
+    <head>
+        <title>Hammer++ : Features</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="../style.css">
+		<script src='../javascript/comparison.js'></script>	
+    </head>
+    <body style="background-color: rgb(0, 0, 0);">
+        <div class="logo">
+            <a href="../index.html">
+                <img src="../site_images/logo.png" >
+            </a>
+        </div>
+
+        <div class="pagestop">
+            <div> <a href="../index.html"> Home </a> </div>
+            <div> Features </div>
+            <div> <a href="changelog.html"> Updates </a> </div>
+            <div> <a href="download.html"> Download </a> </div>
+            <div> <a href="credits.html"> Credits </a> </div>
+        </div>
+
+        <div class="centerpage">
+            <h2>
+               Graphics
+            </h2>
+            <p>The graphics in Hammer++ have received a significant upgrade. It's now much more accurate and prettier.<br>
+				Drag the slider in the comparison shot below between vanilla Hammer and Hammer++ on ctf_2fort.<br>
+			</p>
+			<div class="img-comp-container">
+			  <div class="img-comp-img">
+				<img src="../site_images/features_graphics_new.png" width="950" height="539">
+			  </div>
+			  <div class="img-comp-img img-comp-overlay">
+				<img src="../site_images/features_graphics_old.png" width="950" height="539">
+			  </div>
+			</div>
+
+            <h2>
+               Particle Rendering
+            </h2>
+            <p>Preview particles from an info_particle_system right inside the editor.<br>
+				Toggleable with 2 new toolbar buttons, whether to draw particles and whether to draw particles from selected particle systems only.<br>
+				<img src="../site_images/features_particles.gif" width="500" height="500">
+			</p>
+
+            <h2>
+               2D Skybox Preview
+            </h2>
+            <p>The 2D skybox set in the map properties (worldspawn) is now shown in the 3D view.<br>
+				This can be toggled with a new button in the toolbar.
+				<img src="../site_images/features_sky2d.png" width="950" height="538">
+			</p>
+			
+            <h2>
+               Fancy Selection Glows
+            </h2>
+            <p>Models will be outlined with a yellow glow when selected. Inspired by Source 2 Hammer.<br>
+				<img src="../site_images/features_selectionglow.png" width="950" height="539">
+			</p>
+
+            <h2>
+               Rope Rendering
+            </h2>
+            <p>Ropes are approximately displayed in the editor, like they would be seen in-game.<br>
+				<img src="../site_images/features_rope.png" width="950" height="539">
+			</p>
+
+            <h2>
+               Render Effects Preview
+            </h2>
+            <p>Render effects such as color, translucency, scale, bodygroups, etc. are now displayed.<br>
+				These can be toggled off or on via a new toolbar button.<br>
+				<img src="../site_images/features_fx.png" width="950" height="445">
+			</p>	
+
+            <h2>
+               Fog Preview
+            </h2>
+            <p>Preview env_fog_controllers inside the 3D view. Spooky.<br>
+				Accessed by View -> Set Fog Preview.<br>
+				<img src="../site_images/features_fog.png" width="950" height="539">
+			</p>	
+
+            <h2>
+               Material proxy rendering
+            </h2>
+            <p>Material proxies such as animated or scrolling textures are now displayed.<br>
+				<img src="../site_images/features_proxies.gif" width="456" height="471">
+			</p>	
+
+            <h2>
+               Lightmap view improvements
+            </h2>
+            <p>Brush luxels are now correctly tinted depending on their intensity,<br>and static prop lightmap luxels are now displayed.<br>
+				<img src="../site_images/features_luxel.png" width="950" height="539">
+			</p>			
+
+            <h2>
+               3D Grid
+            </h2>
+            <p>The 3D grid has been overhauled to be more useful. Toggleable by default with P.<br>
+				<img src="../site_images/features_3dgrid.png" width="950" height="539">
+			</p>
+			
+            <h2>
+               3D Editor Text
+            </h2>
+            <p>The new editor_text entity can be used to place 3D text in the map.<br>
+				This is Hammer++ only, it does not work in-game.
+				<img src="../site_images/features_3dtext.png" width="950" height="420">
+			</p>			
+			
+			<h2>
+               Brush Accuracy
+            </h2>
+            <p>Brushes are now saved with precise vertex data in the VMF.<br>
+				This means that vertices stay perfectly preserved between sessions, instead of 'drifting away'.<br>
+				Imprecise old data is still saved for compilers and compatibility with other Hammers.<br>
+				Imprecise data is also more accurately read in Hammer++, mitigating vertex drift significantly.<br>
+				Precise data can be toggled in options if you don't want to use it for any reason.<br>
+				Drag the slider in the comparison to see the difference when saving a cone brush in vanilla Hammer vs Hammer++.
+			</p>
+			
+			<div class="img-comp-container2">
+			  <div class="img-comp-img">
+				<img src="../site_images/feaures_vertex_data_on.png" width="950" height="358">
+			  </div>
+			  <div class="img-comp-img img-comp-overlay">
+				<img src="../site_images/feaures_vertex_data_off.png" width="950" height="358">
+			  </div>
+			</div>
+			
+            <h2>
+               Crash Recovery
+            </h2>
+            <p>If Hammer++ somehow crashes, a detailed error message will be shown and any open VMFs will be autosaved.<br>
+				<img src="../site_images/features_crashrecover.png" width="415" height="209">			
+			</p>			
+			
+            <h2>
+               Gizmo
+            </h2>
+            <p>The Gizmo is a new object that allows you to manipulate objects in 3D via translation, rotation or scaling.<br>
+				Gizmo can be toggled to use either Global or Local transformations, either by clicking the new icon in the toolbar,
+				or pressing the Ctrl + J keybind.<br>
+				The Gizmo can be locked to the X, Y or Z axes, or a combination of the two.<br>
+				The X key will cycle between 3 edit modes: none, box (old workflow) and gizmo.<br>
+				Pressing right click will cycle between translation, rotation and scaling.
+				<img src="../site_images/features_tool_gizmo.gif" width="950" height="577">			
+			</p>	
+
+            <h2>
+               Pivot
+            </h2>
+            <p>The Pivot is a new adjustable point from where rotations will be applied.<br>
+				Can be toggled with a new icon in the toolbar or Ctrl + P.<br>
+				Paste Special can optionally use the pivot as the paste rotation point too.
+				<img src="../site_images/features_tool_pivot.gif" width="950" height="401">			
+			</p>			
+			
+            <h2>
+               Drag Select
+            </h2>
+            <p>Holding Ctrl + left click now selects anything dragged over the crosshair, allowing for speedy selections of multiple objects.<br>
+				This also works for face edit sheet/material tool.
+				<img src="../site_images/features_tool_dragselect.gif" width="950" height="538">			
+			</p>	
+			
+            <h2>
+               Polygon Tool
+            </h2>
+            <p>New tool that allows you to draw convex shapes in the 2D view by defining sets of points.<br>
+				<img src="../site_images/features_tool_polygon.gif" width="950" height="403">			
+			</p>
+
+            <h2>
+               Sprinkle Tool
+            </h2>
+            <p>Quickly place pre-defined presets around the map.<br>
+				Ported from CSGO Hammer, with some new additions.<br>
+				<img src="../site_images/features_tool_sprinkle.gif" width="950" height="509">			
+			</p>					
+						
+            <h2>
+               Physics Tool
+            </h2>
+            <p>Physically simulate entities, ragdolls or brushes to preserve their pose when simulation is finished.<br>
+				Drag, explode or shoot objects with left click, middle click and right click respectively.<br>
+				
+				<img src="../site_images/features_tool_physics.gif" width="950" height="818">			
+			</p>	
+			
+            <h2>
+               Face Edit Sheet/Material Tool
+            </h2>
+            <p>The tool now supports directly modifying UV vectors.<br>
+				This allows easy creation of certain alignments like skewed textures.<br>
+				Added new buttons: to quickly apply nodraw, and to randomize the X or Y shift.
+				The layout has been slightly updated to be more intuitive.<br>
+				<img src="../site_images/features_face_edit.gif" width="950" height="551">			
+			</p>			
+			
+            <h2>
+               Clipping Tool
+            </h2>
+            <p>Clipping tool now features 3 point clipping, allowing new kind of clips to be possible.<br>
+			   3 point and 2 point clipping can be toggled with the C key.<br>
+			   Clipping out selected entities is now also possible.<br>
+			   The tool has also been improved by adding handles to 3D view, displaying the clip plane,
+			   and showing objects that will be cut out in red highlight in 3D view.
+				<img src="../site_images/features_tool_clipper.gif" width="950" height="351">			
+			</p>	
+
+            <h2>
+               Vertex Tool
+            </h2>
+            <p>Vertex manipulation tool has been updated to be realtime.<br>
+				This means you don't need to exit the tool to see changes or undo.<br>
+				If the shape is invalid, faces are now highlighted in red.
+				<img src="../site_images/features_tool_vertex.gif" width="950" height="479">			
+			</p>		
+
+            <h2>
+               Cordon Tool
+            </h2>
+            <p>Added support for multiple cordons, ported from CSGO Hammer.<br>
+				And yes, this does work with stock VBSP compilers.<br>
+				<img src="../site_images/features_tool_cordon.png" width="950" height="444">			
+			</p>
+			
+            <h2>
+               CSG Merge
+            </h2>
+            <p>Merges selected brushes together if they will form a convex shape.<br>
+				Accessible from new toolbar button or with Ctrl+Shift+M keybind.
+				<img src="../site_images/features_tool_merge.gif" width="950" height="434">			
+			</p>	
+
+            <h2>
+               Move Objects
+            </h2>
+            <p>This tool moves selected objects to the nearest floor or ceiling.<br>
+				Optionally, the objects can also be aligned by normal to the surface.
+				<img src="../site_images/features_tool_move.gif" width="950" height="538">			
+			</p>			
+
+            <h2>
+               Microgrid
+            </h2>
+            <p>Decimal point grids are now possible, you can decrease the grid size to 0.125, 0.25 and 0.5.<br>
+				Off by default but it can be enabled in options, if you know what you're doing.<br>
+				It's also possible to set a custom grid size such as 80x80 in View -> Set Grid Size.
+				<img src="../site_images/features_microgrid.png" width="950" height="297">			
+			</p>	
+			
+            <h2>
+               UI
+            </h2>
+            <p>The UI has been upgraded to use your native Windows theme, instead of the ancient, crusty look.<br>
+				It has also been improved to better support custom Windows themes, especially dark themes.<br>
+				The old look can be toggled on in options if you so wish.
+				<img src="../site_images/features_ui.png" width="950" height="358">			
+			</p>				
+			
+            <h2>
+               Model Browser
+            </h2>
+            <p>The model browser has received a big upgrade. It features multipanelled display, improved model rendering, 
+				no more dreaded freezing problems, new tab that shows attachments, 
+				and space-separated wildcard filtering, i.e. "debris 128".
+				<img src="../site_images/features_modelbrowser.png" width="950" height="518">			
+			</p>				
+
+            <h2>
+               Particle Browser
+            </h2>
+            <p>The particle browser is a new browser that allows you preview and select a desired particle system.
+				<img src="../site_images/features_particlebrowser.png" width="950" height="518">			
+			</p>		
+
+            <h2>
+               Texture Browser
+            </h2>
+            <p>Now features alpha channel display for textures.
+				<img src="../site_images/features_texturebrowser.png" width="950" height="518">			
+			</p>			
+
+            <h2>
+               Compile Window
+            </h2>
+            <p>The compile window now uses a separate CMD window to compile into, 
+				no longer causing the window and Hammer to freeze when compiling.
+				<img src="../site_images/features_compilewnd.png" width="950" height="481">			
+			</p>				
+
+            <h2>
+               Keybind Editor
+            </h2>
+            <p>Accessible under Tools -> Keybind Editor, allows you to edit most keybindings in Hammer++.<br>
+				Unfortunately due to limitations in Hammer's UI, the following quirks are present:<br>
+				Modifiers (CTRL, ALT, SHIFT) may not work on all bindings,<br>
+				Some bindings require a refresh of any open maps to take effect,<br>
+				Mouse bindings are not possible to edit/assign.<br>						
+				<img src="../site_images/features_keybinds.png" width="480" height="500">			
+			</p>
+			
+            <h2>
+               Discord RPC
+            </h2>
+            <p>Show off to your friends how much hours you waste on Hammer per day!<br>
+				Can be toggled off in options.<br>
+				<img src="../site_images/features_discord.png" width="280" height="279">			
+			</p>				
+
+            <h2>
+               MP3 and OGG playback support
+            </h2>
+            <p>MP3 sounds can now be played in the editor. There is now also an adjustable volume slider for the sound browser.<br>
+				For source mods using FMOD for .ogg playback, that is also supported.
+				<img src="../site_images/features_mp3.png" width="669" height="543">			
+			</p>			
+			
+        </div>
+
+        <div class="bottompage">
+            <a href="https://steamcommunity.com/profiles/76561198013541469">
+                <img src="../site_images/steam.png" >
+            </a>
+            <div>
+				<img src="../site_images/Discord.png" >			
+                <p>ficool2#6956</p>
+            </div>
+			<p>
+				Hammer++ is not affiliated with Valve Corporation.<br>Contact ficool2 for any questions or troubleshooting.
+			</p>			
+        </div>
+
+    </body>
+	
+	<script>
+	initComparisons();
+	</script>
+</html>
