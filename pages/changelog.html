@@ -1,7 +1,7 @@
 <html>
     <link rel="icon" type=image/png href="../site_images/favicon-32x32.png" sizes="32x32">
     <head>
-        <title>Hammer++ : Credits</title>
+        <title>Hammer++ : Updates</title>
         <meta charset="utf-8">
         <link rel="stylesheet" href="../style.css">
 		<script src='../javascript/details_fix.js'></script>
@@ -23,7 +23,54 @@
 
         <div class="centerpage">	
 			<details open>
-			  <summary><b>Build 8846: Initial public release</b></summary>
+				<summary><b>Build 8847: Stability improvements (March 17th 2021)</b></summary>
+				<p>
+&nbsp;&nbsp;&nbsp;&nbsp; - Added checking for updates automatically on startup, can be disabled in options or done manually in Help tab<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed search path behavior in SDK2013, it now behaves exactly like normal Hammer<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Old behavior can be enabled by creating a shortcut to Hammer++ with the '-legacy_searching' parameter added<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Removed support for temporary Garry's Mod mounting support, too buggy to be worth using<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - If this was working for you before, you can still enable it by using '-legacy_searching' parameter as mentioned above<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed invalid particles crashing on startup<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed left click/right click + space bind to move the 3D view not working<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed 2D skybox causing massive lag<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed crash when converting displacements from power of 3 -> 4<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed texture corruptions that resulted in weird behavior when selecting and rendering textures<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed misaligned face UVs when changing rotation in Face Edit Sheet tool<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed crash for certain users when opening any file browse dialog<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed "script" FGD entry not being read and causing errors<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed crash when loading models from a newer engine that are not supported (hopefully)<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Models that are deemed invalid will instead show up as an error model<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed selection glow outline being randomly corrupted and causing massive lag<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed massive lag when a warning message is being spammed<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed missing textures on world geometry not rendering<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed some certain textures appearing as missing, even though they aren't<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed keybind conflicts for Ctrl + G<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed add height and angle being inverted in arch tool<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed greyed out apply button in Options<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed crash when attempting to delete/modify a selected object while physics simulation is running<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed manifests being unuseable<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed UnlitGeneric textures being shaded<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed UV keyvalues on overlays not updating when applied<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed carve being completely unuseable<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed modelscale of 0 making the model unselectable, now changes to scale of 1<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed the bounding box keyvalue setting for models being ignored in physics simulation<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed brush shading being too dark<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed wrong title text when creating cylinder with right click<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - (TF2) Fixed certain models turning into a black color<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Undo is now much faster on larger maps<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Added keybinds for move to floor ( Alt + N ), move to ceiling ( Alt + U ), and holding Control will angle to the face<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Face edit sheet, sprinkle tool and physics tool dialogs are now automatically hidden when creating or loading a new VMF<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Significantly reduced memory usage of the model browser<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Updated status bar at the bottom to use space more evenly<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Added option to toggle the mounting of the "downloads" folder<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Added option to toggle cubemap rendering<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Pivot is now prioritized over object origin when attempting to drag either one when they are overlapped in 2D view<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Shift + Q bind has been added back, it deselects the selection<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Polygon Tool has been rebound by default to Shift + N due to the above Shift + Q change<br>				
+				</p>
+			</details>
+			<details>
+			  <summary><b>Build 8846: Initial public release (March 14th 2021)</b></summary>
 			  <p>
 			  <!-- holy jesus -->
 <b>General:</b><br>
@@ -257,7 +304,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Optimized to be significantly faster with larger selections<br>
 &nbsp;&nbsp;&nbsp;&nbsp; <br>
 &nbsp;&nbsp;&nbsp;&nbsp; Face Edit Sheet/Material Tool:<br>
-&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Mapping texture dimensions are used instead of raw dimensions for calculations (fixes issues with clamped texturse)<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Mapping texture dimensions are used instead of raw dimensions for calculations (fixes issues with clamped textures)<br>
 &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Raised displacement paint limits<br>
 &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Applying textures is *significantly* faster with bigger selections<br>
 &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Added undo history to Align To View and Displacement Create<br>
