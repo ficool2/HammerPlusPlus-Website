@@ -23,6 +23,58 @@
 
         <div class="centerpage">	
 			<details open>
+				<summary><b>Build 8848: Quality of Life changes (March 21st 2021)</b></summary>
+				<p>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed "hammerplusplus_scheme.res failed to load" error on startup, fixes crashing and rendering issues<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Added toggle to round points to integers in arch tool<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Added back modern styled file dialog UI<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - If you are crashing with opening the file dialog, go into options and disable "Use modern Windows file dialog UI"<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Added transformation keybinds to gizmo tool, similar to Blender controls<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Pressing G, R or E will start translation, rotation or scaling, aligned to the camera<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Pressing X, Y or Z will lock the transformation to the axes<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Pressing combinations of X, Y, Z will add/swap 2 axes together or toggle between global and local axes<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Added planar handles to gizmo's scale component<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Added option to cache textures on startup (slow!!)<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Added Tie to Entity Individually tool, Shift + Ctrl + T. Each selected brush will be assigned its own entity<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Added error checking for any cordons that are enabled in instances (this would cause the map to not compile)<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Added rendering of yellow wireframe on top of selected models in 2D view, for visibility on dark models<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Toggleable in options<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Added option to toggle the rendering of face fill-in in 2D view<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Added checking for NaN brush points<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Added cool loading bar to caching textures when opening texture browser<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Added panel size slider to model and particle browser<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Added button to toggle grid in particle browser<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Transform dialog now supports using the pivot, which can be toggled<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Entity report now shows targetnames beside entities in the list<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - VMFs are now always backed up before being saved (previously they wouldn't be backed up under some conditions)<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Significantly optimized texture browser memory usage. Fixes out of memory crash when having many high-res textures<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - In clipping tool, aligned points in 2D view will now be moved simultaneously<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Cordon tool now deletes any 0 unit cordons automatically<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed certain dialogs hiding between the Hammer view<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed certain brushes being marked as invalid, even if they weren't invalid<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed add height and angle in arch tool not working properly<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed certain brush textures appearing as fully opaque<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed particle mounting behavior in particle browser, mod particles take priority over default particles<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed texture thumbnails in texture browser not being 1:1 in dimensions<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed func_instance with an empty VMF being unselectable in 3D view<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed overlays not being updated upon copying<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed undo history being added for translations when no movement happened<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed render FX toggle not toggling off custom colors<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed render FX on brushes not being loaded on VMF load or when copying<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed render alpha not being applied to brushes<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed strange undo problems related to selections <br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed brush rendering becoming inverted when transforming them<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed problems with applying func_instance VMFs<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed sounds not playing in entity properties if sound browser wasn't opened first<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed light_spot cone not rendering properly<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed brushes being culled in 2D view when transforming<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed skybox textures in 3D view being corrupted if loaded from texture browser<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed being able to create arches with an arc of 0<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed func_details being assigned to World Geometry visgroup<br>			
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed func_instance VMF browse not showing an error message upon an invalid path<br>			
+				</p>
+			</details>		
+			<details>
 				<summary><b>Build 8847: Stability improvements (March 17th 2021)</b></summary>
 				<p>
 &nbsp;&nbsp;&nbsp;&nbsp; - Added checking for updates automatically on startup, can be disabled in options or done manually in Help tab<br>
