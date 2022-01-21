@@ -21,8 +21,237 @@
             <div> <a href="credits.html"> Credits </a> </div>
         </div>
 
-        <div class="centerpage">	
-			<details open>
+        <div class="centerpage">
+			<details open>	
+				<summary><b>Build 8851: Major update (January 21st 2022)</b></summary>
+				<p>			
+&nbsp;&nbsp;&nbsp;&nbsp; - Added Lighting Preview<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Simulate Source's iconic lighting right inside the editor<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - High accuracy and reasonably fast when compared to VRAD<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Efficiently multithreaded, the more threads your CPU has the faster it will be<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Dynamic, fast updating of point lights and spotlights is supported<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Bakes can be done globally (full bake) or only in a certain radius<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Options configurable include:<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Dynamic Updating: Toggle automatically updating when changing a point light or spotlight<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Update Delay: The delay in seconds before updating automatically<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Texlight Filename: Custom .rads file used for texture lights. The lights.rad and <map name>.rad file is loaded automatically<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Sun Samples: The quality of sunlight, higher is better but slower<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Ambient Samples: The quality of ambient environmental lighting, higher is better but MUCH slower<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Visibility Samples: The quality of visibility testing for lights, higher is more accurate but much slower<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Light Radius Scale: Multiplier for how far a light can "see". Lowering this can make bakes faster but less accurate<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Light Brightness Scale: Multiplier of brightness for all lights<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Ambient Occlusion Scale: If non-zero, ambient occlusion will be baked. This is expensive, so it's off by default!<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Bounced Light: Bounces light so areas that a light can't see will still receive light. Only re-baked on full bakes<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Light Bleed Hack: Attempts to fix light bleeding through walls due to the nature of Hammer geometry<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Cubemap: Toggle rendering of the cubemap, as it can be distracting in certain situations<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Current limitations:<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Dynamic updating of geometry doesn't exist yet, use radius bake for now<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Instances are not supported (soon)<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Texture shadows are not supported<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Detail sprites and ropes show as fullbright<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - CSGO: cascaded shadow mapping (CSM) is not rendered (soon!)<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Added Create Instance from Selection tool<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Accessed from Tools tab or keybind<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Converts the selection into an instance and places it in the correct place automatically<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Added 3D skybox preview<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - To use: convert your 3D skybox section into an instance (use the new Convert Selection to Instances tool for this)<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - The instance must have a sky_camera entity, otherwise it will not register as a 3D sky<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - 3D skybox should now appear at real scale in your main map. Toggle the preview on/off with the toolbar button<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Fog preview is also supported in the 3D skybox<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Added Instance Preview<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Main VMF will now be shown while editing an instance<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Accessible via the new "Edit Instance with Preview" button or by middle clicking an instance in 3D view<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Note: 3D sky preview does not work properly in combination with this yet<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Overhauled rope rendering, now perfectly accurate to in-game and renders materials properly<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Ropes can now also be simulated, toggleable with a new button in the toolbar<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Added "Barbed" and "Dangling" property support<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Overhauled color picker<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Much easier to pick any desired color<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Variety of color model options (e.g. RGB, HSV...) to choose from<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Restored palette functionality, now saved per VMF<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Brightness slider is available if modifying a light<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - New hotkey: press C with a light or prop selected to quickly open the color picker and recolor the entity<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Improved DPI scaling support<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Toolbars are now scaled up<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Text in the 2D, 3D views and messages window is scaled up<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Entity properties column sizes will scale correctly<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Removed "Font DPI" option, this is now set automatically<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Added ! operator to model and particle browser, any strings prefixed with ! will be excluded from the resulting list<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - E.g. "vent office !dynamic" would list all models containing "vent" and "office", but NOT "dynamic"<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Added coloring to light_spot's cone model which matches the set light color<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Added "renderamt", "frame" and "framerate" keyvalue support to sprites<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Added support for FadeIn/FadeOut renderfx<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Added toggle for continuous mouse and line of sight testing in displacement tools<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Added font shadow to the FPS and position/rotation text display in 3D view<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Added support for secondary color/direction in fog preview<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Added support for realtime updates to fog preview<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Added alpha preview to prop_statics<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Added timescale modifier to physics simulation<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Added toolbar button to toggle the rendering of tool textures (trigger, skip, hint etc)<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Added toolbar button to toggle the of editor-only objects (e.g. the cone for a info_particle_system)<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Added ability to reset a keyvalue by right clicking in entity properties<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Added snapping to 15 degrees in entity properties compass by holding shift<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Added option to respect $decalscale when creating overlays, off by default due to bogus $decalscale values in certain games<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Added keybindings for the following:<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Toggle tool textures: Ctrl + Shift + F2<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Toggle editor objects: Alt + O<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Toggle helpers: Ctrl + Shift + f<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Toggle 3D skybox: Alt + V<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Create Instance from Selection: Alt + S<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Added ability to scale selected entities using shift/ctrl + mouse wheel<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Added rendering culling for particles and flat displacements<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Added button to Check Map for Problems dialog that ignores "unused keyvalues" errors<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Added new continuous mouse toggle for displacements tools<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Paints always while mouse is held, not just when moving (capped to 60 FPS)<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Added line of sight toggle for displacement tools<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Painting will only snap to first displacement under the crosshair, not to any displacements behind it<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Added option to change texture increment value<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Added option to use middle mouse for camera rotation in 3D view - workflow compatibility with Garry's Mod Hammer<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Added back model, particle and sound browser to the View tab<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Added shortcuts for them as well: Shift + F10, Shift + F11 and Shift + F12 respectively<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Added recursive collapsing for instances<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Following CSGO-specific features were added in:<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Added "script" FGD output<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Added 4 way blend displacement support<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Added displacement blend sculpting<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Added support for the new I/O vmf delimiter<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Added support for func_instance_io_proxy<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Added the "Show walkable collision surfaces" toolbar button<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Added steam API connection<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Added classic missing texture instead of using the native solid black<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Added grenade clip & drone clip autovisgroups<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Hammer++ FGD is now mounted automatically, it is no longer necessary to add it to the game configuration<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - A warning will be shown if it's not found, or if an older version is being used<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Custom tool textures now get added to an automatic "Custom" category in visgroups<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Overlays are now preserved after using clipping tool on the brush they are assigned to<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Increased maximum zoom out level in 2D views<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Instances mode state is now saved<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Changed pivot to render as a white cross in 3D view rather than a sphere<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Changed texture coordinates to be truncated to 4 decimal places, not 3<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Changed sphere helpers to draw at a slightly higher polygon count<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Changed TeamMatch material proxy to always draw<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Changed camera to match in-game coordinate system, i.e. origin and angles of the camera are 1:1 to in-game<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Changed rendering to be active when the app is not in focus, but at a limited framerate<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Changed vertex rendering in 2D view to only display at high zoom levels<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Values close to an integer in the 2D view will now be shown as an integer (e.g. 134.004 -> 134.0)<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Scrolling in the texture shift controls will now increment by 0.005 instead of 0.1<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Color changes in entity properties now apply instantly rather than when you press Apply<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Pressing right click while transforming with gizmo will no longer do anything (use G, R, E hotkeys for this purpose instead)<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Entity tool now snaps to half grid when creating in 3D view<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Camera controls are now frozen while transforming with the gizmo<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Crash error message will now display reason for crash<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Vertex edit:<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Fixed stability issues<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Fixed not being able to merge vertices frequently<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Undo history is now saved locally rather than globally for each step taken in vertex edit<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Stability/performance improvements<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Instances are far more stable and render faster<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Overlays are rendered faster<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Undo is much quicker<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Creating brushes is much quicker on large maps<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - 2D view is significantly faster<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Vertex rendering in 2D view is very fast, now re-enabled by default as a result<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed empty Run Map dialog options for some users<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - You will need to delete the hammerplusplus_sequences.cfg file in the "hammerplusplus" folder to reset this<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed gizmo/pivot not using the origin point of a selected entity<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed sprites rendering through walls, they are now always depth-tested<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed sprite rendering being cached across several sprites with the same material, even if their keyvalues were different<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed rendering of sprites doing way more work than it needed to<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed FGD classes based on another class not inheriting helpers (fixes some entities like env_sprite_oriented not rendering)<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed instances not being closed if the main vmf containing them was closed<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed wrong text color for distance display in 3D view<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed brief window flicker when switching between vmfs/instances<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed pivot not being updated when copy pasting objects<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed entities created in 3D view being misaligned when created on a brush<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed brushes not being rendered properly in 2D view when inside an instance<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed ugly decimal numbers being displayed for dimensions, now rounded within a margin of 0.005 units (134.004 -> 134)<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed glow rendering in wireframe rendering mode<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed memory leak due to all objects not being deleted when closing a vmf<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed detail sprites to be correctly culled in a sphere radius rather than a box<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed crash related to fog preview<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed crash if non-existant instance was specified<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed crash on instance VMF close<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed crash when undoing or deleting func_instances<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed crash if user clicked too early while loading VMF<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed crash when closing all vmfs<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed crash if a large string was entered into the replace field of instances<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed crash when modifying compile configuration<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed crash when assigning visgroups<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed sprinkle tool breaking if entities had backwards slashes in the keyvalues<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed overlay boxes flickering (most of the time)<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed particles not rendering in instances<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed particles sometimes rendering in the wrong positions<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed particles not being culled when too far away from the camera<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed particles not loading from recursive directories<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed broken default cube texture in some rendering modes<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed undo not working correctly for Entity Gallery<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed entity targetnames with special characters causing infinite freeze on VMF load<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed collapsing instances being very slow<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed particles inside a subfolder not being loaded<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed 4-way blend displacements not showing up correctly in shaded view<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed textures that do not have a $basetexture being marked as invalid<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed the Fix All button in Check Map for Problems dialog not working correctly<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed walkable surface not displaying correctly on displacements<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed entity sprinkle dialog remaining forever after closing a vmf<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed selecting faces in 3D view not updating the 2D view<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed Merge brushes tool not preserving entity state<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed overlay handles not respecting the "Handle Size" setting<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed point_worldtext not being selectable in 3D view<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed point_worldtext having no representation with empty text, now displays a red outline square<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed physics tools saving data for static entities, improves performance and fixes mismatched pose issue with ragdolls<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed tool brushes in physics tool not updating their state after changing the texture<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed collision model rendering not respecting model scale<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed current time not being kept for rendering, fixes some shaders not moving<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed 2D views not being updated after changing the gizmo mode<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed sprinkle tool freezing on large maps<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed entities with ridiculous fade bounds causing performance issues<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed the bottom bar in model browser/particle browser/keybind editor not being painted<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed particles spazzing out after alt+tabbing/a freeze<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed fog always being rendered even when turned off<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed hotloading of models causing crashes<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed model textures not being reloaded when modified<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed model texture hotloading causing freezes, now uses a queue like for models<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed pivot not being reset when selecting another object<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed model fade preview not displaying correctly in instances<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed keybind editor, model browser and particle browser not resizing correctly with non-standard taskbar positions<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed duplicate undo history entries being saved when applying textures<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed missing perspective correction for camera FOV, fixes the distorted rendering when the 3D view was sized awkwardly<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed env_projectedtexture helper not rendering correctly <br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed random crashes when changing fog controllers for preview<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed file dialog crashing for some users<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed potential crash while autosaving<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed independent window configuration being broken<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed incorrect window titles being shown in independent window configuration<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed crashes when placing certain prefabs<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed displacements wasting 1mb of memory each<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed thumbnails not loading for certain textures like water in texture browser<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed crash when trying to open Model tab in entity properties on an invalid model<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed issues with func_useableladder entity<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed func_monitor alignment problems (hopefully)<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed uppercase entity classnames causing the entity to be shown as missing<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed arch tool not saving side count<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed not being able to input negatives into arch tool<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed crashes on load due to power of 0/1 displacements, these are now discarded<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed crash when selecting high poly models<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed brush vertex data to snap to integer if close enough<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed brush vertex data not cleaning up duplicate points<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed brush vertex data not sanitizing NaN values<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - CSGO-specific fixes:<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Fixed 4 way blend displacements not showing up correctly in shaded view<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Fixed UnlitTwoTexture not rendering correctly on models/world geometry in shaded view<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Fixed shift + mouse wheel hotkey (for scaling models) not working on grouped entities<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Fixed LOD being enabled on models<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Fixed luxels not being tinted depending on scale in lightmap grid view<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; - Fixed not being able to snap vertices in vertex edit<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Removed useless displacement toolbar button that had no purpose<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Removed some displacement popups that could get potentially spammed<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Removed MDL version checks as they were unreliable. This is now your own responsibility<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Removed file dialog hack as the file dialog now works properly without crashing<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Removed support for power of 0/1 displacements<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Manifests have been fully deprecated and will show a warning when used<br>		
+				</p>
+			</details>
+			<details>		
 				<summary><b>Build 8849 (March 24th 2021)</b></summary>
 				<p>		
 &nbsp;&nbsp;&nbsp;&nbsp; - Fixed "hammerplusplus_scheme.res failed to load" error, for real this time!<br>

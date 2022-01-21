@@ -75,6 +75,10 @@
 		0 0 3px #ff00ff;
 }
 
+.highlightimages img:hover {
+    opacity: .5;
+}
+
 .centerpage > p {
     color : #FFFFFF;
     text-align: center;
@@ -92,7 +96,7 @@
 }
 
 .centerpage > details > p {
-	margin-left: 34px;
+	margin-left: 0px;
     color : rgb(220, 220, 220);
     text-align: left;
 	font-size: 60%;
