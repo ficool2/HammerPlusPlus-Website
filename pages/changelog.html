@@ -23,6 +23,27 @@
 				
         <div class="centerpage">
 			<details open>	
+				<summary><b>Build 8857: Hotfix #6 (January 25th 2022)</b></summary>
+				<p>		
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed model and sprite inheritance issues with custom FGDs (reverted to stock behavior)<br>	
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed monitor and missing textures becoming misaligned when saving the map<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed tool texture and nodraw toggle not working inside instances<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed edge splitting failing in vertex manipulation in certain situations<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed crash in vertex manipulation when splitting<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed func_breakable_surf always being flagged as invalid<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed decimal issues in face edit sheet for all system languages (I hope...)<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed invalid lights crashing lighting preview<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed wonky displacements crashing lighting preview<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed texture lock being reset after paste special<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed textures longer than 128 characters crashing texture browser<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - CSGO: Potentially fixed control/alt/shift getting stuck in model browser causing input to not work<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - CSGO: Fixed browser for logic_script not working<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Decimals in face edit sheet are now cut off if not needed<br>
+
+				</p>
+			</details>	
+			
+			<details open>	
 				<summary><b>Build 8856: Hotfix #5 (January 24th 2022)</b></summary>
 				<p>		
 &nbsp;&nbsp;&nbsp;&nbsp; - Fixed lighting preview not working under low texture quality. If lighting preview failed to work for you before, this is the fix<br>
@@ -32,7 +53,6 @@
 &nbsp;&nbsp;&nbsp;&nbsp; - Fixed issues when inputting decimal numbers if using the German or Spanish system language<br>
 &nbsp;&nbsp;&nbsp;&nbsp; - Fixed crash when copying objects from one VMF to another<br>
 &nbsp;&nbsp;&nbsp;&nbsp; - Fixed tool textures being visible in instances<br>
-&nbsp;&nbsp;&nbsp;&nbsp; - Fixed inverted shadow casting in lighting preview on brushes and displacements<br>
 &nbsp;&nbsp;&nbsp;&nbsp; - Fixed transparency state of objects not being updated in lighting preview<br>
 &nbsp;&nbsp;&nbsp;&nbsp; - Fixed map-specific .rad file not being read automatically<br>
 &nbsp;&nbsp;&nbsp;&nbsp; - Fixed not being able to save full paths in custom texlight filename<br>
