@@ -23,6 +23,41 @@
 				
         <div class="centerpage">
 			<details open>	
+				<summary><b>Build 8858: Hotfix #7 (January 30th 2022)</b></summary>
+				<p>		
+&nbsp;&nbsp;&nbsp;&nbsp; - Added color correction preview, available in View -> Set Color Correction Preview<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Color correction will only display inside lighting preview mode<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Added partial support for L4D2 under CSGO: Models that cause crashes will no longer be loaded<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - The following model folders are blacklisted: survivors, infected, destruction, rollercoaster, props_vehicles<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Static props in these folders will still load successfully<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Added unique error message that displays which incompatible model caused Hammer to crash<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Holding Control while marking visgroups will no longer clear the selection<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Improved performance of entity output editing<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Improved performance of lighting preview when selecting objects<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed brush entity conversions not updating their state for lighting preview<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed vertex edited brushes not updating for lighting preview<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed displacements breaking when changing their power<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed displacements breaking when vertex editing<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed particles not rendering correctly inside instances, including 3D skybox<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed gizmo not rotating from entity origin<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed selection highlight not being displayed in smoothing group view<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed tool texture/nodraw toggle not working inside instances, for real this time<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed certain monitor textures being misaligned due to case sensitivity<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed conflicting sprite/model behavior in custom FGDs, reverted to stock behavior<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed VMFs not loading under certain system languages <br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed sprites not rendering correctly inside instances<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed overlays not assigned to any face creating excessive bounding box<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed textures becoming misaligned when collapsing instances with texture lock off<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed tool cursor appearing for entity tool when tool cursors were toggled off<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed crash related to entity outputs<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed crash with bad FGD configuration<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed rare crash when loading a VMF while minimized<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed another crash related to displacement editing<br>
+&nbsp;&nbsp;&nbsp;&nbsp; - Fixed eyedropper cursor appearing after escaping out of sprinkle tool<br>
+				</p>
+			</details>	
+			
+			<details open>	
 				<summary><b>Build 8857: Hotfix #6 (January 25th 2022)</b></summary>
 				<p>		
 &nbsp;&nbsp;&nbsp;&nbsp; - Fixed monitor and missing textures becoming misaligned when saving the map<br>
