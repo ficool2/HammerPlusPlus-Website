@@ -1,10 +1,22 @@
 $color-accent: #ad00ad;
+$color-dark: rgb(20, 20, 20);
 
 
 *, ::after, ::before {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+	background-color: $color-dark;
+	width: 10px;
+	height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: $color-accent;
+	border-radius: 50vw;
 }
 
 body {
@@ -109,4 +121,10 @@ footer {
 	& > * {
 		width: 100%;
 	}
+}
+
+iframe {
+	width: 100%;
+	aspect-ratio: 16 / 9;
+	border: none;
 }

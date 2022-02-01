@@ -5,6 +5,17 @@
           box-sizing: border-box;
 }
 
+::-webkit-scrollbar {
+  background-color: #141414;
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #ad00ad;
+  border-radius: 50vw;
+}
+
 body {
   background-color: black;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -124,5 +135,11 @@ footer > p {
 
 .link > * {
   width: 100%;
+}
+
+iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: none;
 }
 /*# sourceMappingURL=style.css.map */
