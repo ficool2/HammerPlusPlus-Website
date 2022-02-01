@@ -1,0 +1,128 @@
+*, ::after, ::before {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  background-color: black;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.logo > img {
+  max-width: 100%;
+}
+
+nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+nav > a {
+  position: relative;
+  padding: .5em 1em;
+  font-size: 1.25em;
+  text-decoration: none;
+  font-weight: bold;
+  color: #ad00ad;
+  z-index: 0;
+  -webkit-transition: color .5s;
+  transition: color .5s;
+  overflow: hidden;
+}
+
+nav > a::after {
+  position: absolute;
+  inset: 0;
+  top: 95%;
+  height: 5%;
+  content: "";
+  background-color: #ad00ad;
+  -webkit-transition: .5s;
+  transition: .5s;
+  z-index: -1;
+}
+
+nav > a.selected::after {
+  top: 90%;
+  height: 10%;
+  -webkit-filter: drop-shadow(0 0 5px #ad00ad) drop-shadow(0 0 10px #ad00ad);
+          filter: drop-shadow(0 0 5px #ad00ad) drop-shadow(0 0 10px #ad00ad);
+}
+
+nav > a:hover {
+  color: white;
+}
+
+nav > a:hover::after {
+  height: 100%;
+  top: 0;
+}
+
+article {
+  border: 2px solid #ad00ad;
+  -webkit-box-shadow: inset 0 0 50px -20px #ad00ad;
+          box-shadow: inset 0 0 50px -20px #ad00ad;
+  margin: 2em auto;
+  padding: 2em;
+  border-radius: 5px;
+  color: white;
+  width: 85vw;
+  max-width: 1000px;
+}
+
+article p {
+  margin-bottom: 1em;
+}
+
+footer {
+  border-top: 4px solid #ad00ad;
+  background-color: #ad00ad10;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 7.5em;
+}
+
+footer > p {
+  max-width: 50%;
+}
+
+.link {
+  display: inline-block;
+  width: 100px;
+  aspect-ratio: 1;
+  margin-right: 1em;
+}
+
+.link > * {
+  width: 100%;
+}
+/*# sourceMappingURL=style.css.map */
