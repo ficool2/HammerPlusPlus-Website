@@ -38,6 +38,7 @@ nav {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	padding-inline: 10px;
 
 	& > a {
 		position: relative;
@@ -53,8 +54,8 @@ nav {
 		&::after {
 			position: absolute;
 			inset: 0;
-			top: 95%;
-			height: 5%;
+			top: 100%;
+			height: 0%;
 			content: "";
 			background-color: $color-accent;
 			transition: .5s;
@@ -62,11 +63,12 @@ nav {
 		}
 
 		&.selected::after {
-			top: 90%;
-			height: 10%;
+			top: 95%;
+			height: 5%;
 			filter:
 				drop-shadow(0 0 5px $color-accent)
 				drop-shadow(0 0 10px $color-accent)
+				drop-shadow(0 0 15px $color-accent)
 		}
 
 		&:hover {
@@ -81,14 +83,18 @@ nav {
 }
 
 
+.content {
+	margin-inline: auto;
+	width: 85vw;
+}
+
+
 article {
 	border: 2px solid $color-accent;
 	box-shadow: inset 0 0 50px -20px $color-accent;
-	margin: 2em auto;
 	padding: 2em;
 	border-radius: 5px;
 	color: white;
-	width: 85vw;
 	max-width: 1000px;
 
 	p {

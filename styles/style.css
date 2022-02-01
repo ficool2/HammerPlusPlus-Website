@@ -47,6 +47,7 @@ nav {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding-inline: 10px;
 }
 
 nav > a {
@@ -65,8 +66,8 @@ nav > a {
 nav > a::after {
   position: absolute;
   inset: 0;
-  top: 95%;
-  height: 5%;
+  top: 100%;
+  height: 0%;
   content: "";
   background-color: #ad00ad;
   -webkit-transition: .5s;
@@ -75,10 +76,10 @@ nav > a::after {
 }
 
 nav > a.selected::after {
-  top: 90%;
-  height: 10%;
-  -webkit-filter: drop-shadow(0 0 5px #ad00ad) drop-shadow(0 0 10px #ad00ad);
-          filter: drop-shadow(0 0 5px #ad00ad) drop-shadow(0 0 10px #ad00ad);
+  top: 95%;
+  height: 5%;
+  -webkit-filter: drop-shadow(0 0 5px #ad00ad) drop-shadow(0 0 10px #ad00ad) drop-shadow(0 0 15px #ad00ad);
+          filter: drop-shadow(0 0 5px #ad00ad) drop-shadow(0 0 10px #ad00ad) drop-shadow(0 0 15px #ad00ad);
 }
 
 nav > a:hover {
@@ -90,15 +91,18 @@ nav > a:hover::after {
   top: 0;
 }
 
+.content {
+  margin-inline: auto;
+  width: 85vw;
+}
+
 article {
   border: 2px solid #ad00ad;
   -webkit-box-shadow: inset 0 0 50px -20px #ad00ad;
           box-shadow: inset 0 0 50px -20px #ad00ad;
-  margin: 2em auto;
   padding: 2em;
   border-radius: 5px;
   color: white;
-  width: 85vw;
   max-width: 1000px;
 }
 
