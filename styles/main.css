@@ -16,6 +16,16 @@
   border-radius: 50vw;
 }
 
+::-moz-selection {
+  color: black;
+  background-color: #ff00ff;
+}
+
+::selection {
+  color: black;
+  background-color: #ff00ff;
+}
+
 body {
   background-color: black;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -27,6 +37,12 @@ p:last-child {
 
 p:first-child {
   margin-top: 0;
+}
+
+hr {
+  border: 1px solid #be00be;
+  -webkit-box-shadow: 0 5px 20px 2px #be00be;
+          box-shadow: 0 5px 20px 2px #be00be;
 }
 
 .logo {

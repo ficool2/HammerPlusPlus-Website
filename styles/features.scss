@@ -1,0 +1,58 @@
+@import "vars";
+
+.feature-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-rows: repeat(10, 1fr);
+	grid-gap: 1vw;
+	margin: 2em;
+	color: white;
+
+	.cell {
+		width: 100%;
+		height: 100%;
+		transition: .5s;
+		aspect-ratio: 16 / 9;
+		overflow: hidden;
+
+		& > img {
+			width: 100%;
+			height: 100%;
+			transition: .5s;
+		}
+
+		& > .cell-content {
+			width: 100%;
+			padding: 1em;
+			transition: .5s;
+			opacity: 0;
+
+			background-image: linear-gradient(
+				transparent,
+				black
+			);
+		}
+
+		&.row2 { grid-row: span 2; }
+		&.row3 { grid-row: span 3; }
+		&.row4 { grid-row: span 4; }
+		&.col2 { grid-column: span 2; }
+		&.col3 { grid-column: span 3; }
+		&.col4 { grid-column: span 4; }
+
+		&:hover {
+			transform: scale(1.025);
+			z-index: 1;
+
+			& > .cell-content {
+				transform: translateY(-100%);
+				opacity: 1;
+			}
+
+			& > img {
+				transform: scale(1.05);
+				transition: 5s;
+			}
+		}
+	}
+}

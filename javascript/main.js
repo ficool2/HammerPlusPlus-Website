@@ -1,8 +1,10 @@
 /** Generates the navbar */
 (function() {
 	const nav = document.querySelector("#navbar");
+	if (!nav) return;
+
 	const current = location.pathname.split("/").pop().replace(".html", "");
-	const pages = ["home", "features", "changelog", "download", "credits"];
+	const pages = ["home", "features", "updates", "download", "credits"];
 
 	pages.forEach(page => {
 		const link = document.createElement("a");
@@ -12,5 +14,4 @@
 
 		nav.appendChild(link)
 	})
-
 })();

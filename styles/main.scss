@@ -1,7 +1,4 @@
-// Do not change color types
-$color-accent: #be00be;
-$color-accent-bright: #ff00ff;
-$color-dark: rgb(34, 34, 34);
+@import "vars";
 
 
 *, ::after, ::before {
@@ -21,18 +18,33 @@ $color-dark: rgb(34, 34, 34);
 	border-radius: 50vw;
 }
 
+::selection {
+	color: black;
+	background-color: $color-accent-bright;
+}
+
 body {
 	background-color: black;
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-p:last-child {
-	margin-bottom: 0;
+p {
+	&:last-child {
+		margin-bottom: 0;
+	}
+
+	&:first-child {
+		margin-top: 0;
+	}
 }
 
-p:first-child {
-	margin-top: 0;
+hr {
+	border: 1px solid $color-accent;
+	box-shadow: 0 5px 20px 2px $color-accent;
 }
+
+
+
 
 .logo {
 	display: flex;

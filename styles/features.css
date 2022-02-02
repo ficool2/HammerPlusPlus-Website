@@ -1,0 +1,81 @@
+.feature-grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  -ms-grid-rows: (1fr)[10];
+      grid-template-rows: repeat(10, 1fr);
+  grid-gap: 1vw;
+  margin: 2em;
+  color: white;
+}
+
+.feature-grid .cell {
+  width: 100%;
+  height: 100%;
+  -webkit-transition: .5s;
+  transition: .5s;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.feature-grid .cell > img {
+  width: 100%;
+  height: 100%;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+.feature-grid .cell > .cell-content {
+  width: 100%;
+  padding: 1em;
+  -webkit-transition: .5s;
+  transition: .5s;
+  opacity: 0;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), to(black));
+  background-image: linear-gradient(transparent, black);
+}
+
+.feature-grid .cell.row2 {
+  grid-row: span 2;
+}
+
+.feature-grid .cell.row3 {
+  grid-row: span 3;
+}
+
+.feature-grid .cell.row4 {
+  grid-row: span 4;
+}
+
+.feature-grid .cell.col2 {
+  grid-column: span 2;
+}
+
+.feature-grid .cell.col3 {
+  grid-column: span 3;
+}
+
+.feature-grid .cell.col4 {
+  grid-column: span 4;
+}
+
+.feature-grid .cell:hover {
+  -webkit-transform: scale(1.025);
+          transform: scale(1.025);
+  z-index: 1;
+}
+
+.feature-grid .cell:hover > .cell-content {
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+  opacity: 1;
+}
+
+.feature-grid .cell:hover > img {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+  -webkit-transition: 5s;
+  transition: 5s;
+}
+/*# sourceMappingURL=features.css.map */
