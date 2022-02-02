@@ -218,7 +218,15 @@ iframe {
   border: none;
 }
 
+iframe[src*=youtube] {
+  background-color: black;
+}
+
 a {
   color: #ff00ff;
+}
+
+a:hover {
+  text-shadow: 0 0 2px #ff00ff;
 }
 /*# sourceMappingURL=main.css.map */

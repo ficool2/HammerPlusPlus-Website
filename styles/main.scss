@@ -191,9 +191,18 @@ iframe {
 	width: 100%;
 	aspect-ratio: 16 / 9;
 	border: none;
+
+	// Add a black bg to youtube iframes
+	&[src*=youtube] {
+		background-color: black;
+	}
 }
 
 
 a {
 	color: $color-accent-bright;
+
+	&:hover {
+		text-shadow: 0 0 2px $color-accent-bright;
+	}
 }
