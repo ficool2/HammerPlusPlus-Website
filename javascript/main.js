@@ -1,5 +1,5 @@
 /** Generates the navbar */
-(function() {
+function genNav() {
 	const nav = document.querySelector("#navbar");
 	if (!nav) return;
 
@@ -14,4 +14,25 @@
 
 		nav.appendChild(link)
 	})
-})();
+}
+
+
+
+function splitImages() {
+	const splits = document.querySelectorAll(".img-split");
+	if (!splits) return;
+
+	splits.forEach(split => {
+		split.addEventListener("click", () => {
+			if (split.classList.contains("active")) {
+				split.classList.remove("active");
+				split.classList.add("inactive");
+			} else if (split.classList.contains("inactive")) {
+				split.classList.remove("inactive");
+				split.classList.add("active");
+			} else {
+				split.classList.add("active");
+			}
+		})
+	})
+}
