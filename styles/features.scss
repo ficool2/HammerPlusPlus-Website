@@ -1,5 +1,6 @@
 @import "vars";
 
+
 .feature-grid {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
@@ -80,7 +81,6 @@
 			}
 		}
 
-
 		> .cell-content {
 			width: 100%;
 			padding: 1em;
@@ -122,84 +122,83 @@
 
 
 
+// All the gallery stuff
+	#focus-container {
+		display: flex;
+		position: fixed;
+		justify-content: center;
+		visibility: hidden;
+		align-items: center;
+		gap: 3vh;
+		inset: 0;
+		background-color: rgba(0, 0, 0, 0.336);
+		backdrop-filter: blur(10px);
+		opacity: 0;
+		transition:
+			opacity .5s,
+			visibility .5s;
+		z-index: 100;
 
 
-#focus-container {
-	display: flex;
-	position: fixed;
-	justify-content: center;
-	visibility: hidden;
-	align-items: center;
-	gap: 3vh;
-	inset: 0;
-	background-color: rgba(0, 0, 0, 0.336);
-	backdrop-filter: blur(10px);
-	opacity: 0;
-	transition:
-		opacity .5s,
-		visibility .5s;
-	z-index: 100;
+		#focus-img {
+			position: relative;
+			width: 75vh;
+			user-select: none;
+			transform: scale(0);
+			transition: all .25s;
+			box-shadow: 0 0 50px black;
+			background-color: rgb(36, 36, 36);
+			border: 5px solid white;
+			border-radius: 1vh;
+			overflow: hidden;
 
+			& * {
+				width: 100%;
+			}
+		}
 
-	#focus-img {
-		position: relative;
-		width: 75vh;
-		user-select: none;
-		transform: scale(0);
-		transition: all .25s;
-		box-shadow: 0 0 50px black;
-		background-color: rgb(36, 36, 36);
-		border: 5px solid white;
-		border-radius: 1vh;
-		overflow: hidden;
+		&.focused {
+			opacity: 1;
+			visibility: visible;
 
-		& * {
-			width: 100%;
+			> #focus-img {
+				transform: scale(1);
+			}
+		}
+
+		.arrow {
+			--size: 5vh;
+			display: block;
+			content: "";
+			z-index: 5;
+			transition: all .5s;
+			cursor: pointer;
+
+			border-top: var(--size) solid transparent;
+			border-bottom: var(--size) solid transparent;
+
+			&:nth-child(1) {
+				border-right: var(--size) solid white;
+				transform-origin: right;
+			}
+
+			&:nth-child(3) {
+				border-left: var(--size) solid white;
+				transform-origin: left;
+			}
+
+			&:hover {
+				transform: scale(1.5);
+			}
+
+			&:active {
+				transform: scale(1.25);
+				transition: transform .1s;
+			}
 		}
 	}
 
-	&.focused {
-		opacity: 1;
-		visibility: visible;
-
-		> #focus-img {
-			transform: scale(1);
-		}
+	.image.focused {
+		filter: brightness(1.5);
+		transition: 1s !important;
 	}
-
-	.arrow {
-		--size: 5vh;
-		display: block;
-		content: "";
-		z-index: 5;
-		transition: all .5s;
-		cursor: pointer;
-
-		border-top: var(--size) solid transparent;
-		border-bottom: var(--size) solid transparent;
-
-		&:nth-child(1) {
-			border-right: var(--size) solid white;
-			transform-origin: right;
-		}
-
-		&:nth-child(3) {
-			border-left: var(--size) solid white;
-			transform-origin: left;
-		}
-
-		&:hover {
-			transform: scale(1.5);
-		}
-
-		&:active {
-			transform: scale(1.25);
-			transition: transform .1s;
-		}
-	}
-}
-
-.image.focused {
-	filter: brightness(1.5);
-	transition: 1s !important;
-}

@@ -1,5 +1,6 @@
 @import "vars";
 
+
 .patch {
 	margin-bottom: 1.25em;
 
@@ -17,6 +18,7 @@
 		border: 2px solid $color-accent;
 		padding: .25em;
 		cursor: pointer;
+		font-size: 1.35em;
 	}
 
 	> pre {
@@ -38,8 +40,10 @@
 
 		transition:
 			transform .75s,
-			max-height 1s ease-in-out;
+			max-height 1s ease-in-out,
+			visibility 1s 0.1s;
 		z-index: -1;
+		visibility: hidden;
 	}
 
 	&.active {
@@ -50,6 +54,7 @@
 		> pre {
 			transform: none;
 			max-height: 9999px;
+			visibility: visible;
 		}
 	}
 }

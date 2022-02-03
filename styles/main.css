@@ -5,6 +5,16 @@
           box-sizing: border-box;
 }
 
+::-moz-selection {
+  color: black;
+  background-color: #ff00ff;
+}
+
+::selection {
+  color: black;
+  background-color: #ff00ff;
+}
+
 ::-webkit-scrollbar {
   width: 10px;
   height: 5px;
@@ -16,19 +26,14 @@
   margin: 10px;
 }
 
-::-webkit-scrollbar-thumb {
-  background-color: #be00be;
+::-webkit-scrollbar-corner {
+  background-color: #202020;
   border-radius: 50vw;
 }
 
-::-moz-selection {
-  color: black;
-  background-color: #ff00ff;
-}
-
-::selection {
-  color: black;
-  background-color: #ff00ff;
+::-webkit-scrollbar-thumb {
+  background-color: #be00be;
+  border-radius: 50vw;
 }
 
 body {
@@ -48,6 +53,37 @@ hr {
   border: 1px solid #be00be;
   -webkit-box-shadow: 0 5px 20px 2px #be00be;
           box-shadow: 0 5px 20px 2px #be00be;
+}
+
+ul, li {
+  list-style-position: inside;
+  list-style-type: "- ";
+}
+
+a {
+  color: #ff00ff;
+}
+
+a:hover {
+  text-shadow: 0 0 2px #ff00ff;
+}
+
+code {
+  background-color: #0f0f0f;
+  padding: .025em .5em;
+  border-radius: 5px;
+  font-family: monospace;
+  border: 1px solid #781983;
+}
+
+iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: none;
+}
+
+iframe[src*=youtube] {
+  background-color: black;
 }
 
 .logo {
@@ -138,10 +174,15 @@ article {
   border-radius: 10px;
   color: white;
   font-size: 1.2em;
+  min-height: 35vh;
 }
 
 article p {
   margin-block: 1em;
+}
+
+article > .header {
+  margin-bottom: .5em;
 }
 
 article .section {
@@ -150,10 +191,18 @@ article .section {
   padding-inline: 1em;
   border-left: 2px solid #be00be;
   position: relative;
+  background-size: 150%;
+  background-position: right;
+  -webkit-transition: .5s;
+  transition: .5s;
   /* yeah, this is a bit ugly. Just to make things clear, we are adding
 			the alpha (AA) value at the of this color, which is in HEX */
   background-image: -webkit-gradient(linear, left top, right top, from(#be00be50), color-stop(#be00be25), to(#be00be25));
   background-image: linear-gradient(90deg, #be00be50, #be00be25, #be00be25);
+}
+
+article .section:hover {
+  background-position: left;
 }
 
 article .section-title {
@@ -234,21 +283,48 @@ footer > p {
   width: 100%;
 }
 
-iframe {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  border: none;
+.download {
+  display: block;
+  margin-top: 2em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-transition: .5s;
+  transition: .5s;
 }
 
-iframe[src*=youtube] {
-  background-color: black;
+.download > img {
+  max-width: 75%;
 }
 
-a {
-  color: #ff00ff;
+.download:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+  -webkit-filter: brightness(1.5) drop-shadow(0 0 10px rgba(255, 255, 255, 0.514)) drop-shadow(0 0 2px #ff00ff);
+          filter: brightness(1.5) drop-shadow(0 0 10px rgba(255, 255, 255, 0.514)) drop-shadow(0 0 2px #ff00ff);
 }
 
-a:hover {
-  text-shadow: 0 0 2px #ff00ff;
+@-webkit-keyframes error-glow {
+  from {
+    -webkit-filter: brightness(1.5) drop-shadow(0 0 10px rgba(255, 131, 131, 0.514));
+            filter: brightness(1.5) drop-shadow(0 0 10px rgba(255, 131, 131, 0.514));
+  }
+}
+
+@keyframes error-glow {
+  from {
+    -webkit-filter: brightness(1.5) drop-shadow(0 0 10px rgba(255, 131, 131, 0.514));
+            filter: brightness(1.5) drop-shadow(0 0 10px rgba(255, 131, 131, 0.514));
+  }
+}
+
+span.error {
+  color: #ff4f4f;
+  font-weight: bold;
+  -webkit-animation: error-glow .3s ease-in-out infinite alternate;
+          animation: error-glow .3s ease-in-out infinite alternate;
 }
 /*# sourceMappingURL=main.css.map */

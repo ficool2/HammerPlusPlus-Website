@@ -16,6 +16,7 @@
   border: 2px solid #be00be;
   padding: .25em;
   cursor: pointer;
+  font-size: 1.35em;
 }
 
 .patch > pre {
@@ -34,11 +35,12 @@
   -webkit-transform: translateY(-100%);
           transform: translateY(-100%);
   max-height: 0;
-  -webkit-transition: max-height 1s ease-in-out, -webkit-transform .75s;
-  transition: max-height 1s ease-in-out, -webkit-transform .75s;
-  transition: transform .75s, max-height 1s ease-in-out;
-  transition: transform .75s, max-height 1s ease-in-out, -webkit-transform .75s;
+  -webkit-transition: max-height 1s ease-in-out, visibility 1s 0.1s, -webkit-transform .75s;
+  transition: max-height 1s ease-in-out, visibility 1s 0.1s, -webkit-transform .75s;
+  transition: transform .75s, max-height 1s ease-in-out, visibility 1s 0.1s;
+  transition: transform .75s, max-height 1s ease-in-out, visibility 1s 0.1s, -webkit-transform .75s;
   z-index: -1;
+  visibility: hidden;
 }
 
 .patch.active > h1 {
@@ -49,5 +51,6 @@
   -webkit-transform: none;
           transform: none;
   max-height: 9999px;
+  visibility: visible;
 }
 /*# sourceMappingURL=updates.css.map */

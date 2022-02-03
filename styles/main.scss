@@ -7,47 +7,87 @@
 	box-sizing: border-box;
 }
 
-::-webkit-scrollbar {
-	width: 10px;
-	height: 5px;
-}
-
-::-webkit-scrollbar-track {
-	background-color: $color-dark;
-	border-radius: 50vw;
-	margin: 10px;
-}
-
-::-webkit-scrollbar-thumb {
-	background-color: $color-accent;
-	border-radius: 50vw;
-}
-
 ::selection {
 	color: black;
 	background-color: $color-accent-bright;
 }
 
-body {
-	background-color: black;
-	font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
 
-p {
-	&:last-child {
-		margin-bottom: 0;
+// Scrollbar
+	::-webkit-scrollbar {
+		width: 10px;
+		height: 5px;
 	}
 
-	&:first-child {
-		margin-top: 0;
+	::-webkit-scrollbar-track {
+		background-color: $color-dark;
+		border-radius: 50vw;
+		margin: 10px;
 	}
-}
 
-hr {
-	border: 1px solid $color-accent;
-	box-shadow: 0 5px 20px 2px $color-accent;
-}
+	::-webkit-scrollbar-corner {
+		background-color: $color-dark;
+		border-radius: 50vw;
+	}
 
+	::-webkit-scrollbar-thumb {
+		background-color: $color-accent;
+		border-radius: 50vw;
+	}
+
+
+// Defaults
+	body {
+		background-color: black;
+		font-family: Verdana, Geneva, Tahoma, sans-serif;
+	}
+
+	p {
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		&:first-child {
+			margin-top: 0;
+		}
+	}
+
+	hr {
+		border: 1px solid $color-accent;
+		box-shadow: 0 5px 20px 2px $color-accent;
+	}
+
+	ul, li {
+		list-style-position: inside;
+		list-style-type: "- ";
+	}
+
+	a {
+		color: $color-accent-bright;
+
+		&:hover {
+			text-shadow: 0 0 2px $color-accent-bright;
+		}
+	}
+
+	code {
+		background-color: rgb(15, 15, 15);
+		padding: .025em .5em;
+		border-radius: 5px;
+		font-family: monospace;
+		border: 1px solid rgb(120, 25, 131)
+	}
+
+	iframe {
+		width: 100%;
+		aspect-ratio: 16 / 9;
+		border: none;
+
+		// Add a black bg to youtube iframes
+		&[src*=youtube] {
+			background-color: black;
+		}
+	}
 
 
 
@@ -127,9 +167,14 @@ article {
 	border-radius: 10px;
 	color: white;
 	font-size: 1.2em;
+	min-height: 35vh;
 
 	p {
 		margin-block: 1em;
+	}
+
+	> .header {
+		margin-bottom: .5em;
 	}
 
 	.section {
@@ -138,6 +183,9 @@ article {
 		padding-inline: 1em;
 		border-left: 2px solid $color-accent;
 		position: relative;
+		background-size: 150%;
+		background-position: right;
+		transition: .5s;
 
 		/* yeah, this is a bit ugly. Just to make things clear, we are adding
 			the alpha (AA) value at the of this color, which is in HEX */
@@ -147,6 +195,10 @@ article {
 			#{$color-accent}25,
 			#{$color-accent}25,
 		);
+
+		&:hover {
+			background-position: left;
+		}
 	}
 
 	.section-title {
@@ -177,6 +229,7 @@ footer {
 	}
 }
 
+
 @keyframes shake-rot {
 	25% {
 		transform: scale(1.1) rotate(15deg);
@@ -205,22 +258,39 @@ footer {
 }
 
 
-iframe {
-	width: 100%;
-	aspect-ratio: 16 / 9;
-	border: none;
+// Each download image
+.download {
+	display: block;
+	margin-top: 2em;
+	display: flex;
+	justify-content: center;
+	transition: .5s;
 
-	// Add a black bg to youtube iframes
-	&[src*=youtube] {
-		background-color: black;
+	> img {
+		max-width: 75%;
+	}
+
+	&:hover {
+		transform: scale(1.05);
+
+		filter:
+			brightness(1.5)
+			drop-shadow(0 0 10px rgba(255, 255, 255, 0.514))
+			drop-shadow(0 0 2px $color-accent-bright);
 	}
 }
 
 
-a {
-	color: $color-accent-bright;
-
-	&:hover {
-		text-shadow: 0 0 2px $color-accent-bright;
+@keyframes error-glow {
+	from {
+		filter:
+			brightness(1.5)
+			drop-shadow(0 0 10px rgba(255, 131, 131, 0.514));
 	}
+}
+
+span.error {
+	color: rgb(255, 79, 79);
+	font-weight: bold;
+	animation: error-glow .3s ease-in-out infinite alternate;
 }
