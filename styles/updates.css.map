@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AACC,MADK,GACH,GAAG,CAAC;EACL,UAAU,EAAE,MAAM;CAClB",
+    "sources": [
+        "updates.scss"
+    ],
+    "names": [],
+    "file": "updates.css"
+}
