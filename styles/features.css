@@ -40,9 +40,6 @@
 }
 
 .feature-grid .cell > video {
-  position: absolute;
-  right: 0;
-  bottom: 0;
   -o-object-position: bottom;
      object-position: bottom;
   -o-object-fit: cover;
@@ -142,5 +139,99 @@
 
 .feature-grid .cell.col4 {
   grid-column: span 4;
+}
+
+#focus-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: fixed;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  visibility: hidden;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 3vh;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.336);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  opacity: 0;
+  -webkit-transition: opacity .5s, visibility .5s;
+  transition: opacity .5s, visibility .5s;
+  z-index: 100;
+}
+
+#focus-container #focus-img {
+  position: relative;
+  width: 75vh;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  -webkit-transition: all .25s;
+  transition: all .25s;
+  -webkit-box-shadow: 0 0 50px black;
+          box-shadow: 0 0 50px black;
+  background-color: #242424;
+  border: 5px solid white;
+  border-radius: 1vh;
+  overflow: hidden;
+}
+
+#focus-container #focus-img * {
+  width: 100%;
+}
+
+#focus-container.focused {
+  opacity: 1;
+  visibility: visible;
+}
+
+#focus-container.focused > #focus-img {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+#focus-container .arrow {
+  --size: 5vh;
+  display: block;
+  content: "";
+  z-index: 5;
+  -webkit-transition: all .5s;
+  transition: all .5s;
+  cursor: pointer;
+  border-top: var(--size) solid transparent;
+  border-bottom: var(--size) solid transparent;
+}
+
+#focus-container .arrow:nth-child(1) {
+  border-right: var(--size) solid white;
+  -webkit-transform-origin: right;
+          transform-origin: right;
+}
+
+#focus-container .arrow:nth-child(3) {
+  border-left: var(--size) solid white;
+  -webkit-transform-origin: left;
+          transform-origin: left;
+}
+
+#focus-container .arrow:hover {
+  -webkit-transform: scale(1.5);
+          transform: scale(1.5);
+}
+
+#focus-container .arrow:active {
+  -webkit-transform: scale(1.25);
+          transform: scale(1.25);
+  -webkit-transition: -webkit-transform .1s;
+  transition: -webkit-transform .1s;
+  transition: transform .1s;
+  transition: transform .1s, -webkit-transform .1s;
 }
 /*# sourceMappingURL=features.css.map */

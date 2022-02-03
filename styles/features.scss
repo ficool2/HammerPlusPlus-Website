@@ -32,14 +32,13 @@
 
 		// This was a real pain to get to work.
 		> video {
-			position: absolute;
-			right: 0;
-			bottom: 0;
+			// position: absolute;
+			// right: 0;
+			// bottom: 0;
 			object-position: bottom;
 			object-fit: cover;
 			min-height: 100%;
 		}
-
 
 		.img-split {
 			--split-perc: 50%;
@@ -119,5 +118,85 @@
 		&.col2 { grid-column: span 2; }
 		&.col3 { grid-column: span 3; }
 		&.col4 { grid-column: span 4; }
+	}
+}
+
+
+
+
+
+
+#focus-container {
+	display: flex;
+	position: fixed;
+	justify-content: center;
+	visibility: hidden;
+	align-items: center;
+	gap: 3vh;
+	inset: 0;
+	background-color: rgba(0, 0, 0, 0.336);
+	backdrop-filter: blur(10px);
+	opacity: 0;
+	transition:
+		opacity .5s,
+		visibility .5s;
+	z-index: 100;
+
+
+	#focus-img {
+		position: relative;
+		width: 75vh;
+		user-select: none;
+		transform: scale(0);
+		transition: all .25s;
+		box-shadow: 0 0 50px black;
+		background-color: rgb(36, 36, 36);
+		border: 5px solid white;
+		border-radius: 1vh;
+		overflow: hidden;
+
+		& * {
+			width: 100%;
+		}
+	}
+
+	&.focused {
+		opacity: 1;
+		visibility: visible;
+
+		> #focus-img {
+			transform: scale(1);
+		}
+	}
+
+	.arrow {
+		--size: 5vh;
+		display: block;
+		content: "";
+		z-index: 5;
+		transition: all .5s;
+		cursor: pointer;
+
+		border-top: var(--size) solid transparent;
+		border-bottom: var(--size) solid transparent;
+
+		&:nth-child(1) {
+			border-right: var(--size) solid white;
+			transform-origin: right;
+		}
+
+		&:nth-child(3) {
+			border-left: var(--size) solid white;
+			transform-origin: left;
+		}
+
+		&:hover {
+			transform: scale(1.5);
+		}
+
+		&:active {
+			transform: scale(1.25);
+			transition: transform .1s;
+		}
 	}
 }
