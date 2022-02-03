@@ -6,9 +6,14 @@
 }
 
 ::-webkit-scrollbar {
-  background-color: #222222;
   width: 10px;
-  height: 10px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #202020;
+  border-radius: 50vw;
+  margin: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -98,6 +103,7 @@ nav > a::after {
   -webkit-transition: .5s;
   transition: .5s;
   z-index: -1;
+  border-radius: 10px 10px 0 0;
 }
 
 nav > a.selected::after {
@@ -114,6 +120,8 @@ nav > a:hover {
 nav > a:hover::after {
   height: 100%;
   top: 0;
+  -webkit-filter: none;
+          filter: none;
 }
 
 .content {

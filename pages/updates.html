@@ -17,35 +17,35 @@
 <div class="patch">
    <h1>Build 8858: Hotfix #7 (January 30th 2022)</h1>
    <pre>
-   - Added color correction preview, available in View -> Set Color Correction Preview
-   - Color correction will only display inside lighting preview mode
-   - Added partial support for L4D2 under CSGO: Models that cause crashes will no longer be loaded
-   - The following model folders are blacklisted: survivors, infected, destruction, rollercoaster, props_vehicles
-   - Static props in these folders will still load successfully
-   - Added unique error message that displays which incompatible model caused Hammer to crash
-   - Holding Control while marking visgroups will no longer clear the selection
-   - Improved performance of entity output editing
-   - Improved performance of lighting preview when selecting objects
-   - Fixed brush entity conversions not updating their state for lighting preview
-   - Fixed vertex edited brushes not updating for lighting preview
-   - Fixed displacements breaking when changing their power
-   - Fixed displacements breaking when vertex editing
-   - Fixed particles not rendering correctly inside instances, including 3D skybox
-   - Fixed gizmo not rotating from entity origin
-   - Fixed selection highlight not being displayed in smoothing group view
-   - Fixed tool texture/nodraw toggle not working inside instances, for real this time
-   - Fixed certain monitor textures being misaligned due to case sensitivity
-   - Fixed conflicting sprite/model behavior in custom FGDs, reverted to stock behavior
-   - Fixed VMFs not loading under certain system languages
-   - Fixed sprites not rendering correctly inside instances
-   - Fixed overlays not assigned to any face creating excessive bounding box
-   - Fixed textures becoming misaligned when collapsing instances with texture lock off
-   - Fixed tool cursor appearing for entity tool when tool cursors were toggled off
-   - Fixed crash related to entity outputs
-   - Fixed crash with bad FGD configuration
-   - Fixed rare crash when loading a VMF while minimized
-   - Fixed another crash related to displacement editing
-   - Fixed eyedropper cursor appearing after escaping out of sprinkle tool
+- Added color correction preview, available in View -> Set Color Correction Preview
+- Color correction will only display inside lighting preview mode
+- Added partial support for L4D2 under CSGO: Models that cause crashes will no longer be loaded
+- The following model folders are blacklisted: survivors, infected, destruction, rollercoaster, props_vehicles
+- Static props in these folders will still load successfully
+- Added unique error message that displays which incompatible model caused Hammer to crash
+- Holding Control while marking visgroups will no longer clear the selection
+- Improved performance of entity output editing
+- Improved performance of lighting preview when selecting objects
+- Fixed brush entity conversions not updating their state for lighting preview
+- Fixed vertex edited brushes not updating for lighting preview
+- Fixed displacements breaking when changing their power
+- Fixed displacements breaking when vertex editing
+- Fixed particles not rendering correctly inside instances, including 3D skybox
+- Fixed gizmo not rotating from entity origin
+- Fixed selection highlight not being displayed in smoothing group view
+- Fixed tool texture/nodraw toggle not working inside instances, for real this time
+- Fixed certain monitor textures being misaligned due to case sensitivity
+- Fixed conflicting sprite/model behavior in custom FGDs, reverted to stock behavior
+- Fixed VMFs not loading under certain system languages
+- Fixed sprites not rendering correctly inside instances
+- Fixed overlays not assigned to any face creating excessive bounding box
+- Fixed textures becoming misaligned when collapsing instances with texture lock off
+- Fixed tool cursor appearing for entity tool when tool cursors were toggled off
+- Fixed crash related to entity outputs
+- Fixed crash with bad FGD configuration
+- Fixed rare crash when loading a VMF while minimized
+- Fixed another crash related to displacement editing
+- Fixed eyedropper cursor appearing after escaping out of sprinkle tool
    </pre>
 </div>
 
@@ -56,19 +56,19 @@
 <div class="patch">
    <h1>Build 8857: Hotfix #6 (January 25th 2022)</h1>
    <pre>
-   - Fixed monitor and missing textures becoming misaligned when saving the map
-   - Fixed tool texture and nodraw toggle not working inside instances
-   - Fixed edge splitting failing in vertex manipulation in certain situations
-   - Fixed crash in vertex manipulation when splitting
-   - Fixed func_breakable_surf always being flagged as invalid
-   - Fixed decimal issues in face edit sheet for all system languages (I hope...)
-   - Fixed invalid lights crashing lighting preview
-   - Fixed wonky displacements crashing lighting preview
-   - Fixed texture lock being reset after paste special
-   - Fixed textures longer than 128 characters crashing texture browser
-   - CSGO: Potentially fixed control/alt/shift getting stuck in model browser causing input to not work
-   - CSGO: Fixed browser for logic_script not working
-   - Decimals in face edit sheet are now cut off if not needed
+- Fixed monitor and missing textures becoming misaligned when saving the map
+- Fixed tool texture and nodraw toggle not working inside instances
+- Fixed edge splitting failing in vertex manipulation in certain situations
+- Fixed crash in vertex manipulation when splitting
+- Fixed func_breakable_surf always being flagged as invalid
+- Fixed decimal issues in face edit sheet for all system languages (I hope...)
+- Fixed invalid lights crashing lighting preview
+- Fixed wonky displacements crashing lighting preview
+- Fixed texture lock being reset after paste special
+- Fixed textures longer than 128 characters crashing texture browser
+- CSGO: Potentially fixed control/alt/shift getting stuck in model browser causing input to not work
+- CSGO: Fixed browser for logic_script not working
+- Decimals in face edit sheet are now cut off if not needed
    </pre>
 </div>
 
@@ -79,23 +79,23 @@
 <div class="patch">
    <h1>Build 8856: Hotfix #5 (January 24th 2022)</h1>
    <pre>
-   - Fixed lighting preview not working under low texture quality. If lighting preview failed to work for you before, this is the fix
-   - Fixed freeze when merging or spliting vertices in vertex edit tool
-   - Fixed not being able to save VMFs inside cloud storage
-   - Fixed crash when loading incompatible FGDs
-   - Fixed issues when inputting decimal numbers if using the German or Spanish system language
-   - Fixed crash when copying objects from one VMF to another
-   - Fixed tool textures being visible in instances
-   - Fixed transparency state of objects not being updated in lighting preview
-   - Fixed map-specific .rad file not being read automatically
-   - Fixed not being able to save full paths in custom texlight filename
-   - Fixed crash if setting visibility samples to more than 512
-   - Fixed crash if a face had a too big lightmap
-   - Fixed overlays not being assigned when copying from one VMF to another
-   - Fixed models flagged as $mostlyopaque not rendering as translucent
-   - Potentially fixed crash when trying to open the file dialog
-   - Added keybind to switch to lighting preview model, default is Ctrl + F5
-   - Tool texture rendering state is no longer saved between sessions
+- Fixed lighting preview not working under low texture quality. If lighting preview failed to work for you before, this is the fix
+- Fixed freeze when merging or spliting vertices in vertex edit tool
+- Fixed not being able to save VMFs inside cloud storage
+- Fixed crash when loading incompatible FGDs
+- Fixed issues when inputting decimal numbers if using the German or Spanish system language
+- Fixed crash when copying objects from one VMF to another
+- Fixed tool textures being visible in instances
+- Fixed transparency state of objects not being updated in lighting preview
+- Fixed map-specific .rad file not being read automatically
+- Fixed not being able to save full paths in custom texlight filename
+- Fixed crash if setting visibility samples to more than 512
+- Fixed crash if a face had a too big lightmap
+- Fixed overlays not being assigned when copying from one VMF to another
+- Fixed models flagged as $mostlyopaque not rendering as translucent
+- Potentially fixed crash when trying to open the file dialog
+- Added keybind to switch to lighting preview model, default is Ctrl + F5
+- Tool texture rendering state is no longer saved between sessions
    </pre>
 </div>
 
@@ -106,31 +106,31 @@
 <div class="patch">
    <h1>Build 8855: Hotfix #4 (January 23rd 2022)</h1>
    <pre>
-   - Fixed Hammer hard freezing if the game was started up
-   - Fixed detail objects not being regenerated on a face if texture was changed
-   - Fixed wrong materials being assigned to sprites/brushes when translating
-   - Fixed quotes not being saved correctly for Expert compile configurations
-   - Fixed colorpicker appearing in wrong place on multi monitor setup
-   - Fixed materials prefixed with "materials" not having correct properties assigned
-   - Fixed crash while attempting to select something while inside a group of brushes
-   - Fixed crashes when editing displacements
-   - Fixed error when saving map in cloud storage
-   - Fixed tool textures not drawing when selected and being transformed
-   - Fixed error models appearing on sprites when using HammerAddons for Portal 2
-   - Fixed instance selection overlay not rendering in 2D views on brushes
-   - Fixed selected objects being overlapped by non-selected objects in 2D view
-   - Fixed long classnames being cut off (for real this time)
-   - Fixed crash when trying to simulate microbrushes, these are now ignored
-   - Fixed displacements being inverted after vertex editing
-   - Fixed entities placed by sprinkle tool disappearing under certain angles
-   - Fixed the red highlight on invalid faces not displaying
-   - Fixed crash when deleting instances
-   - SDK2013: Fixed a crash on map load in certain VMFs
-   - CSGO: Fixed modelscale being displayed on models that cannot be scaled
-   - Added Ctrl + D keybind to duplicate selection in-place
-   - Added option to disable gizmo
-   - Lighting preview: added option to toggle "soften cosine" from CSGO, this softens the look of surfaces
-   - Lighting preview: added debug option to show visibility tree and radius of selected lights
+- Fixed Hammer hard freezing if the game was started up
+- Fixed detail objects not being regenerated on a face if texture was changed
+- Fixed wrong materials being assigned to sprites/brushes when translating
+- Fixed quotes not being saved correctly for Expert compile configurations
+- Fixed colorpicker appearing in wrong place on multi monitor setup
+- Fixed materials prefixed with "materials" not having correct properties assigned
+- Fixed crash while attempting to select something while inside a group of brushes
+- Fixed crashes when editing displacements
+- Fixed error when saving map in cloud storage
+- Fixed tool textures not drawing when selected and being transformed
+- Fixed error models appearing on sprites when using HammerAddons for Portal 2
+- Fixed instance selection overlay not rendering in 2D views on brushes
+- Fixed selected objects being overlapped by non-selected objects in 2D view
+- Fixed long classnames being cut off (for real this time)
+- Fixed crash when trying to simulate microbrushes, these are now ignored
+- Fixed displacements being inverted after vertex editing
+- Fixed entities placed by sprinkle tool disappearing under certain angles
+- Fixed the red highlight on invalid faces not displaying
+- Fixed crash when deleting instances
+- SDK2013: Fixed a crash on map load in certain VMFs
+- CSGO: Fixed modelscale being displayed on models that cannot be scaled
+- Added Ctrl + D keybind to duplicate selection in-place
+- Added option to disable gizmo
+- Lighting preview: added option to toggle "soften cosine" from CSGO, this softens the look of surfaces
+- Lighting preview: added debug option to show visibility tree and radius of selected lights
    </pre>
 </div>
 
@@ -141,16 +141,16 @@
 <div class="patch">
    <h1>Build 8854: Hotfix #3 (January 22nd 2022)</h1>
    <pre>
-   - Fixed lighting preview running much slower than intended because multithreading was accidentally disabled
-   - Fixed tool cursors sometimes failing to display in 2D view
-   - Fixed crash while reloading models
-   - Fixed certain nodraw textures not being recognized as nodraw, e.g. tools/toolsnodraw_wood
-   - Fixed light cone not updating for entities like light_dynamic
-   - Fixed props with "Ignore Surface Normals" set to true being fullbright
-   - Fixed long classnames being cut off
-   - Fixed missing materials on models not being reloaded
-   - Material folders prefixed with "tools" will now count as tooltextures, such as "tools_custom/..."
-   - Enter key can now be used in the 3D view when box selecting
+- Fixed lighting preview running much slower than intended because multithreading was accidentally disabled
+- Fixed tool cursors sometimes failing to display in 2D view
+- Fixed crash while reloading models
+- Fixed certain nodraw textures not being recognized as nodraw, e.g. tools/toolsnodraw_wood
+- Fixed light cone not updating for entities like light_dynamic
+- Fixed props with "Ignore Surface Normals" set to true being fullbright
+- Fixed long classnames being cut off
+- Fixed missing materials on models not being reloaded
+- Material folders prefixed with "tools" will now count as tooltextures, such as "tools_custom/..."
+- Enter key can now be used in the 3D view when box selecting
    </pre>
 </div>
 
@@ -161,18 +161,18 @@
 <div class="patch">
    <h1>Build 8853: Hotfix #2 (January 22nd 2022)</h1>
    <pre>
-   - Fixed crashes when using displacement tools
-   - Fixed crash when showing map info if the map had more than 1024 textures
-   - Fixed crash when creating env_sprite_clientside
-   - Fixed crashing when vertex editing brushes with displacements
-   - Fixed a brush-related crash in physics simulation
-   - Fixed vertex tool toggling off tool textures
-   - Fixed modelscale not rendering correctly in TF2 and SDK2013
-   - Fixed model browser not saving the grid/wireframe/collision model state across panels
-   - Fixed fatal error messages being obscured or out of focus
-   - Fixed a case where the error message would not appear
-   - Vertex tool can now exit when invalid faces have displacements
-   - Custom folders prefixed with "tools" will now count as tool textures (for the tooltexture render toggle)
+- Fixed crashes when using displacement tools
+- Fixed crash when showing map info if the map had more than 1024 textures
+- Fixed crash when creating env_sprite_clientside
+- Fixed crashing when vertex editing brushes with displacements
+- Fixed a brush-related crash in physics simulation
+- Fixed vertex tool toggling off tool textures
+- Fixed modelscale not rendering correctly in TF2 and SDK2013
+- Fixed model browser not saving the grid/wireframe/collision model state across panels
+- Fixed fatal error messages being obscured or out of focus
+- Fixed a case where the error message would not appear
+- Vertex tool can now exit when invalid faces have displacements
+- Custom folders prefixed with "tools" will now count as tool textures (for the tooltexture render toggle)
    </pre>
 </div>
 
@@ -183,7 +183,7 @@
 <div class="patch">
    <h1>Build 8852: Hotfix (January 21st 2022)</h1>
    <pre>
-   - Fixed an obstructive blue square appearing when selecting faces
+- Fixed an obstructive blue square appearing when selecting faces
    </pre>
 </div>
 
@@ -194,230 +194,230 @@
 <div class="patch">
    <h1>Build 8851: Major update (January 21st 2022)</h1>
    <pre>
-   - Added Lighting Preview
-   - Simulate Source's iconic lighting right inside the editor
-   - High accuracy and reasonably fast when compared to VRAD
-   - Efficiently multithreaded, the more threads your CPU has the faster it will be
-   - Dynamic, fast updating of point lights and spotlights is supported
-   - Bakes can be done globally (full bake) or only in a certain radius
-   - Options configurable include:
-      - Dynamic Updating: Toggle automatically updating when changing a point light or spotlight
-      - Update Delay: The delay in seconds before updating automatically
-      - Texlight Filename: Custom .rads file used for texture lights. The lights.rad and .rad file is loaded automatically
-      - Sun Samples: The quality of sunlight, higher is better but slower
-      - Ambient Samples: The quality of ambient environmental lighting, higher is better but MUCH slower
-      - Visibility Samples: The quality of visibility testing for lights, higher is more accurate but much slower
-      - Light Radius Scale: Multiplier for how far a light can "see". Lowering this can make bakes faster but less accurate
-      - Light Brightness Scale: Multiplier of brightness for all lights
-      - Ambient Occlusion Scale: If non-zero, ambient occlusion will be baked. This is expensive, so it's off by default!
-      - Bounced Light: Bounces light so areas that a light can't see will still receive light. Only re-baked on full bakes
-      - Light Bleed Hack: Attempts to fix light bleeding through walls due to the nature of Hammer geometry
-      - Cubemap: Toggle rendering of the cubemap, as it can be distracting in certain situations
-   - Current limitations:
-      - Dynamic updating of geometry doesn't exist yet, use radius bake for now
-      - Instances are not supported (soon)
-      - Texture shadows are not supported
-      - Detail sprites and ropes show as fullbright
-      - CSGO: cascaded shadow mapping (CSM) is not rendered (soon!)
-   - Added Create Instance from Selection tool
-   - Accessed from Tools tab or keybind
-   - Converts the selection into an instance and places it in the correct place automatically
-   - Added 3D skybox preview
-   - To use: convert your 3D skybox section into an instance (use the new Convert Selection to Instances tool for this)
-   - The instance must have a sky_camera entity, otherwise it will not register as a 3D sky
-   - 3D skybox should now appear at real scale in your main map. Toggle the preview on/off with the toolbar button
-   - Fog preview is also supported in the 3D skybox
-   - Added Instance Preview
-   - Main VMF will now be shown while editing an instance
-   - Accessible via the new "Edit Instance with Preview" button or by middle clicking an instance in 3D view
-   - Note: 3D sky preview does not work properly in combination with this yet
-   - Overhauled rope rendering, now perfectly accurate to in-game and renders materials properly
-   - Ropes can now also be simulated, toggleable with a new button in the toolbar
-   - Added "Barbed" and "Dangling" property support
-   - Overhauled color picker
-   - Much easier to pick any desired color
-   - Variety of color model options (e.g. RGB, HSV...) to choose from
-   - Restored palette functionality, now saved per VMF
-   - Brightness slider is available if modifying a light
-   - New hotkey: press C with a light or prop selected to quickly open the color picker and recolor the entity
-   - Improved DPI scaling support
-   - Toolbars are now scaled up
-   - Text in the 2D, 3D views and messages window is scaled up
-   - Entity properties column sizes will scale correctly
-   - Removed "Font DPI" option, this is now set automatically
-   - Added ! operator to model and particle browser, any strings prefixed with ! will be excluded from the resulting list
-   - E.g. "vent office !dynamic" would list all models containing "vent" and "office", but NOT "dynamic"
-   - Added coloring to light_spot's cone model which matches the set light color
-   - Added "renderamt", "frame" and "framerate" keyvalue support to sprites
-   - Added support for FadeIn/FadeOut renderfx
-   - Added toggle for continuous mouse and line of sight testing in displacement tools
-   - Added font shadow to the FPS and position/rotation text display in 3D view
-   - Added support for secondary color/direction in fog preview
-   - Added support for realtime updates to fog preview
-   - Added alpha preview to prop_statics
-   - Added timescale modifier to physics simulation
-   - Added toolbar button to toggle the rendering of tool textures (trigger, skip, hint etc)
-   - Added toolbar button to toggle the of editor-only objects (e.g. the cone for a info_particle_system)
-   - Added ability to reset a keyvalue by right clicking in entity properties
-   - Added snapping to 15 degrees in entity properties compass by holding shift
-   - Added option to respect $decalscale when creating overlays, off by default due to bogus $decalscale values in certain games
-   - Added keybindings for the following:
-   - Toggle tool textures: Ctrl + Shift + F2
-   - Toggle editor objects: Alt + O
-   - Toggle helpers: Ctrl + Shift + f
-   - Toggle 3D skybox: Alt + V
-   - Create Instance from Selection: Alt + S
-   - Added ability to scale selected entities using shift/ctrl + mouse wheel
-   - Added rendering culling for particles and flat displacements
-   - Added button to Check Map for Problems dialog that ignores "unused keyvalues" errors
-   - Added new continuous mouse toggle for displacements tools
-   - Paints always while mouse is held, not just when moving (capped to 60 FPS)
-   - Added line of sight toggle for displacement tools
-   - Painting will only snap to first displacement under the crosshair, not to any displacements behind it
-   - Added option to change texture increment value
-   - Added option to use middle mouse for camera rotation in 3D view - workflow compatibility with Garry's Mod Hammer
-   - Added back model, particle and sound browser to the View tab
-   - Added shortcuts for them as well: Shift + F10, Shift + F11 and Shift + F12 respectively
-   - Added recursive collapsing for instances
-   - Following CSGO-specific features were added in:
-   - Added "script" FGD output
-   - Added 4 way blend displacement support
-   - Added displacement blend sculpting
-   - Added support for the new I/O vmf delimiter
-   - Added support for func_instance_io_proxy
-   - Added the "Show walkable collision surfaces" toolbar button
-   - Added steam API connection
-   - Added classic missing texture instead of using the native solid black
-   - Added grenade clip & drone clip autovisgroups
-   - Hammer++ FGD is now mounted automatically, it is no longer necessary to add it to the game configuration
-   - A warning will be shown if it's not found, or if an older version is being used
-   - Custom tool textures now get added to an automatic "Custom" category in visgroups
-   - Overlays are now preserved after using clipping tool on the brush they are assigned to
-   - Increased maximum zoom out level in 2D views
-   - Instances mode state is now saved
-   - Changed pivot to render as a white cross in 3D view rather than a sphere
-   - Changed texture coordinates to be truncated to 4 decimal places, not 3
-   - Changed sphere helpers to draw at a slightly higher polygon count
-   - Changed TeamMatch material proxy to always draw
-   - Changed camera to match in-game coordinate system, i.e. origin and angles of the camera are 1:1 to in-game
-   - Changed rendering to be active when the app is not in focus, but at a limited framerate
-   - Changed vertex rendering in 2D view to only display at high zoom levels
-   - Values close to an integer in the 2D view will now be shown as an integer (e.g. 134.004 -> 134.0)
-   - Scrolling in the texture shift controls will now increment by 0.005 instead of 0.1
-   - Color changes in entity properties now apply instantly rather than when you press Apply
-   - Pressing right click while transforming with gizmo will no longer do anything (use G, R, E hotkeys for this purpose instead)
-   - Entity tool now snaps to half grid when creating in 3D view
-   - Camera controls are now frozen while transforming with the gizmo
-   - Crash error message will now display reason for crash
-   - Vertex edit:
-   - Fixed stability issues
-   - Fixed not being able to merge vertices frequently
-   - Undo history is now saved locally rather than globally for each step taken in vertex edit
-   - Stability/performance improvements
-   - Instances are far more stable and render faster
-   - Overlays are rendered faster
-   - Undo is much quicker
-   - Creating brushes is much quicker on large maps
-   - 2D view is significantly faster
-   - Vertex rendering in 2D view is very fast, now re-enabled by default as a result
-   - Fixed empty Run Map dialog options for some users
-   - You will need to delete the hammerplusplus_sequences.cfg file in the "hammerplusplus" folder to reset this
-   - Fixed gizmo/pivot not using the origin point of a selected entity
-   - Fixed sprites rendering through walls, they are now always depth-tested
-   - Fixed sprite rendering being cached across several sprites with the same material, even if their keyvalues were different
-   - Fixed rendering of sprites doing way more work than it needed to
-   - Fixed FGD classes based on another class not inheriting helpers (fixes some entities like env_sprite_oriented not rendering)
-   - Fixed instances not being closed if the main vmf containing them was closed
-   - Fixed wrong text color for distance display in 3D view
-   - Fixed brief window flicker when switching between vmfs/instances
-   - Fixed pivot not being updated when copy pasting objects
-   - Fixed entities created in 3D view being misaligned when created on a brush
-   - Fixed brushes not being rendered properly in 2D view when inside an instance
-   - Fixed ugly decimal numbers being displayed for dimensions, now rounded within a margin of 0.005 units (134.004 -> 134)
-   - Fixed glow rendering in wireframe rendering mode
-   - Fixed memory leak due to all objects not being deleted when closing a vmf
-   - Fixed detail sprites to be correctly culled in a sphere radius rather than a box
-   - Fixed crash related to fog preview
-   - Fixed crash if non-existant instance was specified
-   - Fixed crash on instance VMF close
-   - Fixed crash when undoing or deleting func_instances
-   - Fixed crash if user clicked too early while loading VMF
-   - Fixed crash when closing all vmfs
-   - Fixed crash if a large string was entered into the replace field of instances
-   - Fixed crash when modifying compile configuration
-   - Fixed crash when assigning visgroups
-   - Fixed sprinkle tool breaking if entities had backwards slashes in the keyvalues
-   - Fixed overlay boxes flickering (most of the time)
-   - Fixed particles not rendering in instances
-   - Fixed particles sometimes rendering in the wrong positions
-   - Fixed particles not being culled when too far away from the camera
-   - Fixed particles not loading from recursive directories
-   - Fixed broken default cube texture in some rendering modes
-   - Fixed undo not working correctly for Entity Gallery
-   - Fixed entity targetnames with special characters causing infinite freeze on VMF load
-   - Fixed collapsing instances being very slow
-   - Fixed particles inside a subfolder not being loaded
-   - Fixed 4-way blend displacements not showing up correctly in shaded view
-   - Fixed textures that do not have a $basetexture being marked as invalid
-   - Fixed the Fix All button in Check Map for Problems dialog not working correctly
-   - Fixed walkable surface not displaying correctly on displacements
-   - Fixed entity sprinkle dialog remaining forever after closing a vmf
-   - Fixed selecting faces in 3D view not updating the 2D view
-   - Fixed Merge brushes tool not preserving entity state
-   - Fixed overlay handles not respecting the "Handle Size" setting
-   - Fixed point_worldtext not being selectable in 3D view
-   - Fixed point_worldtext having no representation with empty text, now displays a red outline square
-   - Fixed physics tools saving data for static entities, improves performance and fixes mismatched pose issue with ragdolls
-   - Fixed tool brushes in physics tool not updating their state after changing the texture
-   - Fixed collision model rendering not respecting model scale
-   - Fixed current time not being kept for rendering, fixes some shaders not moving
-   - Fixed 2D views not being updated after changing the gizmo mode
-   - Fixed sprinkle tool freezing on large maps
-   - Fixed entities with ridiculous fade bounds causing performance issues
-   - Fixed the bottom bar in model browser/particle browser/keybind editor not being painted
-   - Fixed particles spazzing out after alt+tabbing/a freeze
-   - Fixed fog always being rendered even when turned off
-   - Fixed hotloading of models causing crashes
-   - Fixed model textures not being reloaded when modified
-   - Fixed model texture hotloading causing freezes, now uses a queue like for models
-   - Fixed pivot not being reset when selecting another object
-   - Fixed model fade preview not displaying correctly in instances
-   - Fixed keybind editor, model browser and particle browser not resizing correctly with non-standard taskbar positions
-   - Fixed duplicate undo history entries being saved when applying textures
-   - Fixed missing perspective correction for camera FOV, fixes the distorted rendering when the 3D view was sized awkwardly
-   - Fixed env_projectedtexture helper not rendering correctly
-   - Fixed random crashes when changing fog controllers for preview
-   - Fixed file dialog crashing for some users
-   - Fixed potential crash while autosaving
-   - Fixed independent window configuration being broken
-   - Fixed incorrect window titles being shown in independent window configuration
-   - Fixed crashes when placing certain prefabs
-   - Fixed displacements wasting 1mb of memory each
-   - Fixed thumbnails not loading for certain textures like water in texture browser
-   - Fixed crash when trying to open Model tab in entity properties on an invalid model
-   - Fixed issues with func_useableladder entity
-   - Fixed func_monitor alignment problems (hopefully)
-   - Fixed uppercase entity classnames causing the entity to be shown as missing
-   - Fixed arch tool not saving side count
-   - Fixed not being able to input negatives into arch tool
-   - Fixed crashes on load due to power of 0/1 displacements, these are now discarded
-   - Fixed crash when selecting high poly models
-   - Fixed brush vertex data to snap to integer if close enough
-   - Fixed brush vertex data not cleaning up duplicate points
-   - Fixed brush vertex data not sanitizing NaN values
-   - CSGO-specific fixes:
-   - Fixed 4 way blend displacements not showing up correctly in shaded view
-   - Fixed UnlitTwoTexture not rendering correctly on models/world geometry in shaded view
-   - Fixed shift + mouse wheel hotkey (for scaling models) not working on grouped entities
-   - Fixed LOD being enabled on models
-   - Fixed luxels not being tinted depending on scale in lightmap grid view
-   - Fixed not being able to snap vertices in vertex edit
-   - Removed useless displacement toolbar button that had no purpose
-   - Removed some displacement popups that could get potentially spammed
-   - Removed MDL version checks as they were unreliable. This is now your own responsibility
-   - Removed file dialog hack as the file dialog now works properly without crashing
-   - Removed support for power of 0/1 displacements
-   - Manifests have been fully deprecated and will show a warning when used
+- Added Lighting Preview
+- Simulate Source's iconic lighting right inside the editor
+- High accuracy and reasonably fast when compared to VRAD
+- Efficiently multithreaded, the more threads your CPU has the faster it will be
+- Dynamic, fast updating of point lights and spotlights is supported
+- Bakes can be done globally (full bake) or only in a certain radius
+- Options configurable include:
+   - Dynamic Updating: Toggle automatically updating when changing a point light or spotlight
+   - Update Delay: The delay in seconds before updating automatically
+   - Texlight Filename: Custom .rads file used for texture lights. The lights.rad and .rad file is loaded automatically
+   - Sun Samples: The quality of sunlight, higher is better but slower
+   - Ambient Samples: The quality of ambient environmental lighting, higher is better but MUCH slower
+   - Visibility Samples: The quality of visibility testing for lights, higher is more accurate but much slower
+   - Light Radius Scale: Multiplier for how far a light can "see". Lowering this can make bakes faster but less accurate
+   - Light Brightness Scale: Multiplier of brightness for all lights
+   - Ambient Occlusion Scale: If non-zero, ambient occlusion will be baked. This is expensive, so it's off by default!
+   - Bounced Light: Bounces light so areas that a light can't see will still receive light. Only re-baked on full bakes
+   - Light Bleed Hack: Attempts to fix light bleeding through walls due to the nature of Hammer geometry
+   - Cubemap: Toggle rendering of the cubemap, as it can be distracting in certain situations
+- Current limitations:
+   - Dynamic updating of geometry doesn't exist yet, use radius bake for now
+   - Instances are not supported (soon)
+   - Texture shadows are not supported
+   - Detail sprites and ropes show as fullbright
+   - CSGO: cascaded shadow mapping (CSM) is not rendered (soon!)
+- Added Create Instance from Selection tool
+- Accessed from Tools tab or keybind
+- Converts the selection into an instance and places it in the correct place automatically
+- Added 3D skybox preview
+- To use: convert your 3D skybox section into an instance (use the new Convert Selection to Instances tool for this)
+- The instance must have a sky_camera entity, otherwise it will not register as a 3D sky
+- 3D skybox should now appear at real scale in your main map. Toggle the preview on/off with the toolbar button
+- Fog preview is also supported in the 3D skybox
+- Added Instance Preview
+- Main VMF will now be shown while editing an instance
+- Accessible via the new "Edit Instance with Preview" button or by middle clicking an instance in 3D view
+- Note: 3D sky preview does not work properly in combination with this yet
+- Overhauled rope rendering, now perfectly accurate to in-game and renders materials properly
+- Ropes can now also be simulated, toggleable with a new button in the toolbar
+- Added "Barbed" and "Dangling" property support
+- Overhauled color picker
+- Much easier to pick any desired color
+- Variety of color model options (e.g. RGB, HSV...) to choose from
+- Restored palette functionality, now saved per VMF
+- Brightness slider is available if modifying a light
+- New hotkey: press C with a light or prop selected to quickly open the color picker and recolor the entity
+- Improved DPI scaling support
+- Toolbars are now scaled up
+- Text in the 2D, 3D views and messages window is scaled up
+- Entity properties column sizes will scale correctly
+- Removed "Font DPI" option, this is now set automatically
+- Added ! operator to model and particle browser, any strings prefixed with ! will be excluded from the resulting list
+- E.g. "vent office !dynamic" would list all models containing "vent" and "office", but NOT "dynamic"
+- Added coloring to light_spot's cone model which matches the set light color
+- Added "renderamt", "frame" and "framerate" keyvalue support to sprites
+- Added support for FadeIn/FadeOut renderfx
+- Added toggle for continuous mouse and line of sight testing in displacement tools
+- Added font shadow to the FPS and position/rotation text display in 3D view
+- Added support for secondary color/direction in fog preview
+- Added support for realtime updates to fog preview
+- Added alpha preview to prop_statics
+- Added timescale modifier to physics simulation
+- Added toolbar button to toggle the rendering of tool textures (trigger, skip, hint etc)
+- Added toolbar button to toggle the of editor-only objects (e.g. the cone for a info_particle_system)
+- Added ability to reset a keyvalue by right clicking in entity properties
+- Added snapping to 15 degrees in entity properties compass by holding shift
+- Added option to respect $decalscale when creating overlays, off by default due to bogus $decalscale values in certain games
+- Added keybindings for the following:
+- Toggle tool textures: Ctrl + Shift + F2
+- Toggle editor objects: Alt + O
+- Toggle helpers: Ctrl + Shift + f
+- Toggle 3D skybox: Alt + V
+- Create Instance from Selection: Alt + S
+- Added ability to scale selected entities using shift/ctrl + mouse wheel
+- Added rendering culling for particles and flat displacements
+- Added button to Check Map for Problems dialog that ignores "unused keyvalues" errors
+- Added new continuous mouse toggle for displacements tools
+- Paints always while mouse is held, not just when moving (capped to 60 FPS)
+- Added line of sight toggle for displacement tools
+- Painting will only snap to first displacement under the crosshair, not to any displacements behind it
+- Added option to change texture increment value
+- Added option to use middle mouse for camera rotation in 3D view - workflow compatibility with Garry's Mod Hammer
+- Added back model, particle and sound browser to the View tab
+- Added shortcuts for them as well: Shift + F10, Shift + F11 and Shift + F12 respectively
+- Added recursive collapsing for instances
+- Following CSGO-specific features were added in:
+- Added "script" FGD output
+- Added 4 way blend displacement support
+- Added displacement blend sculpting
+- Added support for the new I/O vmf delimiter
+- Added support for func_instance_io_proxy
+- Added the "Show walkable collision surfaces" toolbar button
+- Added steam API connection
+- Added classic missing texture instead of using the native solid black
+- Added grenade clip & drone clip autovisgroups
+- Hammer++ FGD is now mounted automatically, it is no longer necessary to add it to the game configuration
+- A warning will be shown if it's not found, or if an older version is being used
+- Custom tool textures now get added to an automatic "Custom" category in visgroups
+- Overlays are now preserved after using clipping tool on the brush they are assigned to
+- Increased maximum zoom out level in 2D views
+- Instances mode state is now saved
+- Changed pivot to render as a white cross in 3D view rather than a sphere
+- Changed texture coordinates to be truncated to 4 decimal places, not 3
+- Changed sphere helpers to draw at a slightly higher polygon count
+- Changed TeamMatch material proxy to always draw
+- Changed camera to match in-game coordinate system, i.e. origin and angles of the camera are 1:1 to in-game
+- Changed rendering to be active when the app is not in focus, but at a limited framerate
+- Changed vertex rendering in 2D view to only display at high zoom levels
+- Values close to an integer in the 2D view will now be shown as an integer (e.g. 134.004 -> 134.0)
+- Scrolling in the texture shift controls will now increment by 0.005 instead of 0.1
+- Color changes in entity properties now apply instantly rather than when you press Apply
+- Pressing right click while transforming with gizmo will no longer do anything (use G, R, E hotkeys for this purpose instead)
+- Entity tool now snaps to half grid when creating in 3D view
+- Camera controls are now frozen while transforming with the gizmo
+- Crash error message will now display reason for crash
+- Vertex edit:
+- Fixed stability issues
+- Fixed not being able to merge vertices frequently
+- Undo history is now saved locally rather than globally for each step taken in vertex edit
+- Stability/performance improvements
+- Instances are far more stable and render faster
+- Overlays are rendered faster
+- Undo is much quicker
+- Creating brushes is much quicker on large maps
+- 2D view is significantly faster
+- Vertex rendering in 2D view is very fast, now re-enabled by default as a result
+- Fixed empty Run Map dialog options for some users
+- You will need to delete the hammerplusplus_sequences.cfg file in the "hammerplusplus" folder to reset this
+- Fixed gizmo/pivot not using the origin point of a selected entity
+- Fixed sprites rendering through walls, they are now always depth-tested
+- Fixed sprite rendering being cached across several sprites with the same material, even if their keyvalues were different
+- Fixed rendering of sprites doing way more work than it needed to
+- Fixed FGD classes based on another class not inheriting helpers (fixes some entities like env_sprite_oriented not rendering)
+- Fixed instances not being closed if the main vmf containing them was closed
+- Fixed wrong text color for distance display in 3D view
+- Fixed brief window flicker when switching between vmfs/instances
+- Fixed pivot not being updated when copy pasting objects
+- Fixed entities created in 3D view being misaligned when created on a brush
+- Fixed brushes not being rendered properly in 2D view when inside an instance
+- Fixed ugly decimal numbers being displayed for dimensions, now rounded within a margin of 0.005 units (134.004 -> 134)
+- Fixed glow rendering in wireframe rendering mode
+- Fixed memory leak due to all objects not being deleted when closing a vmf
+- Fixed detail sprites to be correctly culled in a sphere radius rather than a box
+- Fixed crash related to fog preview
+- Fixed crash if non-existant instance was specified
+- Fixed crash on instance VMF close
+- Fixed crash when undoing or deleting func_instances
+- Fixed crash if user clicked too early while loading VMF
+- Fixed crash when closing all vmfs
+- Fixed crash if a large string was entered into the replace field of instances
+- Fixed crash when modifying compile configuration
+- Fixed crash when assigning visgroups
+- Fixed sprinkle tool breaking if entities had backwards slashes in the keyvalues
+- Fixed overlay boxes flickering (most of the time)
+- Fixed particles not rendering in instances
+- Fixed particles sometimes rendering in the wrong positions
+- Fixed particles not being culled when too far away from the camera
+- Fixed particles not loading from recursive directories
+- Fixed broken default cube texture in some rendering modes
+- Fixed undo not working correctly for Entity Gallery
+- Fixed entity targetnames with special characters causing infinite freeze on VMF load
+- Fixed collapsing instances being very slow
+- Fixed particles inside a subfolder not being loaded
+- Fixed 4-way blend displacements not showing up correctly in shaded view
+- Fixed textures that do not have a $basetexture being marked as invalid
+- Fixed the Fix All button in Check Map for Problems dialog not working correctly
+- Fixed walkable surface not displaying correctly on displacements
+- Fixed entity sprinkle dialog remaining forever after closing a vmf
+- Fixed selecting faces in 3D view not updating the 2D view
+- Fixed Merge brushes tool not preserving entity state
+- Fixed overlay handles not respecting the "Handle Size" setting
+- Fixed point_worldtext not being selectable in 3D view
+- Fixed point_worldtext having no representation with empty text, now displays a red outline square
+- Fixed physics tools saving data for static entities, improves performance and fixes mismatched pose issue with ragdolls
+- Fixed tool brushes in physics tool not updating their state after changing the texture
+- Fixed collision model rendering not respecting model scale
+- Fixed current time not being kept for rendering, fixes some shaders not moving
+- Fixed 2D views not being updated after changing the gizmo mode
+- Fixed sprinkle tool freezing on large maps
+- Fixed entities with ridiculous fade bounds causing performance issues
+- Fixed the bottom bar in model browser/particle browser/keybind editor not being painted
+- Fixed particles spazzing out after alt+tabbing/a freeze
+- Fixed fog always being rendered even when turned off
+- Fixed hotloading of models causing crashes
+- Fixed model textures not being reloaded when modified
+- Fixed model texture hotloading causing freezes, now uses a queue like for models
+- Fixed pivot not being reset when selecting another object
+- Fixed model fade preview not displaying correctly in instances
+- Fixed keybind editor, model browser and particle browser not resizing correctly with non-standard taskbar positions
+- Fixed duplicate undo history entries being saved when applying textures
+- Fixed missing perspective correction for camera FOV, fixes the distorted rendering when the 3D view was sized awkwardly
+- Fixed env_projectedtexture helper not rendering correctly
+- Fixed random crashes when changing fog controllers for preview
+- Fixed file dialog crashing for some users
+- Fixed potential crash while autosaving
+- Fixed independent window configuration being broken
+- Fixed incorrect window titles being shown in independent window configuration
+- Fixed crashes when placing certain prefabs
+- Fixed displacements wasting 1mb of memory each
+- Fixed thumbnails not loading for certain textures like water in texture browser
+- Fixed crash when trying to open Model tab in entity properties on an invalid model
+- Fixed issues with func_useableladder entity
+- Fixed func_monitor alignment problems (hopefully)
+- Fixed uppercase entity classnames causing the entity to be shown as missing
+- Fixed arch tool not saving side count
+- Fixed not being able to input negatives into arch tool
+- Fixed crashes on load due to power of 0/1 displacements, these are now discarded
+- Fixed crash when selecting high poly models
+- Fixed brush vertex data to snap to integer if close enough
+- Fixed brush vertex data not cleaning up duplicate points
+- Fixed brush vertex data not sanitizing NaN values
+- CSGO-specific fixes:
+- Fixed 4 way blend displacements not showing up correctly in shaded view
+- Fixed UnlitTwoTexture not rendering correctly on models/world geometry in shaded view
+- Fixed shift + mouse wheel hotkey (for scaling models) not working on grouped entities
+- Fixed LOD being enabled on models
+- Fixed luxels not being tinted depending on scale in lightmap grid view
+- Fixed not being able to snap vertices in vertex edit
+- Removed useless displacement toolbar button that had no purpose
+- Removed some displacement popups that could get potentially spammed
+- Removed MDL version checks as they were unreliable. This is now your own responsibility
+- Removed file dialog hack as the file dialog now works properly without crashing
+- Removed support for power of 0/1 displacements
+- Manifests have been fully deprecated and will show a warning when used
    </pre>
 </div>
 
@@ -428,19 +428,19 @@
 <div class="patch">
    <h1>Build 8849 (March 24th 2021)</h1>
    <pre>
-   - Fixed "hammerplusplus_scheme.res failed to load" error, for real this time!
-   - Fixed texture loading performance, this means you don't need to wait a long time for textures to cache anymore
-   - Behaves exactly like normal Hammer now
-   - Removed option to cache textures on startup because it's no longer needed to keep
-   - Fixed model bug that would create too much RAM (on very big maps, this reduces RAM usage by 1GB!)
-   - Fixed entity report crashing if an entity keyvalue was too long
-   - Fixed gizmo not rendering in Flat 3D view
-   - Fixed selections not behaving properly when selecting a single object while multiple were already selected
-   - Fixed To Entity tool showing "There are no eligible selected objects" message twice
-   - Fixed a crash that would be caused by particles loaded from newer games
-   - (TF2) Added back grouped mod sorting behavior in model browser
-   - Deleting selection is now faster on bigger maps
-   - Entity report is now closed when changing maps to prevent crashes from selecting invalid entities
+- Fixed "hammerplusplus_scheme.res failed to load" error, for real this time!
+- Fixed texture loading performance, this means you don't need to wait a long time for textures to cache anymore
+- Behaves exactly like normal Hammer now
+- Removed option to cache textures on startup because it's no longer needed to keep
+- Fixed model bug that would create too much RAM (on very big maps, this reduces RAM usage by 1GB!)
+- Fixed entity report crashing if an entity keyvalue was too long
+- Fixed gizmo not rendering in Flat 3D view
+- Fixed selections not behaving properly when selecting a single object while multiple were already selected
+- Fixed To Entity tool showing "There are no eligible selected objects" message twice
+- Fixed a crash that would be caused by particles loaded from newer games
+- (TF2) Added back grouped mod sorting behavior in model browser
+- Deleting selection is now faster on bigger maps
+- Entity report is now closed when changing maps to prevent crashes from selecting invalid entities
    </pre>
 </div>
 
@@ -451,53 +451,53 @@
 <div class="patch">
    <h1>Build 8848 (March 21st 2021)</h1>
    <pre>
-   - Fixed "hammerplusplus_scheme.res failed to load" error on startup, fixes crashing and rendering issues
-   - Added toggle to round points to integers in arch tool
-   - Added back modern styled file dialog UI
-   - If you are crashing with opening the file dialog, go into options and disable "Use modern Windows file dialog UI"
-   - Added transformation keybinds to gizmo tool, similar to Blender controls
-   - Pressing G, R or E will start translation, rotation or scaling, aligned to the camera
-   - Pressing X, Y or Z will lock the transformation to the axes
-   - Pressing combinations of X, Y, Z will add/swap 2 axes together or toggle between global and local axes
-   - Added planar handles to gizmo's scale component
-   - Added option to cache textures on startup (slow!!)
-   - Added Tie to Entity Individually tool, Shift + Ctrl + T. Each selected brush will be assigned its own entity
-   - Added error checking for any cordons that are enabled in instances (this would cause the map to not compile)
-   - Added rendering of yellow wireframe on top of selected models in 2D view, for visibility on dark models
-   - Toggleable in options
-   - Added option to toggle the rendering of face fill-in in 2D view
-   - Added checking for NaN brush points
-   - Added cool loading bar to caching textures when opening texture browser
-   - Added panel size slider to model and particle browser
-   - Added button to toggle grid in particle browser
-   - Transform dialog now supports using the pivot, which can be toggled
-   - Entity report now shows targetnames beside entities in the list
-   - VMFs are now always backed up before being saved (previously they wouldn't be backed up under some conditions)
-   - Significantly optimized texture browser memory usage. Fixes out of memory crash when having many high-res textures
-   - In clipping tool, aligned points in 2D view will now be moved simultaneously
-   - Cordon tool now deletes any 0 unit cordons automatically
-   - Fixed certain dialogs hiding between the Hammer view
-   - Fixed certain brushes being marked as invalid, even if they weren't invalid
-   - Fixed add height and angle in arch tool not working properly
-   - Fixed certain brush textures appearing as fully opaque
-   - Fixed particle mounting behavior in particle browser, mod particles take priority over default particles
-   - Fixed texture thumbnails in texture browser not being 1:1 in dimensions
-   - Fixed func_instance with an empty VMF being unselectable in 3D view
-   - Fixed overlays not being updated upon copying
-   - Fixed undo history being added for translations when no movement happened
-   - Fixed render FX toggle not toggling off custom colors
-   - Fixed render FX on brushes not being loaded on VMF load or when copying
-   - Fixed render alpha not being applied to brushes
-   - Fixed strange undo problems related to selections
-   - Fixed brush rendering becoming inverted when transforming them
-   - Fixed problems with applying func_instance VMFs
-   - Fixed sounds not playing in entity properties if sound browser wasn't opened first
-   - Fixed light_spot cone not rendering properly
-   - Fixed brushes being culled in 2D view when transforming
-   - Fixed skybox textures in 3D view being corrupted if loaded from texture browser
-   - Fixed being able to create arches with an arc of 0
-   - Fixed func_details being assigned to World Geometry visgroup
-   - Fixed func_instance VMF browse not showing an error message upon an invalid path
+- Fixed "hammerplusplus_scheme.res failed to load" error on startup, fixes crashing and rendering issues
+- Added toggle to round points to integers in arch tool
+- Added back modern styled file dialog UI
+- If you are crashing with opening the file dialog, go into options and disable "Use modern Windows file dialog UI"
+- Added transformation keybinds to gizmo tool, similar to Blender controls
+- Pressing G, R or E will start translation, rotation or scaling, aligned to the camera
+- Pressing X, Y or Z will lock the transformation to the axes
+- Pressing combinations of X, Y, Z will add/swap 2 axes together or toggle between global and local axes
+- Added planar handles to gizmo's scale component
+- Added option to cache textures on startup (slow!!)
+- Added Tie to Entity Individually tool, Shift + Ctrl + T. Each selected brush will be assigned its own entity
+- Added error checking for any cordons that are enabled in instances (this would cause the map to not compile)
+- Added rendering of yellow wireframe on top of selected models in 2D view, for visibility on dark models
+- Toggleable in options
+- Added option to toggle the rendering of face fill-in in 2D view
+- Added checking for NaN brush points
+- Added cool loading bar to caching textures when opening texture browser
+- Added panel size slider to model and particle browser
+- Added button to toggle grid in particle browser
+- Transform dialog now supports using the pivot, which can be toggled
+- Entity report now shows targetnames beside entities in the list
+- VMFs are now always backed up before being saved (previously they wouldn't be backed up under some conditions)
+- Significantly optimized texture browser memory usage. Fixes out of memory crash when having many high-res textures
+- In clipping tool, aligned points in 2D view will now be moved simultaneously
+- Cordon tool now deletes any 0 unit cordons automatically
+- Fixed certain dialogs hiding between the Hammer view
+- Fixed certain brushes being marked as invalid, even if they weren't invalid
+- Fixed add height and angle in arch tool not working properly
+- Fixed certain brush textures appearing as fully opaque
+- Fixed particle mounting behavior in particle browser, mod particles take priority over default particles
+- Fixed texture thumbnails in texture browser not being 1:1 in dimensions
+- Fixed func_instance with an empty VMF being unselectable in 3D view
+- Fixed overlays not being updated upon copying
+- Fixed undo history being added for translations when no movement happened
+- Fixed render FX toggle not toggling off custom colors
+- Fixed render FX on brushes not being loaded on VMF load or when copying
+- Fixed render alpha not being applied to brushes
+- Fixed strange undo problems related to selections
+- Fixed brush rendering becoming inverted when transforming them
+- Fixed problems with applying func_instance VMFs
+- Fixed sounds not playing in entity properties if sound browser wasn't opened first
+- Fixed light_spot cone not rendering properly
+- Fixed brushes being culled in 2D view when transforming
+- Fixed skybox textures in 3D view being corrupted if loaded from texture browser
+- Fixed being able to create arches with an arc of 0
+- Fixed func_details being assigned to World Geometry visgroup
+- Fixed func_instance VMF browse not showing an error message upon an invalid path
    </pre>
 </div>
 
@@ -508,48 +508,48 @@
 <div class="patch">
    <h1>Build 8847 (March 17th 2021)</h1>
    <pre>
-   - Added checking for updates automatically on startup, can be disabled in options or done manually in Help tab
-   - Fixed search path behavior in SDK2013, it now behaves exactly like normal Hammer
-   - Old behavior can be enabled by creating a shortcut to Hammer++ with the '-legacy_searching' parameter added
-   - Removed support for temporary Garry's Mod mounting support, too buggy to be worth using
-   - If this was working for you before, you can still enable it by using '-legacy_searching' parameter as mentioned above
-   - Fixed invalid particles crashing on startup
-   - Fixed left click/right click + space bind to move the 3D view not working
-   - Fixed 2D skybox causing massive lag
-   - Fixed crash when converting displacements from power of 3 -> 4
-   - Fixed texture corruptions that resulted in weird behavior when selecting and rendering textures
-   - Fixed misaligned face UVs when changing rotation in Face Edit Sheet tool
-   - Fixed crash for certain users when opening any file browse dialog
-   - Fixed "script" FGD entry not being read and causing errors
-   - Fixed crash when loading models from a newer engine that are not supported (hopefully)
-   - Models that are deemed invalid will instead show up as an error model
-   - Fixed selection glow outline being randomly corrupted and causing massive lag
-   - Fixed massive lag when a warning message is being spammed
-   - Fixed missing textures on world geometry not rendering
-   - Fixed some certain textures appearing as missing, even though they aren't
-   - Fixed keybind conflicts for Ctrl + G
-   - Fixed add height and angle being inverted in arch tool
-   - Fixed greyed out apply button in Options
-   - Fixed crash when attempting to delete/modify a selected object while physics simulation is running
-   - Fixed manifests being unuseable
-   - Fixed UnlitGeneric textures being shaded
-   - Fixed UV keyvalues on overlays not updating when applied
-   - Fixed carve being completely unuseable
-   - Fixed modelscale of 0 making the model unselectable, now changes to scale of 1
-   - Fixed the bounding box keyvalue setting for models being ignored in physics simulation
-   - Fixed brush shading being too dark
-   - Fixed wrong title text when creating cylinder with right click
-   - (TF2) Fixed certain models turning into a black color
-   - Undo is now much faster on larger maps
-   - Added keybinds for move to floor ( Alt + N ), move to ceiling ( Alt + U ), and holding Control will angle to the face
-   - Face edit sheet, sprinkle tool and physics tool dialogs are now automatically hidden when creating or loading a new VMF
-   - Significantly reduced memory usage of the model browser
-   - Updated status bar at the bottom to use space more evenly
-   - Added option to toggle the mounting of the "downloads" folder
-   - Added option to toggle cubemap rendering
-   - Pivot is now prioritized over object origin when attempting to drag either one when they are overlapped in 2D view
-   - Shift + Q bind has been added back, it deselects the selection
-   - Polygon Tool has been rebound by default to Shift + N due to the above Shift + Q change
+- Added checking for updates automatically on startup, can be disabled in options or done manually in Help tab
+- Fixed search path behavior in SDK2013, it now behaves exactly like normal Hammer
+- Old behavior can be enabled by creating a shortcut to Hammer++ with the '-legacy_searching' parameter added
+- Removed support for temporary Garry's Mod mounting support, too buggy to be worth using
+- If this was working for you before, you can still enable it by using '-legacy_searching' parameter as mentioned above
+- Fixed invalid particles crashing on startup
+- Fixed left click/right click + space bind to move the 3D view not working
+- Fixed 2D skybox causing massive lag
+- Fixed crash when converting displacements from power of 3 -> 4
+- Fixed texture corruptions that resulted in weird behavior when selecting and rendering textures
+- Fixed misaligned face UVs when changing rotation in Face Edit Sheet tool
+- Fixed crash for certain users when opening any file browse dialog
+- Fixed "script" FGD entry not being read and causing errors
+- Fixed crash when loading models from a newer engine that are not supported (hopefully)
+- Models that are deemed invalid will instead show up as an error model
+- Fixed selection glow outline being randomly corrupted and causing massive lag
+- Fixed massive lag when a warning message is being spammed
+- Fixed missing textures on world geometry not rendering
+- Fixed some certain textures appearing as missing, even though they aren't
+- Fixed keybind conflicts for Ctrl + G
+- Fixed add height and angle being inverted in arch tool
+- Fixed greyed out apply button in Options
+- Fixed crash when attempting to delete/modify a selected object while physics simulation is running
+- Fixed manifests being unuseable
+- Fixed UnlitGeneric textures being shaded
+- Fixed UV keyvalues on overlays not updating when applied
+- Fixed carve being completely unuseable
+- Fixed modelscale of 0 making the model unselectable, now changes to scale of 1
+- Fixed the bounding box keyvalue setting for models being ignored in physics simulation
+- Fixed brush shading being too dark
+- Fixed wrong title text when creating cylinder with right click
+- (TF2) Fixed certain models turning into a black color
+- Undo is now much faster on larger maps
+- Added keybinds for move to floor ( Alt + N ), move to ceiling ( Alt + U ), and holding Control will angle to the face
+- Face edit sheet, sprinkle tool and physics tool dialogs are now automatically hidden when creating or loading a new VMF
+- Significantly reduced memory usage of the model browser
+- Updated status bar at the bottom to use space more evenly
+- Added option to toggle the mounting of the "downloads" folder
+- Added option to toggle cubemap rendering
+- Pivot is now prioritized over object origin when attempting to drag either one when they are overlapped in 2D view
+- Shift + Q bind has been added back, it deselects the selection
+- Polygon Tool has been rebound by default to Shift + N due to the above Shift + Q change
    </pre>
 </div>
 
@@ -992,17 +992,19 @@ UI:
          </article>
       </div>
 
-
-
-
-
-
-
-
-
-    </body>
+   <footer>
+      <a target="_blank" class="link" href="https://ko-fi.com/ficool2">
+            <img src="../images/kofi.png" >
+      </a>
+      <p>
+         Hammer++ is not affiliated with Valve Corporation.
+         Like or enjoy my work? Support me on <a target="_blank" href="https://ko-fi.com/ficool2"> Ko-fi</a>.
+      </p>
+   </footer>
+   </body>
    <script src="../javascript/main.js"></script>
    <script>
-      genNav()
+      genNav();
+      addPatches();
    </script>
 </html>

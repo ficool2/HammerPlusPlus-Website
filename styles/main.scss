@@ -8,9 +8,14 @@
 }
 
 ::-webkit-scrollbar {
-	background-color: $color-dark;
 	width: 10px;
-	height: 10px;
+	height: 5px;
+}
+
+::-webkit-scrollbar-track {
+	background-color: $color-dark;
+	border-radius: 50vw;
+	margin: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -83,6 +88,7 @@ nav {
 			background-color: $color-accent;
 			transition: .5s;
 			z-index: -1;
+			border-radius: 10px 10px 0 0;
 		}
 
 		&.selected::after {
@@ -91,7 +97,7 @@ nav {
 			filter:
 				drop-shadow(0 0 5px $color-accent)
 				drop-shadow(0 0 10px $color-accent)
-				drop-shadow(0 0 15px $color-accent)
+				drop-shadow(0 0 15px $color-accent);
 		}
 
 		&:hover {
@@ -100,6 +106,7 @@ nav {
 			&::after {
 				height: 100%;
 				top: 0;
+				filter: none;
 			}
 		}
 	}

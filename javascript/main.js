@@ -1,4 +1,6 @@
-/** Generates the navbar */
+/**
+ * Generates the navbar based on the current page.
+ */
 function genNav() {
 	const nav = document.querySelector("#navbar");
 	if (!nav) return;
@@ -17,9 +19,11 @@ function genNav() {
 }
 
 
-function splitImages() {
+/**
+ * Sets the listener to all the splitted images.
+ */
+function setSplitImages() {
 	const splits = document.querySelectorAll(".img-split");
-	if (!splits) return;
 
 	splits.forEach(split => {
 		split.addEventListener("click", () => {
@@ -29,23 +33,49 @@ function splitImages() {
 			} else if (split.classList.contains("inactive")) {
 				split.classList.remove("inactive");
 				split.classList.add("active");
-			} else {
+			} else
 				split.classList.add("active");
-			}
 		})
 	})
 }
 
 
+/**
+ * Applies the source to all video tags based on their src attribute. It
+ * also adds certain attributes specified.
+ * Basically, "<video src='...'>" becomes "<video autoplay muted loop><source src='...'></video>"
+ * @param {string[]} attrs - The list of attributes to apply to the each video
+ */
 function setVideos(attrs = ["autoplay", "loop", "muted"]) {
 	const videos = document.querySelectorAll("video");
-	if (!videos) return;
 
 	videos.forEach(video => {
-		attrs.forEach(attr => { video.setAttribute(attr, "true"); });
+		attrs.forEach(attr => video.setAttribute(attr, "true"));
 		const source = document.createElement("source");
 		source.src = video.src;
 		video.appendChild(source);
 		video.removeAttribute("src");
+	})
+}
+
+
+/**
+ * Sets the listeners to all the patch notes.
+ */
+function addPatches() {
+	const patches = Array.from(document.querySelectorAll(".patch"));
+
+	// The first patch note will be be active by default
+	patches[0].classList.toggle("active");
+
+	patches.forEach(patch => {
+		patch.querySelector("h1").addEventListener("click", () => {
+			patches.forEach(p => {
+				if (p === patch) {
+					p.classList.toggle("active");
+				} else
+					p.classList.remove("active");
+			})
+		})
 	})
 }
