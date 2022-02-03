@@ -36,3 +36,18 @@ function splitImages() {
 		})
 	})
 }
+
+
+function setVideos(...attrs) {
+	if (attrs.length == 0) attrs = ["autoplay", "loop", "muted"];
+	const videos = document.querySelectorAll("video");
+	if (!videos) return;
+
+	videos.forEach(video => {
+		attrs.forEach(attr => { video.setAttribute(attr, "true"); });
+		const source = document.createElement("source");
+		source.src = video.src;
+		video.appendChild(source);
+		video.removeAttribute("src");
+	})
+}

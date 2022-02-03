@@ -3,7 +3,7 @@
   display: grid;
   -ms-grid-columns: (1fr)[4];
       grid-template-columns: repeat(4, 1fr);
-  grid-gap: 1vw;
+  gap: 1.5vw;
   margin: 2em;
   color: white;
 }
@@ -30,11 +30,24 @@
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  width: 100%;
+  min-width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
   height: 100%;
   -webkit-transition: .5s;
   transition: .5s;
   position: relative;
+}
+
+.feature-grid .cell > video {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  -o-object-position: bottom;
+     object-position: bottom;
+  -o-object-fit: cover;
+     object-fit: cover;
+  min-height: 100%;
 }
 
 .feature-grid .cell .img-split {
