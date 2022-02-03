@@ -17,7 +17,6 @@ function genNav() {
 }
 
 
-
 function splitImages() {
 	const splits = document.querySelectorAll(".img-split");
 	if (!splits) return;
@@ -38,8 +37,7 @@ function splitImages() {
 }
 
 
-function setVideos(...attrs) {
-	if (attrs.length == 0) attrs = ["autoplay", "loop", "muted"];
+function setVideos(attrs = ["autoplay", "loop", "muted"]) {
 	const videos = document.querySelectorAll("video");
 	if (!videos) return;
 

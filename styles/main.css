@@ -173,8 +173,6 @@ footer {
       -ms-flex-align: center;
           align-items: center;
   margin-top: 7.5em;
-  -webkit-box-shadow: 0 0 30px -10px #be00be;
-          box-shadow: 0 0 30px -10px #be00be;
   overflow-y: hidden;
 }
 

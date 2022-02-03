@@ -3,7 +3,7 @@
 .feature-grid {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
-	gap: 1.5vw;
+	gap: 1.1vw;
 	margin: 2em;
 	color: white;
 	font-size: 1.1em;
@@ -200,4 +200,9 @@
 			transition: transform .1s;
 		}
 	}
+}
+
+.image.focused {
+	filter: brightness(1.5);
+	transition: 1s !important;
 }

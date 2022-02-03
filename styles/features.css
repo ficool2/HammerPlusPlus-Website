@@ -3,7 +3,7 @@
   display: grid;
   -ms-grid-columns: (1fr)[4];
       grid-template-columns: repeat(4, 1fr);
-  gap: 1.5vw;
+  gap: 1.1vw;
   margin: 2em;
   color: white;
   font-size: 1.1em;
@@ -234,5 +234,12 @@
   transition: -webkit-transform .1s;
   transition: transform .1s;
   transition: transform .1s, -webkit-transform .1s;
+}
+
+.image.focused {
+  -webkit-filter: brightness(1.5);
+          filter: brightness(1.5);
+  -webkit-transition: 1s !important;
+  transition: 1s !important;
 }
 /*# sourceMappingURL=features.css.map */
