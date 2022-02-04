@@ -65,7 +65,7 @@
 	a {
 		color: $color-accent-bright;
 
-		&:hover {
+		&:hover, &:focus {
 			text-shadow: 0 0 2px $color-accent-bright;
 		}
 	}
@@ -140,7 +140,7 @@ nav {
 				drop-shadow(0 0 15px $color-accent);
 		}
 
-		&:hover {
+		&:hover, &:focus-visible {
 			color: black;
 
 			&::after {
@@ -168,10 +168,6 @@ article {
 	color: white;
 	font-size: 1.2em;
 	min-height: 35vh;
-
-	p {
-		margin-block: 1em;
-	}
 
 	> .header {
 		margin-bottom: .5em;
@@ -204,6 +200,14 @@ article {
 	.section-title {
 		font-size: 1.5em;
 		font-weight: bold;
+	}
+
+	.section-content {
+		margin-block: 1em;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
 	}
 
 	.info {
@@ -261,16 +265,16 @@ footer {
 // Each download image
 .download {
 	display: block;
-	margin-top: 2em;
+	margin-top: 3em;
 	display: flex;
 	justify-content: center;
 	transition: .5s;
 
 	> img {
-		max-width: 75%;
+		max-width: 70%;
 	}
 
-	&:hover {
+	&:hover, &:focus {
 		transform: scale(1.05);
 
 		filter:
@@ -285,7 +289,7 @@ footer {
 	from {
 		filter:
 			brightness(1.5)
-			drop-shadow(0 0 10px rgba(255, 131, 131, 0.514));
+			drop-shadow(0 0 .25em rgba(255, 93, 93, 0.692));
 	}
 }
 

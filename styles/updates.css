@@ -1,7 +1,6 @@
 .patch {
   margin-bottom: 1.25em;
   overflow: hidden;
-  position: relative;
   z-index: 1;
 }
 
@@ -17,6 +16,26 @@
   padding: .25em;
   cursor: pointer;
   font-size: 1.35em;
+  position: relative;
+}
+
+.patch > h1::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  right: .2em;
+  bottom: .1em;
+  aspect-ratio: 1;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  margin: .5em;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  -webkit-transition: .5s;
+  transition: .5s;
+  -webkit-transform-origin: 75% 75%;
+          transform-origin: 75% 75%;
 }
 
 .patch > pre {
@@ -45,6 +64,13 @@
 
 .patch.active > h1 {
   background-color: #350031;
+}
+
+.patch.active > h1::after {
+  bottom: .25em;
+  top: -.15em;
+  -webkit-transform: rotate(225deg);
+          transform: rotate(225deg);
 }
 
 .patch.active > pre {

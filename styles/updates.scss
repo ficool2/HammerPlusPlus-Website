@@ -9,7 +9,6 @@
 	}
 
 	overflow: hidden;
-	position: relative;
 	z-index: 1;
 
 	> h1 {
@@ -19,6 +18,24 @@
 		padding: .25em;
 		cursor: pointer;
 		font-size: 1.35em;
+		position: relative;
+
+		&::after {
+			content: "";
+			display: block;
+			position: absolute;
+			top: 0;
+			// This is extremelly hacky. I fucking hate this.
+			right: .2em;
+			bottom: .1em;
+			aspect-ratio: 1;
+			border: solid white;
+			border-width: 0 3px 3px 0;
+			margin: .5em;
+			transform: rotate(45deg);
+			transition: .5s;
+			transform-origin: 75% 75%;
+		}
 	}
 
 	> pre {
@@ -49,6 +66,12 @@
 	&.active {
 		> h1 {
 			background-color:rgb(53, 0, 49);
+
+			&::after {
+				bottom: .25em;
+				top: -.15em;
+				transform: rotate(225deg);
+			}
 		}
 
 		> pre {

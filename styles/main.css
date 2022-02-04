@@ -64,7 +64,7 @@ a {
   color: #ff00ff;
 }
 
-a:hover {
+a:hover, a:focus {
   text-shadow: 0 0 2px #ff00ff;
 }
 
@@ -149,11 +149,11 @@ nav > a.selected::after {
           filter: drop-shadow(0 0 5px #be00be) drop-shadow(0 0 10px #be00be) drop-shadow(0 0 15px #be00be);
 }
 
-nav > a:hover {
+nav > a:hover, nav > a:focus-visible {
   color: black;
 }
 
-nav > a:hover::after {
+nav > a:hover::after, nav > a:focus-visible::after {
   height: 100%;
   top: 0;
   -webkit-filter: none;
@@ -175,10 +175,6 @@ article {
   color: white;
   font-size: 1.2em;
   min-height: 35vh;
-}
-
-article p {
-  margin-block: 1em;
 }
 
 article > .header {
@@ -208,6 +204,14 @@ article .section:hover {
 article .section-title {
   font-size: 1.5em;
   font-weight: bold;
+}
+
+article .section-content {
+  margin-block: 1em;
+}
+
+article .section-content:last-child {
+  margin-bottom: 0;
 }
 
 article .info {
@@ -285,7 +289,7 @@ footer > p {
 
 .download {
   display: block;
-  margin-top: 2em;
+  margin-top: 3em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -297,10 +301,10 @@ footer > p {
 }
 
 .download > img {
-  max-width: 75%;
+  max-width: 70%;
 }
 
-.download:hover {
+.download:hover, .download:focus {
   -webkit-transform: scale(1.05);
           transform: scale(1.05);
   -webkit-filter: brightness(1.5) drop-shadow(0 0 10px rgba(255, 255, 255, 0.514)) drop-shadow(0 0 2px #ff00ff);
@@ -309,15 +313,15 @@ footer > p {
 
 @-webkit-keyframes error-glow {
   from {
-    -webkit-filter: brightness(1.5) drop-shadow(0 0 10px rgba(255, 131, 131, 0.514));
-            filter: brightness(1.5) drop-shadow(0 0 10px rgba(255, 131, 131, 0.514));
+    -webkit-filter: brightness(1.5) drop-shadow(0 0 0.25em rgba(255, 93, 93, 0.692));
+            filter: brightness(1.5) drop-shadow(0 0 0.25em rgba(255, 93, 93, 0.692));
   }
 }
 
 @keyframes error-glow {
   from {
-    -webkit-filter: brightness(1.5) drop-shadow(0 0 10px rgba(255, 131, 131, 0.514));
-            filter: brightness(1.5) drop-shadow(0 0 10px rgba(255, 131, 131, 0.514));
+    -webkit-filter: brightness(1.5) drop-shadow(0 0 0.25em rgba(255, 93, 93, 0.692));
+            filter: brightness(1.5) drop-shadow(0 0 0.25em rgba(255, 93, 93, 0.692));
   }
 }
 
