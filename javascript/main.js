@@ -81,5 +81,9 @@ function addPatches() {
 					p.classList.remove("active");
 			})
 		})
+
+		// Use spaces instead of tabs for the notes
+		const pre = patch.querySelector("pre");
+		pre.innerHTML = pre.innerHTML.replaceAll("\t", "   ");
 	})
 }
