@@ -1,5 +1,6 @@
 .patch {
   margin-bottom: 1.25em;
+  position: relative;
   overflow: hidden;
   z-index: 1;
 }
