@@ -56,7 +56,7 @@ function setVideos(attrs = ["autoplay", "loop", "muted"]) {
 		video.appendChild(source);
 		video.removeAttribute("src");
 
-		// we apply this to the parent because the text in the cell take a lot of space
+		// we apply this to the parent because the text in the cell can take a lot of space
 		video.parentElement.addEventListener("mouseover", () => video.play());
 		video.parentElement.addEventListener("mouseout", () => video.pause());
 	})
@@ -75,9 +75,9 @@ function addPatches() {
 	patches.forEach(patch => {
 		patch.querySelector("h1").addEventListener("click", () => {
 			patches.forEach(p => {
-				if (p === patch) {
+				if (p === patch)
 					p.classList.toggle("active");
-				} else
+				else
 					p.classList.remove("active");
 			})
 		})
