@@ -25,6 +25,8 @@
   display: block;
   position: absolute;
   top: 0;
+  max-width: 20px;
+  max-height: 20px;
   right: .2em;
   bottom: .1em;
   aspect-ratio: 1;

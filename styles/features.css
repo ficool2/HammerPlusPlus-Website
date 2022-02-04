@@ -1,19 +1,12 @@
 .feature-grid {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr)[4];
-      grid-template-columns: repeat(4, 1fr);
+  -ms-grid-columns: (minmax(400px, 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
   gap: 1.1vw;
   margin: 2em;
   color: white;
   font-size: 1.1em;
-}
-
-@media screen and (max-width: 1000px) {
-  .feature-grid {
-    -ms-grid-columns: (1fr)[2];
-        grid-template-columns: repeat(2, 1fr);
-  }
 }
 
 .feature-grid .cell {
