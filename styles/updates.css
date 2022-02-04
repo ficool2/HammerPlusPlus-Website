@@ -43,7 +43,7 @@
 
 .patch > pre {
   position: relative;
-  background-color: #131313;
+  background-color: #1f1f1f;
   padding: .5em;
   -webkit-box-shadow: inset 0 0 10px 5px black;
           box-shadow: inset 0 0 10px 5px black;
