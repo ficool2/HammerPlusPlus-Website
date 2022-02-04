@@ -83,13 +83,15 @@
 }
 
 .feature-grid .cell > .cell-content {
+  --animation-speed: .6s;
   width: 100%;
   padding: 1em;
-  -webkit-transition: 1s cubic-bezier(0.86, 0, 0.07, 1);
-  transition: 1s cubic-bezier(0.86, 0, 0.07, 1);
+  -webkit-transition: var(--animation-speed) cubic-bezier(0.87, 0, 0.66, 1.03);
+  transition: var(--animation-speed) cubic-bezier(0.87, 0, 0.66, 1.03);
   opacity: 0;
   position: absolute;
   bottom: -100%;
+  pointer-events: none;
   background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(rgba(0, 0, 0, 0.726)), to(black));
   background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.726), black);
 }
@@ -100,6 +102,8 @@
 }
 
 .feature-grid .cell:hover > .cell-content {
+  -webkit-transition: var(--animation-speed) cubic-bezier(0.28, -0.02, 0, 1.04);
+  transition: var(--animation-speed) cubic-bezier(0.28, -0.02, 0, 1.04);
   bottom: 0;
   opacity: 1;
 }
@@ -147,6 +151,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding-inline: 2em;
   gap: 3vh;
   inset: 0;
   background-color: rgba(0, 0, 0, 0.336);
@@ -172,8 +177,8 @@
   -webkit-box-shadow: 0 0 50px black;
           box-shadow: 0 0 50px black;
   background-color: #242424;
-  border: 5px solid white;
-  border-radius: 1vh;
+  border: 5px solid #be00be;
+  border-radius: 10px;
   overflow: hidden;
 }
 
@@ -204,13 +209,13 @@
 }
 
 #focus-container .arrow:nth-child(1) {
-  border-right: var(--size) solid white;
+  border-right: var(--size) solid #be00be;
   -webkit-transform-origin: right;
           transform-origin: right;
 }
 
 #focus-container .arrow:nth-child(3) {
-  border-left: var(--size) solid white;
+  border-left: var(--size) solid #be00be;
   -webkit-transform-origin: left;
           transform-origin: left;
 }
@@ -227,6 +232,8 @@
   transition: -webkit-transform .1s;
   transition: transform .1s;
   transition: transform .1s, -webkit-transform .1s;
+  -webkit-filter: brightness(1.5);
+          filter: brightness(1.5);
 }
 
 .image.focused {

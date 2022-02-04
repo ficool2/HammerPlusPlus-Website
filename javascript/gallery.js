@@ -9,31 +9,31 @@ function setFocusImage(image) {
 	IMGS[currentImage].classList.remove("focused")	// remove the fucused state of the last image
 	FOCUS_CONTAINER.classList.add("focused")
 
-	og_image = image.cloneNode(true)	// clone the image to be focused
-	// og_image.removeAttribute("class")
+	originalImage = image.cloneNode(true)	// clone the image to be focused
+
+	// In case we are dealing with a video, show media controls
+	originalImage.setAttribute("controls", "true")
+	originalImage.setAttribute("autoplay", "true")
 
 	FOCUS_IMG.innerHTML = ""
-	FOCUS_IMG.appendChild(og_image)	// add the new image to the focus container
+	FOCUS_IMG.appendChild(originalImage)	// add the new image to the focus container
 	currentImage = IMGS.indexOf(image)
 
 	image.classList.add("focused")
-	// console.log(`Current Image: ${currentImage}. Src: ${image.src}`)
 }
 
 function nextImage() {	// focus the next image, if its the last, focus the first
-	if (currentImage == IMGS.length-1) {
+	if (currentImage == IMGS.length-1)
 		setFocusImage(IMGS[0])
-	} else {
+	else
 		setFocusImage(IMGS[currentImage+1])
-	}
 }
 
 function previousImage() {	// focus the previous image, if its the first, focus the last
-	if (currentImage == 0) {
+	if (currentImage == 0)
 		setFocusImage(IMGS[IMGS.length-1])
-	} else {
+	else
 		setFocusImage(IMGS[currentImage-1])
-	}
 }
 
 

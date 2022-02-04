@@ -55,6 +55,10 @@ function setVideos(attrs = ["autoplay", "loop", "muted"]) {
 		source.src = video.src;
 		video.appendChild(source);
 		video.removeAttribute("src");
+
+		// we apply this to the parent because the text in the cell take a lot of space
+		video.parentElement.addEventListener("mouseover", () => video.play());
+		video.parentElement.addEventListener("mouseout", () => video.pause());
 	})
 }
 
