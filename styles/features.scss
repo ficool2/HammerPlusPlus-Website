@@ -1,0 +1,206 @@
+@import "vars";
+
+
+.feature-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+	gap: 1.1vw;
+	margin: 2em;
+	color: white;
+	font-size: 1.1em;
+
+	.cell {
+		width: 100%;
+		height: 100%;
+		transition: .5s;
+		aspect-ratio: 16 / 9;
+		overflow: hidden;
+		position: relative;
+
+		> .image {
+			user-select: none;
+			min-width: 100%;
+			object-fit: cover;
+			height: 100%;
+			transition: .5s;
+			position: relative;
+		}
+
+		// This was a real pain to get to work.
+		> video {
+			object-position: bottom;
+			object-fit: cover;
+			min-height: 100%;
+		}
+
+		.img-split {
+			--split-perc: 50%;
+			$transition-speed: 2s;
+
+			&::after {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: var(--split-perc);
+				width: 5px;
+				height: 100%;
+				background: white;
+				transition: $transition-speed;
+				transform: skew(6deg);
+				box-shadow: 0 0 20px 2px black;
+			}
+
+			> img {
+				width: 100%;
+				height: 100%;
+				transition: $transition-speed;
+				position: absolute;
+
+				&:last-child {
+					clip-path: polygon(
+						0 0,
+						calc(var(--split-perc) - 3%) 0,
+						calc(var(--split-perc) + 3%) 100%,
+						0% 100%
+					);
+				}
+			}
+
+			&.inactive {
+				--split-perc: -5%;
+			}
+
+			&.active {
+				--split-perc: 105%;
+			}
+		}
+
+		> .cell-content {
+			--animation-speed: .6s;
+
+			width: 100%;
+			padding: 1em;
+			transition: var(--animation-speed) cubic-bezier(0.87, 0, 0.66, 1.03);
+			opacity: 0;
+			position: absolute;
+			bottom: -100%;
+			pointer-events: none;
+
+			background-image: linear-gradient(
+				transparent,
+				rgba(0, 0, 0, 0.726),
+				black
+			);
+		}
+
+		&:hover {
+			transform: scale(0.97);
+
+			> .cell-content {
+				transition: var(--animation-speed) cubic-bezier(0.28, -0.02, 0, 1.04);
+				bottom: 0;
+				opacity: 1;
+			}
+
+			.image {
+				transform: scale(1.05);
+				transition: 5s ease-out;
+			}
+		}
+
+		&.row2 { grid-row: span 2; }
+		&.row3 { grid-row: span 3; }
+		&.row4 { grid-row: span 4; }
+		&.col2 { grid-column: span 2; }
+		&.col3 { grid-column: span 3; }
+		&.col4 { grid-column: span 4; }
+	}
+}
+
+
+
+
+// All the gallery stuff
+	#focus-container {
+		display: flex;
+		position: fixed;
+		justify-content: center;
+		visibility: hidden;
+		align-items: center;
+		padding-inline: 2em;
+		gap: 3vh;
+		inset: 0;
+		background-color: rgba(0, 0, 0, 0.336);
+		backdrop-filter: blur(10px);
+		opacity: 0;
+		transition:
+			opacity .5s,
+			visibility .5s;
+		z-index: 100;
+
+
+		#focus-img {
+			position: relative;
+			width: 75vh;
+			user-select: none;
+			transform: scale(0);
+			transition: all .25s;
+			box-shadow: 0 0 50px black;
+			background-color: rgb(36, 36, 36);
+			border: 5px solid $color-accent;
+			border-radius: 10px;
+			overflow: hidden;
+
+			& * {
+				width: 100%;
+			}
+		}
+
+		&.focused {
+			opacity: 1;
+			visibility: visible;
+
+			> #focus-img {
+				transform: scale(1);
+			}
+		}
+
+		.arrow {
+			--size: 5vh;
+			display: block;
+			content: "";
+			z-index: 5;
+			transition: all .5s;
+			cursor: pointer;
+
+			$color: $color-accent;
+
+			border-top: var(--size) solid transparent;
+			border-bottom: var(--size) solid transparent;
+
+			&:nth-child(1) {
+				border-right: var(--size) solid $color;
+				transform-origin: right;
+			}
+
+			&:nth-child(3) {
+				border-left: var(--size) solid $color;
+				transform-origin: left;
+			}
+
+			&:hover {
+				transform: scale(1.5);
+			}
+
+			&:active {
+				transform: scale(1.25);
+				transition: transform .1s;
+				filter: brightness(1.5);
+			}
+		}
+	}
+
+	.image.focused {
+		filter: brightness(1.5);
+		transition: 1s !important;
+	}

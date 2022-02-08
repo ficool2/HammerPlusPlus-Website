@@ -1,0 +1,334 @@
+*, ::after, ::before {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+::-moz-selection {
+  color: black;
+  background-color: #ff00ff;
+}
+
+::selection {
+  color: black;
+  background-color: #ff00ff;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #202020;
+  border-radius: 50vw;
+  margin: 10px;
+}
+
+::-webkit-scrollbar-corner {
+  background-color: #202020;
+  border-radius: 50vw;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #be00be;
+  border-radius: 50vw;
+}
+
+body {
+  background-color: black;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+p:first-child {
+  margin-top: 0;
+}
+
+hr {
+  border: 1px solid #be00be;
+  -webkit-box-shadow: 0 5px 20px 2px #be00be;
+          box-shadow: 0 5px 20px 2px #be00be;
+}
+
+ul, li {
+  list-style-position: inside;
+  list-style-type: "- ";
+}
+
+a {
+  color: #ff00ff;
+}
+
+a:hover, a:focus {
+  text-shadow: 0 0 2px #ff00ff;
+}
+
+code {
+  background-color: #0f0f0f;
+  padding: .025em .5em;
+  border-radius: 5px;
+  font-family: monospace;
+  border: 1px solid #781983;
+}
+
+iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: none;
+}
+
+iframe[src*=youtube] {
+  background-color: black;
+}
+
+.logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.logo > img {
+  max-width: 100%;
+}
+
+nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-inline: 10px;
+}
+
+nav > a {
+  position: relative;
+  padding: .5em 1em;
+  font-size: 1.25em;
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+  z-index: 0;
+  -webkit-transition: color .5s;
+  transition: color .5s;
+  overflow: hidden;
+  text-transform: capitalize;
+}
+
+nav > a::after {
+  position: absolute;
+  inset: 0;
+  top: 100%;
+  height: 0%;
+  content: "";
+  background-color: #be00be;
+  -webkit-transition: .5s;
+  transition: .5s;
+  z-index: -1;
+  border-radius: 10px 10px 0 0;
+}
+
+nav > a.selected::after {
+  top: 95%;
+  height: 5%;
+  -webkit-filter: drop-shadow(0 0 5px #be00be) drop-shadow(0 0 10px #be00be) drop-shadow(0 0 15px #be00be);
+          filter: drop-shadow(0 0 5px #be00be) drop-shadow(0 0 10px #be00be) drop-shadow(0 0 15px #be00be);
+}
+
+nav > a:hover, nav > a:focus-visible {
+  color: black;
+}
+
+nav > a:hover::after, nav > a:focus-visible::after {
+  height: 100%;
+  top: 0;
+  -webkit-filter: none;
+          filter: none;
+}
+
+.content {
+  margin-inline: auto;
+  max-width: 1000px;
+  width: 85vw;
+}
+
+article {
+  border: 2px solid #be00be;
+  -webkit-box-shadow: inset 0 0 50px -10px #be00be;
+          box-shadow: inset 0 0 50px -10px #be00be;
+  padding: 2em;
+  border-radius: 10px;
+  color: white;
+  font-size: 1.2em;
+  min-height: 35vh;
+}
+
+article > .header {
+  margin-bottom: .5em;
+}
+
+article .section {
+  margin-top: 2em;
+  padding-block: 1em;
+  padding-inline: 1em;
+  border-left: 2px solid #be00be;
+  position: relative;
+  background-size: 150%;
+  background-position: right;
+  -webkit-transition: .5s;
+  transition: .5s;
+  /* yeah, this is a bit ugly. Just to make things clear, we are adding
+			the alpha (AA) value at the of this color, which is in HEX */
+  background-image: -webkit-gradient(linear, left top, right top, from(#be00be50), color-stop(#be00be25), to(#be00be25));
+  background-image: linear-gradient(90deg, #be00be50, #be00be25, #be00be25);
+}
+
+article .section:hover {
+  background-position: left;
+}
+
+article .section-title {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+article .section-content {
+  margin-block: 1em;
+}
+
+article .section-content:last-child {
+  margin-bottom: 0;
+}
+
+article .info {
+  font-size: 1.1em;
+  text-align: center;
+  text-shadow: 0 0 5px #ff00ff;
+}
+
+footer {
+  border-top: 4px solid #be00be;
+  background-color: #ad00ad30;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 7.5em;
+  overflow-y: hidden;
+}
+
+footer > p {
+  max-width: 50%;
+}
+
+@-webkit-keyframes shake-rot {
+  25% {
+    -webkit-transform: scale(1.1) rotate(15deg);
+            transform: scale(1.1) rotate(15deg);
+  }
+  50% {
+    -webkit-transform: scale(1.1) rotate(-15deg);
+            transform: scale(1.1) rotate(-15deg);
+  }
+  75% {
+    -webkit-transform: scale(1.1) rotate(10deg);
+            transform: scale(1.1) rotate(10deg);
+  }
+}
+
+@keyframes shake-rot {
+  25% {
+    -webkit-transform: scale(1.1) rotate(15deg);
+            transform: scale(1.1) rotate(15deg);
+  }
+  50% {
+    -webkit-transform: scale(1.1) rotate(-15deg);
+            transform: scale(1.1) rotate(-15deg);
+  }
+  75% {
+    -webkit-transform: scale(1.1) rotate(10deg);
+            transform: scale(1.1) rotate(10deg);
+  }
+}
+
+.link {
+  display: inline-block;
+  width: 75px;
+  aspect-ratio: 1;
+  margin-right: 1em;
+}
+
+.link:hover {
+  -webkit-animation: shake-rot 1s;
+          animation: shake-rot 1s;
+}
+
+.link > * {
+  width: 100%;
+}
+
+.download {
+  display: block;
+  margin-top: 3em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+.download > img {
+  max-width: 70%;
+}
+
+.download:hover, .download:focus {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+  -webkit-filter: brightness(1.5) drop-shadow(0 0 10px rgba(255, 255, 255, 0.514)) drop-shadow(0 0 2px #ff00ff);
+          filter: brightness(1.5) drop-shadow(0 0 10px rgba(255, 255, 255, 0.514)) drop-shadow(0 0 2px #ff00ff);
+}
+
+@-webkit-keyframes error-glow {
+  from {
+    -webkit-filter: brightness(1.5) drop-shadow(0 0 0.25em rgba(255, 93, 93, 0.692));
+            filter: brightness(1.5) drop-shadow(0 0 0.25em rgba(255, 93, 93, 0.692));
+  }
+}
+
+@keyframes error-glow {
+  from {
+    -webkit-filter: brightness(1.5) drop-shadow(0 0 0.25em rgba(255, 93, 93, 0.692));
+            filter: brightness(1.5) drop-shadow(0 0 0.25em rgba(255, 93, 93, 0.692));
+  }
+}
+
+span.error {
+  color: #ff4f4f;
+  font-weight: bold;
+  -webkit-animation: error-glow .3s ease-in-out infinite alternate;
+          animation: error-glow .3s ease-in-out infinite alternate;
+}
+/*# sourceMappingURL=main.css.map */
