@@ -1,0 +1,300 @@
+@import "vars";
+
+
+*, ::after, ::before {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+::selection {
+	color: black;
+	background-color: $color-accent-bright;
+}
+
+
+// Scrollbar
+	::-webkit-scrollbar {
+		width: 10px;
+		height: 5px;
+	}
+
+	::-webkit-scrollbar-track {
+		background-color: $color-dark;
+		border-radius: 50vw;
+		margin: 10px;
+	}
+
+	::-webkit-scrollbar-corner {
+		background-color: $color-dark;
+		border-radius: 50vw;
+	}
+
+	::-webkit-scrollbar-thumb {
+		background-color: $color-accent;
+		border-radius: 50vw;
+	}
+
+
+// Defaults
+	body {
+		background-color: black;
+		font-family: Verdana, Geneva, Tahoma, sans-serif;
+	}
+
+	p {
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		&:first-child {
+			margin-top: 0;
+		}
+	}
+
+	hr {
+		border: 1px solid $color-accent;
+		box-shadow: 0 5px 20px 2px $color-accent;
+	}
+
+	ul, li {
+		list-style-position: inside;
+		list-style-type: "- ";
+	}
+
+	a {
+		color: $color-accent-bright;
+
+		&:hover, &:focus {
+			text-shadow: 0 0 2px $color-accent-bright;
+		}
+	}
+
+	code {
+		background-color: rgb(15, 15, 15);
+		padding: .025em .5em;
+		border-radius: 5px;
+		font-family: monospace;
+		border: 1px solid rgb(120, 25, 131)
+	}
+
+	iframe {
+		width: 100%;
+		aspect-ratio: 16 / 9;
+		border: none;
+
+		// Add a black bg to youtube iframes
+		&[src*=youtube] {
+			background-color: black;
+		}
+	}
+
+
+
+.logo {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	& > img {
+		max-width: 100%;
+	}
+}
+
+nav {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-inline: 10px;
+
+	& > a {
+		position: relative;
+		padding: .5em 1em;
+		font-size: 1.25em;
+		text-decoration: none;
+		font-weight: bold;
+		color: white;
+		z-index: 0;
+		transition: color .5s;
+		overflow: hidden;
+		text-transform: capitalize;
+
+		&::after {
+			position: absolute;
+			inset: 0;
+			top: 100%;
+			height: 0%;
+			content: "";
+			background-color: $color-accent;
+			transition: .5s;
+			z-index: -1;
+			border-radius: 10px 10px 0 0;
+		}
+
+		&.selected::after {
+			top: 95%;
+			height: 5%;
+			filter:
+				drop-shadow(0 0 5px $color-accent)
+				drop-shadow(0 0 10px $color-accent)
+				drop-shadow(0 0 15px $color-accent);
+		}
+
+		&:hover, &:focus-visible {
+			color: black;
+
+			&::after {
+				height: 100%;
+				top: 0;
+				filter: none;
+			}
+		}
+	}
+}
+
+
+.content {
+	margin-inline: auto;
+	max-width: 1000px;
+	width: 85vw;
+}
+
+
+article {
+	border: 2px solid $color-accent;
+	box-shadow: inset 0 0 50px -10px $color-accent;
+	padding: 2em;
+	border-radius: 10px;
+	color: white;
+	font-size: 1.2em;
+	min-height: 35vh;
+
+	> .header {
+		margin-bottom: .5em;
+	}
+
+	.section {
+		margin-top: 2em;
+		padding-block: 1em;
+		padding-inline: 1em;
+		border-left: 2px solid $color-accent;
+		position: relative;
+		background-size: 150%;
+		background-position: right;
+		transition: .5s;
+
+		/* yeah, this is a bit ugly. Just to make things clear, we are adding
+			the alpha (AA) value at the of this color, which is in HEX */
+		background-image: linear-gradient(
+			90deg,
+			#{$color-accent}50,
+			#{$color-accent}25,
+			#{$color-accent}25,
+		);
+
+		&:hover {
+			background-position: left;
+		}
+	}
+
+	.section-title {
+		font-size: 1.5em;
+		font-weight: bold;
+	}
+
+	.section-content {
+		margin-block: 1em;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	.info {
+		font-size: 1.1em;
+		text-align: center;
+		text-shadow: 0 0 5px $color-accent-bright;
+	}
+}
+
+
+footer {
+	border-top: 4px solid $color-accent;
+	background-color: #ad00ad30;
+	color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 7.5em;
+	overflow-y: hidden;
+
+	& > p {
+		max-width: 50%;
+	}
+}
+
+
+@keyframes shake-rot {
+	25% {
+		transform: scale(1.1) rotate(15deg);
+	}
+	50% {
+		transform: scale(1.1) rotate(-15deg);
+	}
+	75% {
+		transform: scale(1.1) rotate(10deg);
+	}
+}
+
+.link {
+	display: inline-block;
+	width: 75px;
+	aspect-ratio: 1;
+	margin-right: 1em;
+
+	&:hover {
+		animation: shake-rot 1s;
+	}
+
+	& > * {
+		width: 100%;
+	}
+}
+
+
+// Each download image
+.download {
+	display: block;
+	margin-top: 3em;
+	display: flex;
+	justify-content: center;
+	transition: .5s;
+
+	> img {
+		max-width: 70%;
+	}
+
+	&:hover, &:focus {
+		transform: scale(1.05);
+
+		filter:
+			brightness(1.5)
+			drop-shadow(0 0 10px rgba(255, 255, 255, 0.514))
+			drop-shadow(0 0 2px $color-accent-bright);
+	}
+}
+
+
+@keyframes error-glow {
+	from {
+		filter:
+			brightness(1.5)
+			drop-shadow(0 0 .25em rgba(255, 93, 93, 0.692));
+	}
+}
+
+span.error {
+	color: rgb(255, 79, 79);
+	font-weight: bold;
+	animation: error-glow .3s ease-in-out infinite alternate;
+}
