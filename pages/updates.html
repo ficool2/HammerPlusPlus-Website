@@ -15,9 +15,29 @@
 			</a>
 			<nav id="navbar"></nav>
 			<article>
+			
+<div class="patch">
+	<h1>Build 8859 (February 9th 2022)</h1>
+	<pre>
+- Added feature to set background images
+	- Accessible in View -> Set Background Images
+	- Customizable and accepts common image formats like .png, .jpg, .tga etc
+	- Saved in VMF
+- Added ability to depth select in 3D view when using middle mouse camera controls by Shift + Middle clicking
+	- Under middle mouse camera control, instance preview is available under Ctrl + Middle click instead
+- Changed info_player_* entities to spawn 1 unit above ground in 3D view as they don't work when touching floor
+- Fixed crash when changing displacement power
+- Fixed crashes when painting displacements
+- Fixed issue where brush wouldn't move after selecting something in 3D view while box select was active
+- Fixed entity targetnames referenced in an instance in outputs not being highlighted blue
+- Fixed vmf_autosave files being incorrectly saved as 'vmf_autosavx'	
+- Fixed missing texture sprites being very small
+- CSGO: Fixed Steam error when launching game from standard Run Map dialog
+	</pre>
+</div>			
 
 <div class="patch">
-	<h1>Build 8858: Hotfix #7 (January 30th 2022)</h1>
+	<h1>Build 8858 (January 30th 2022)</h1>
 	<pre>
 - Added color correction preview, available in View -> Set Color Correction Preview
 	- Color correction will only display inside lighting preview mode
@@ -56,7 +76,7 @@
 
 
 <div class="patch">
-	<h1>Build 8857: Hotfix #6 (January 25th 2022)</h1>
+	<h1>Build 8857 (January 25th 2022)</h1>
 	<pre>
 - Fixed monitor and missing textures becoming misaligned when saving the map
 - Fixed tool texture and nodraw toggle not working inside instances
@@ -79,7 +99,7 @@
 
 
 <div class="patch">
-	<h1>Build 8856: Hotfix #5 (January 24th 2022)</h1>
+	<h1>Build 8856 (January 24th 2022)</h1>
 	<pre>
 - Fixed lighting preview not working under low texture quality. If lighting preview failed to work for you before, this is the fix
 - Fixed freeze when merging or spliting vertices in vertex edit tool
@@ -106,7 +126,7 @@
 
 
 <div class="patch">
-	<h1>Build 8855: Hotfix #4 (January 23rd 2022)</h1>
+	<h1>Build 8855 (January 23rd 2022)</h1>
 	<pre>
 - Fixed Hammer hard freezing if the game was started up
 - Fixed detail objects not being regenerated on a face if texture was changed
@@ -141,7 +161,7 @@
 
 
 <div class="patch">
-	<h1>Build 8854: Hotfix #3 (January 22nd 2022)</h1>
+	<h1>Build 8854 (January 22nd 2022)</h1>
 	<pre>
 - Fixed lighting preview running much slower than intended because multithreading was accidentally disabled
 - Fixed tool cursors sometimes failing to display in 2D view
@@ -161,7 +181,7 @@
 
 
 <div class="patch">
-	<h1>Build 8853: Hotfix #2 (January 22nd 2022)</h1>
+	<h1>Build 8853 (January 22nd 2022)</h1>
 	<pre>
 - Fixed crashes when using displacement tools
 - Fixed crash when showing map info if the map had more than 1024 textures
@@ -183,7 +203,7 @@
 
 
 <div class="patch">
-	<h1>Build 8852: Hotfix (January 21st 2022)</h1>
+	<h1>Build 8852 (January 21st 2022)</h1>
 	<pre>
 - Fixed an obstructive blue square appearing when selecting faces
 	</pre>
