@@ -6,7 +6,7 @@ function genNav() {
 	if (!nav) return;
 
 	const current = location.pathname.split("/").pop().replace(".html", "");
-	const pages = ["home", "features", "updates", "download", "credits"];
+	const pages = ["index", "features", "updates", "download", "credits"];
 
 	pages.forEach(page => {
 		const link = document.createElement("a");
