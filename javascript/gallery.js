@@ -1,3 +1,5 @@
+"use strict"
+
 const FOCUS_IMG = document.getElementById("focus-img")
 const FOCUS_CONTAINER = document.getElementById("focus-container")
 const IMGS = Array.from(document.querySelectorAll(".image:not(.img-split)"));

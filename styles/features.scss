@@ -2,12 +2,21 @@
 
 
 .feature-grid {
+	--min-col-width: 400px;
+
 	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-	gap: 1.1vw;
+	grid-template-columns: repeat(auto-fill, minmax(var(--min-col-width), 1fr));
+	gap: 1.5vh;
 	margin: 2em;
 	color: white;
 	font-size: 1.1em;
+
+	@media screen and (max-width: 1000px) {
+		& {
+			--min-col-width: 200px;
+			font-size: .75em;
+		}
+	}
 
 	.cell {
 		width: 100%;
