@@ -11,7 +11,7 @@ function setFocusImage(image) {
 	IMGS[currentImage].classList.remove("focused")	// remove the fucused state of the last image
 	FOCUS_CONTAINER.classList.add("focused")
 
-	originalImage = image.cloneNode(true)	// clone the image to be focused
+	const originalImage = image.cloneNode(true)	// clone the image to be focused
 
 	// In case we are dealing with a video, show media controls
 	originalImage.setAttribute("controls", "true")
