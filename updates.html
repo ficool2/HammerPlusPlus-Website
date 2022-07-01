@@ -17,6 +17,28 @@
 			<article>
 			
 <div class="patch">
+	<h1>Build 8862 (July 1st 2022)</h1>
+	<pre>
+- Fixed broken shaders and pixel shader errors under CSGO
+- Fixed entity swap bug when switching through outputs tab in I/O
+- Fixed memory error when undoing displacements
+- Fixed water appearing as missing texture
+- Fixed broken layout of color picker in TF2/SDK2013
+- Fixed FPS counter and position/rotation display overlapping with high DPI scale
+- Fixed keybind for switching to lighting preview not functioning
+- Fixed a crash related to copying entities
+- Fixed wrong sprite animation timing while selecting
+- Fixed background images drawing in the wrong order in 2D view
+- Added option to invert displacement alpha, only works under SDK2013
+- Added default cubemap/lightmap binding for particles
+- Draw walkable surfaces option is no longer saved between sessions
+- Unbound Duplicate Selection by default as users would accidentally press it, you can rebind it in the keybind editor
+- Hammer++ will now attempt to autosave under a memory crash
+- Removed dependency on BASS audio player, replaced with alternative
+	</pre>
+</div>				
+			
+<div class="patch">
 	<h1>Build 8861 (June 25th 2022)</h1>
 	<pre>
 - Added $color, $color2 and $srgbtint support to texture browser
