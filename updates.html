@@ -20,7 +20,7 @@
 	<h1>Build 8863 (October 31st 2022)</h1>
 	<pre>
 - Added convex + hole checker for brushes. This will catch invalid brushes that Hammer wouldn't pick up as invalid before, but could have caused VBSP to die (such as with the infamous "BSP unbounded" error)
-	- Note: Ssome maps may get reported as having invalid solids when they previously wouldn't. If these are inspected closely, very tiny edges or holes  can be discovered. A simple fix is to select all vertices and snap them to grid to make it valid again, or remake the brush.
+	- Note: some maps may get reported as having invalid solids when they previously wouldn't. If these are inspected closely, very tiny edges or holes  can be discovered. A simple fix is to select all vertices and snap them to grid to make it valid again, or remake the brush.
 - Added textured sprite icons in 2D view. On by default, this can be toggled off in options
 - Added trajectory visualizer for trigger_catapult
 - Added angles visualizer for env_blood, env_physimpact, env_entity_maker, func_movelinear, func_button, func_door, func_conveyor, info_projecteddecal, phys_thruster, shadow_control, trigger_apply_impulse, trigger_push, trigger_wind
