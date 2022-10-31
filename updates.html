@@ -17,6 +17,41 @@
 			<article>
 			
 <div class="patch">
+	<h1>Build 8863 (October 31st 2022)</h1>
+	<pre>
+- Added convex + hole checker for brushes. This will catch invalid brushes that Hammer wouldn't pick up as invalid before, but could have caused VBSP to die (such as with the infamous "BSP unbounded" error)
+	- Note: Ssome maps may get reported as having invalid solids when they previously wouldn't. If these are inspected closely, very tiny edges or holes  can be discovered. A simple fix is to select all vertices and snap them to grid to make it valid again, or remake the brush.
+- Added textured sprite icons in 2D view. On by default, this can be toggled off in options
+- Added trajectory visualizer for trigger_catapult
+- Added angles visualizer for env_blood, env_physimpact, env_entity_maker, func_movelinear, func_button, func_door, func_conveyor, info_projecteddecal, phys_thruster, shadow_control, trigger_apply_impulse, trigger_push, trigger_wind
+- CSGO: Added vgui_world_text_panel preview
+- Added option to change number of digits for texture precision, default is 4
+- Added option to disable DPI scaling. If you had problems with wonky UI scaling before, disabling this should help
+- Improved brush precision slightly in edge cases
+- Improved performance when vertex manipulating a large displacement with detail sprites
+- Significantly improve speed of Keyword filtering in the texture browser
+- CSGO: Fixed model browser input being stuck if CTRL or SHIFT or ALT were held when exiting
+- Fixed wrong working directory for the compiler window when executing thirdparty files
+	- As a result, the full filename workaround is no longer needed for tools such as Propper. Simply typing in 'propper' will now work
+- Fixed brushes with less than 4 faces not being reported as invalid
+- Fixed crash when vertex manipulating displacements and editing them afterwards
+- Fixed crash when box selecting with vertex manipulation, pressing enter and then holding left click
+- Fixed displacement duplication bug due to vertex manipulation
+- Fixed crash when undoing displacements after certain operations
+- Fixed undo not preserving all displacements for certain operations
+- Fixed detailsprites persisting after destroying a displacement
+- Fixed ragdolls appearing at map origin if invalid pose was specified by the mapper
+- Fixed rare idle crash related to Discord rich presence (migrated to new Discord SDK)
+- Fixed certain cases of random rendering crashes
+- Fixed prop_static modelscale updating out of sync in lighting preview
+- Fixed .ogg files not being playable (for source mods that support it)
+- Fixed missing texture not appearing on sprites
+- Fixed missing texture sprites being super tiny
+- Reverted I/O performance changes to an earlier build. This should fix the rare situation where entities were unintentionally swapped
+	</pre>
+</div>
+			
+<div class="patch">
 	<h1>Build 8862 (July 1st 2022)</h1>
 	<pre>
 - Fixed broken shaders and pixel shader errors under CSGO
