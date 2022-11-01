@@ -17,6 +17,24 @@
 			<article>
 			
 <div class="patch">
+	<h1>Build 8864 (November 1st 2022)</h1>
+	<pre>
+- Added point_spotlight, env_beam and env_laser preview
+- Added ragdoll() helper to FGD to allow any entity to be simulated as ragdoll
+- Improved performance of creating entity helpers
+- Fixed compile window failing to open for some users
+- Fixed DPI scale option not working
+- Fixed cube missing for some entities that did not have sprites assigned
+- Fixed scaling texture lock being on by default
+- Fixed selection causing time to slow down for ropes, sprite and model animation
+- Fixed wrong solid ID being printed in message window
+- Fixed hidden objects being included when collapsing instances
+	- If you want to restore old behavior, set InstanceCollapseHidden to 1 in the settings.ini
+- CSGO: Fixed crash when loading Portal 2/L4D2 particles
+	</pre>
+</div>			
+			
+<div class="patch">
 	<h1>Build 8863 (October 31st 2022)</h1>
 	<pre>
 - Added convex + hole checker for brushes. This will catch invalid brushes that Hammer wouldn't pick up as invalid before, but could have caused VBSP to die (such as with the infamous "BSP unbounded" error)
