@@ -18,13 +18,58 @@
 
 		<hr>
 
+		<!-- For the image gallery -->
 		<div id="focus-container">
 			<span id="focus-arrow-left" class="arrow"></span>
 			<div id="focus-img"></div>
 			<span id="focus-arrow-right" class="arrow"></span>
 		</div>
 
+
 		<div class="feature-grid">
+			<div class="cell row2 col2">
+				<video class="image" src="images/features_realtimearch.mp4"></video>
+				<div class="cell-content">
+					<h1> Real-Time Arch Tool </h1>
+					<p>
+						See the changes to your arches in real-time with the 2D/3D viewport,
+						without relying on the outdated 2D preview.
+					</p>
+				</div>
+			</div>
+
+			<div class="cell row2 col2">
+				<img class="image" src="images/features_colorcorrection.png">
+				<div class="cell-content">
+					<h1> Color Correction Preview </h1>
+					<p>
+						See the look of your map under a different pair of eyes.
+						Available only in lighting preview.
+						Accessible from View -> Set Color Correction
+					</p>
+				</div>
+			</div>
+
+			<div class="cell">
+				<img class="image" src="images/features_color_support.png">
+				<div class="cell-content">
+					<h1> Color support in Texture Browser </h1>
+					<p>
+						View textures with $color, $color2 and $srgbtint applied.
+					</p>
+				</div>
+			</div>
+
+			<div class="cell">
+				<img class="image" src="images/features_backgroundimgs.png">
+				<div class="cell-content">
+					<h1> Background Images </h1>
+					<p>
+						Load multiple images into the viewports and adjust them to your liking.
+						Found in View -> Set Background Images
+					</p>
+				</div>
+			</div>
 
 			<div class="cell row2 col2">
 				<img class="image" src="images/features_lightingpreview.png">
@@ -50,6 +95,27 @@
 			</div>
 
 			<div class="cell">
+				<video class="image" src="images/features_particles.mp4"></video>
+				<div class="cell-content">
+					<h1> Particle Rendering </h1>
+					<p>
+						Preview particles from an info_particle_system right inside the editor.
+						Toggleable with 2 new toolbar buttons, whether to draw particles and whether to draw particles from selected particle systems only.
+					</p>
+				</div>
+			</div>
+
+			<div class="cell">
+				<video class="image" src="images/features_overlaypreserve.mp4"></video>
+				<div class="cell-content">
+					<h1> Overlay Face Preservation </h1>
+					<p>
+						Overlays assigned to brushes which get clipped will now preserve the assigned faces afterwards instead of dropping them.
+					</p>
+				</div>
+			</div>
+
+			<div class="cell row2 col2">
 				<video class="image" src="images/features_instancepreview.mp4"></video>
 				<div class="cell-content">
 					<h1> Instance Preview </h1>
@@ -60,7 +126,7 @@
 				</div>
 			</div>
 
-			<div class="cell">
+			<div class="cell row2 col2">
 				<video class="image" src="images/features_colorpicker.mp4"></video>
 				<div class="cell-content">
 					<h1> Color Picker </h1>
@@ -111,32 +177,11 @@
 			</div>
 
 			<div class="cell">
-				<video class="image" src="images/features_overlaypreserve.mp4"></video>
-				<div class="cell-content">
-					<h1> Overlay Face Preservation </h1>
-					<p>
-						Overlays assigned to brushes which get clipped will now preserve the assigned faces afterwards instead of dropping them.
-					</p>
-				</div>
-			</div>
-
-			<div class="cell">
 				<video class="image" src="images/features_modelhotload.mp4"></video>
 				<div class="cell-content">
 					<h1> Model Hotload </h1>
 					<p>
 						Models and their materials are now properly auto refreshed when externally modified.
-					</p>
-				</div>
-			</div>
-
-			<div class="cell">
-				<video class="image" src="images/features_particles.mp4"></video>
-				<div class="cell-content">
-					<h1> Particle Rendering </h1>
-					<p>
-						Preview particles from an info_particle_system right inside the editor.
-						Toggleable with 2 new toolbar buttons, whether to draw particles and whether to draw particles from selected particle systems only.
 					</p>
 				</div>
 			</div>
@@ -293,7 +338,7 @@
 				</div>
 			</div>
 
-			<div class="cell">
+			<div class="cell row2 col2">
 				<video class="image" src="images/features_tool_pivot.mp4"></video>
 				<div class="cell-content">
 					<h1> Pivot </h1>
@@ -337,7 +382,7 @@
 				</div>
 			</div>
 
-			<div class="cell">
+			<div class="cell row2 col2">
 				<video class="image" src="images/features_face_edit.mp4"></video>
 				<div class="cell-content">
 					<h1> Face Edit Sheet/Material Tool </h1>
@@ -362,7 +407,7 @@
 			</div>
 
 
-			<div class="cell">
+			<div class="cell row2 col2">
 				<video class="image" src="images/features_tool_clipper.mp4"></video>
 				<div class="cell-content">
 					<h1> Clipping Tool </h1>
@@ -421,7 +466,7 @@
 				</div>
 			</div>
 
-			<div class="cell">
+			<div class="cell row2 col2">
 				<img class="image" src="images/features_microgrid.png">
 				<div class="cell-content">
 					<h1> Microgrid </h1>
@@ -530,6 +575,6 @@
 	<script>
 		genNav();
 		setSplitImages();
-		setVideos(["loop"]);
+		setVideos(["loop", "muted"]);
 	</script>
 </html>

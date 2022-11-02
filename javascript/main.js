@@ -1,3 +1,5 @@
+"use strict"
+
 /**
  * Generates the navbar based on the current page.
  */
