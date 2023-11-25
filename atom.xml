@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf—8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+<title>Grand hammer++ rss</title>
+<link href=https://ficool2.github.io/HammerPlusPlus-Website/>
+<updated>2022-11-01 22:03:36</updated>
+<description>The main news about the hammer++ extension launched in 2021</description>
+
+<author>
+<name>ficool2</name>
+<uri>https://github.com/ficool2</uri>
+</author>
+
+<id>http://www.exemplo.com</id>
+<icon>https://ficool2.github.io/HammerPlusPlus-Website/images/favicon.ico</icon>
+<logo>https://ficool2.github.io/HammerPlusPlus-Website/images/logo.png</logo>
+<rights> Hammer++ is not affiliated with Valve Corporation</rights>
+<subtitle>The main news about the hammer++ extension launched in 2021</subtitle>
+<category term=Software/>
+</feed>
+
+<entry>
+<title>14th of March, 2021</title>
+<link href="http://www.exemplo.com/artigos.php?id=46"/>
+<id>http://www.exemplo.com/artigos.php?id=46/</id>
+<updated>05—01—2006 02:56:00</updated>
+<summary>Original public release! The trailer for this can be seen below.</summary>
+<author>
+ <name>ficool2</name>
+</author>
+</entry>
