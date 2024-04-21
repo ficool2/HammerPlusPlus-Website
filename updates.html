@@ -17,6 +17,77 @@
 			<article>
 			
 <div class="patch">
+	<h1>Build 8865 (April 21st 2024)</h1>
+	<pre>
+- Added experimental Garry's Mod and Left 4 Dead 2 support
+	- Portal 2 support still has some problems, this will be released at a later date
+- Added 64-bit support for Garry's Mod and Team Fortress 2
+- Added Occlusion Culling
+	Provides significant framerate improvement, particularly on indoor heavy maps
+	Can be disabled in Options if it causes issues
+- Added env_sun preview
+	- In Garry's Mod, this will also show phong on brushes
+- Added preview for TF2's version of point_worldtext
+- Added direction helper to light_environment, light_directional and env_fog_controller
+- Added check for missing texture overlays in Check for Problems
+- Added model name when 'Missing/invalid model name' is found in Check for Problems
+- Added Show Alpha button to texture browser
+- Added text wrapping to the Parameters window in Expert Run Map dialog
+- Added support for loading Jolt physics engine via "vphysics_jolt.dll" if started with -jolt parameter
+- Added displacement filters to download and moved their directory to "hammerplusplus/filters/"
+	- This was needed as some games did not ship filters for 64-bit
+- Added shader fix for WorldVertexTransition blend modulate textures for SDK2013
+- Added shader fix for Sprites rendering through walls on Garry's Mod and SDK2013
+- Added toggleable support for 4 way displacement blends (default is off)
+	- To enable, open hammerplusplus_settings.ini and change Enable4WayBlends under [General] to true
+	- The Blend button under Sculpt will now be enabled, and the extra information will be read and saved in VMFs
+	- NOTE: The game itself must support this feature for it to work! 
+	  The blends will not show up in Hammer++ unless shader support is present
+	  If shaders are implemented to show 4WayBlends under Garry's Mod, this will serve as support for Black Mesa
+- VMFs can be drag and dropped (like Garry's Mod Hammer)
+- Upgraded compile window to inform if a command failed, and the total time is now shown
+- Significantly reduced memory usage for baking bounced lighting on large maps with high number of threads
+- Enabled precise floating point math, should slightly help with brush precision
+- Disabled brush convexity checker due to false positives
+	- VBSP tends to allow wonky brushes like that more often than not
+- !nick, !rochelee, !ellis, !coach, !bill, !zoey, !louis and !francis targetnames are recognized as valid targetnames
+- Fixed detail sprites materials breaking after modifying a displacement
+- Fixed lighting preview only creating displacement shadows from the backside
+	- Now matches VRAD behavior, both sides will block shadows
+	- Prop lighting preview may look downgraded due to this change, particularly with rocks inside displacements
+	  This can be workarounded by setting prop lighting origins to a better info_lighting place
+	  Lighting origins won't affect VRAD because it uses per-vertex lighting
+- Fixed quick texture list dropdown going up by default, it will now try go down whenever possible
+- Fixed textures longer than 128 characters being truncated in texture browser
+- Fixed broken color picker layout
+- Fixed useless Half Life 2 config being generated for Team Fortress 2 on first time use
+	- It will still appear if you had it from previous game configurations, but it can be deleted in options
+- Fixed fog being enabled by default on 3D sky previews
+- Fixed .oggs not playing in sound browser (for games that support it)
+- Fixed entity key names longer than 32 characters being truncated
+- Fixed entities defined with Uppercase letters in the FGD not loading correctly
+- Fixed texture axes still showing on faces when selected with helpers toggled off
+- Fixed hidden 3D sky instances and sky_cameras being considered as valid for preview
+- Fixed env_beam/env_laser/point_spotlight sprites expanding the bounding box
+- Fixed mdl corruption if more than 512mb total of model data was loaded	
+- Fixed incorrect path being generated when selecting Entity Scripts via the Manage button
+- Fixed list of search paths in Messages window being truncated if it was longer than 4096 characters
+- Fixed Run Map commands being wiped if the Edit window was exited without pressing Close
+- Fixed Run Map commands with escaped $ (by using $$) not being parsed correctly
+	- Therefore $ can now be passed into commands
+- Fixed black 3D views when resizing the window
+- Fixed Jumpman colliding with tool brushes
+- Fixed zombie hammerplusplus.exe processes remaining rarely after shutdown
+- Fixed crash/corruption when changing configurations in Expert Run Map dialog
+- Fixed crash when running Map -> Check for Problems with certain malformed FGDs
+- Fixed crash when painting displacements if the displacement filters folder was empty
+- Fixed crash if trigger_catapult had missing keyvalues
+- Fixed crash if a face with valid luxels became invalid (0 area) and was baked in lighting preview
+	</pre>
+</div>			
+					
+			
+<div class="patch">
 	<h1>Build 8864 (November 1st 2022)</h1>
 	<pre>
 - Added point_spotlight, env_beam and env_laser preview
