@@ -17,6 +17,86 @@
 			<article>
 			
 <div class="patch">
+	<h1>Build 8866 (May 19th 2024)</h1>
+	<pre>
+- Added native Propper tool
+	- Converts selected brushes/displacements to a model automatically
+	- Works on all games and serves as a replacement for the old standalone Propper tool
+	- Access it from Tools -> Propper or Ctrl + Shift + P
+	- Brushes tied to an entity or grouped together will be converted into a single mesh
+	- Unlike the old Propper, this converts the Hammer mesh directly so there is no destructive loss from the BSP process
+	- The tool is a two-step process: Build and Compile
+	- If you want to add extra model properties like prop_data, Build it first, edit the generated QC and then Compile
+	- Note: the studiomdl.exe path won't be automatically configured unless you are on a fresh install
+	- Make sure to configure the MDL program in Tools -> Options -> Build Programs first
+- Added support for HDR lighting preview (on by default)
+	- Improved lighting quality in dark interiors
+	- Includes post-processing preview: change tonemap, bloom, color correction and vignette settings
+	- Left 4 Dead 2: This fixes lighting preview brightness being very inaccurate in dark areas, as the game uses up to x8 tonemap scaling by default!
+	- Left 4 Dead 2: 2D skybox preview will now show HDR skyboxes correctly
+	- Moved Map -> Set Color Correction to lighting preview's options
+	- When a map is loaded for the first time, bloom/tonemap settings are copied from the first found env_tonemap_controller 
+	- If there is multiple env_tonemap_controllers, the one with "global" in the name is favored first
+	- LDR mode can be re-enabled in Tools -> Options -> Hammer++ (not recommended)
+- Upgraded texture browser to display WorldVertexTransition blends automatically
+	- %tooltexture is now ignored on WorldVertexTransition materials for this reason
+- Added transparency display for $additive materials in the texture browser
+- Added error message in compile window when a command fails from missing dependencies or wrong architecture
+- Added error message in compile window when attempting to run hl2.exe on 64-bit TF2
+- Added error message in compile window if VVIS fails potentially due to a leak
+- Added extra info on showing compile window errors to other people
+- Added warning message if resource files for model/particle browser are missing (they will crash without them)
+- Loading a pointfile will now center camera on the exit point 
+- Pointfiles will now select the (brush) entity responsible for the leak when loaded
+- Increased pointfile color saturation
+- Added slider for Near Clipping Plane in Options -> 3D views
+	- Increasing this allows reducing z-fighting when observing very large maps
+- Added exception address to crash message
+- Updated model ambient sampling in lighting preview
+	- Now samples nearby lightmaps, this should make them look better inside (dark) interiors
+- Changed I/O delimiter in Garry's Mod to use ESC rather than commas by default
+	- Should fix issues with instance I/O
+- Raised compile parameter length limit from 260 to 8192 (maximum length allowed by Windows)
+- Increased max back clipping plane, model render distance and detail render distance from 32768 to 99999
+- Brushes tied to entities can longer be used in the Merge tool (move them to world first)
+	- This fixes issues with phantom brushes which then caused a crash
+- Changed model browser background color to match particle browser (darker)
+- Clarified the "Failed to load engine dlls" error that it may happen if an antivirus quarantined the files
+- Hammer++ now uses it's own default cubemap in materials/dev_test/cubemap
+- Jumpman has learned to swim
+- Removed visibility options from lighting preview
+- Fixed compile window not reading parameters correctly if "Wait for Keypress" was disabled
+- Fixed missing texture thumbnails in the Texture Browser in Left 4 Dead 2 and Garry's Mod
+- Fixed textures with no mipmaps displaying corrupted in the texture browser
+- Fixed textures with non-square dimensions displaying stretched in the texture browser
+- Fixed textures displaying $color tints slightly inaccurately
+- Texture browser now uses less memory and displays textures faster
+- Fixed physics tool freezing on certain hardware in Left 4 Dead 2
+- Fixed incorrect default gameconfig paths for Left 4 Dead 2
+- Fixed water textures having a missing texture reflection in Left 4 Dead 2
+- Fixed a 2 pixel wide yellow corner appearing when selecting objects in Left 4 Dead 2
+- Fixed models/noesis/donut.mdl causing a catastrophic crash in Garry's Mod
+	- More specifically, fixed models crashing if they used non-conventional $keyvalues formatting
+- Fixed collision models not displaying in the model browser in Garry's Mod
+- Fixed wobbly camera movement because Hammer++ performance was too high
+- Fixed hotloaded models not updating their bounding box correctly
+- Fixed _rt_camera appearing as missing texture
+	- This also fixes texture alignment tools being broken with camera textures
+- Fixed geometry not rendering behind brushes that are being select dragged
+- Fixed geometry being culled in Wireframe mode
+- Fixed missing scrollbar in the vertical texture list in Face Edit sheet window
+- Fixed TF2 point_worldtext not being sorted in rendering
+- Fixed env_sun and point_spotlight being culled by cordon
+- Fixed "Soften Cosine" toggle in lighting preview not working until a full rebake
+- Fixed cubemaps flickering if selecting objects while cubemaps were disabled in lighting preview
+- Fixed crash if right clicking a 3D view while map is loading
+- Fixed a case where textures would glitch out while drag selecting if particles where in view
+- Fixed Discord rich presence crashing if booting with -nomessagewnd
+- Fixed Jumpman exploding when entering a map on 32-bit
+	</pre>
+</div>			
+			
+<div class="patch">
 	<h1>Build 8865 (April 21st 2024)</h1>
 	<pre>
 - Added experimental Garry's Mod and Left 4 Dead 2 support
