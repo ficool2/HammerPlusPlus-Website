@@ -1,0 +1,11 @@
+User-Agent: *
+Allow: /https://ficool2.github.io/HammerPlusPlus-Website/features.html/
+Allow: /https://ficool2.github.io/HammerPlusPlus-Website/index.html/
+Allow: /https://ficool2.github.io/HammerPlusPlus-Website/download.html/
+Allow: /https://ficool2.github.io/HammerPlusPlus-Website/images/android-chrome-192x192.png/
+Disallow: /https://ficool2.github.io/HammerPlusPlus-Website/updates.html
+Disallow: /https://ficool2.github.io/HammerPlusPlus-Website/credits.html/
+Disallow: /https://ficool2.github.io/HammerPlusPlus-Website/images/kofi.png/
+
+Sitemap: sitemap.xml
+
