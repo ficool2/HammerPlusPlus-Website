@@ -17,6 +17,60 @@
 			<article>
 			
 <div class="patch">
+	<h1>Build 8867 (July 2nd 2024)</h1>
+	<pre>
+- Hotfix for model browser/color picker killing the renderer in Garry's Mod after July 1st update
+- Restored support for engine -> Hammer communication via the "map_edit" command 
+	- Unlike stock Hammer, Hammer++ ignores map version checking and will always allow a map to be edited 
+- Added "Import" button to Expert Compile window, allows importing commands from a .cfg
+- Added "Remove bad collision faces" to Propper (on by default), removes thin/tiny collision faces
+	- This fixes complex brushwork sometimes creating a shrinkwrapped collision model
+- Added support for handling _rt_camera0, _rt_camera1 and _rt_camera2 textures (for Mapbase)
+- Added Refract material rendering
+- Added 2D view option to change default rotation angle (15 degrees)
+- Added 2D view option to change scaling interval for the grid, default is x2
+	- Note that it renders in low resolution for performance reasons
+- HDR Lighting Preview now uses a half-brightness lightmap for fullbright materials	
+	- Tool textures such as nodraw should no longer make you blind
+- TF2: Quotation marks ("") in RunScriptCode inputs are now automatically replaced with backticks (`)
+- Improved clipping tool performance on large maps
+- Lighting preview settings are now hidden by default
+- Missing material thumbnails now show up as the purple checkerboard instead of solid black
+- Removed "Autosaving..." popup
+	- Fixes input being stolen while flying around with the camera
+- Autosaving will no longer occur when the 3D camera is moving
+- Limited thumbnails in texture browser to max 16:1 aspect ratio
+	- This allows disproportional textures like 2048x32 to still be recognizable
+- Fixed flickering in lighting preview with post processing on
+- Fixed "Show Alpha" in texture browser still showing textures as transparent when turned off
+- Fixed sorting issues with the overlay box model
+- Fixed resizing brush entities with direction helpers (e.g. func_door or func_button) being wonky
+- Fixed putting quotations marks (") or backwards slashes (\) into the comments field corrupting the VMF
+- Fixed some WorldVertexTransition materials appearing buggy in texture browser
+- Fixed nature/blendgroundtograss009 texture turning black when viewed in texture browser
+- Fixed post processing in lighting preview breaking if "Draw Materials Opaque" is enabled
+- Fixed incorrect aspect ratio scaling for alpha checkerboard background in texture browser
+- Fixed new keybinds for camera movement not being updated without restarting Hammer
+- Fixed env_beams that pointed at themselves as the start/end point being incorrectly treated as random strike
+- Fixed invalid textures not being fixed in Check for Problems dialog
+- Fixed wrong thumbnail size for skybox textures in texture browser
+- Fixed HDR-only skyboxes not being previewed in texture browser
+- Fixed corrupted texture thumbnail appearing when selecting a missing material
+- Fixed grid rendering precision, particularly at sub-unit scale
+	- Therefore added back support for non-power of 2 microgrid support, limited to minimum 0.1 scale
+- Fixed wrong texture size for _rt_camera in TF2, now matches ingame
+- Fixed Hammer++ freezing on load if an FGD had an incorrectly closed quote containing an operator
+	- This is also an issue in stock Hammer
+- Fixed a crash if an invalid last texture name was saved in the texture list
+- Fixed normal camera moving while under the influence of Jumpman
+<br>
+- KNOWN BUGS:
+	- Copying entities from a VMF that is closed might crash
+	  Workaround: Don't close the VMF until you have finished pasting
+	</pre>
+</div>				
+			
+<div class="patch">
 	<h1>Build 8866 (May 19th 2024)</h1>
 	<pre>
 - Added native Propper tool
