@@ -17,6 +17,48 @@
 			<article>
 			
 <div class="patch">
+	<h1>Build 8868 (July 28th 2024)</h1>
+	<pre>
+- Added UV lock tool, behaves identically to JACK editor's UV tool
+	- Toggle it from the new toolbar button
+	- When enabled, textures are "locked" in place when moving vertices in vertex edit mode
+	- This allows you to easily skew brushes without the old trignometry or vector workarounds!
+- Rebranded Propper to Propper++
+- Added support for merging models in Propper++
+	- Useful to combine static props to reduce draw calls
+	- Skins, bodygroups and scale are baked in
+	- You can also bake a singular model by itself
+- Added support for scaling along X Y Z individually in Propper++
+	- Negative values are accepted, you can use this to mirror props now
+- Experimental support for generating lightmap atlases in Propper++
+	- This allows prop_static lightmaps to be used when normally not possible
+	- See the documentation for more details
+- Official documentation for Propper++ is now hosted on Valve Wiki:
+	- <a href="https://developer.valvesoftware.com/wiki/Hammer++/Propper++">https://developer.valvesoftware.com/wiki/Hammer++/Propper++</a>
+	- Added a Help button to Propper++ that opens this page
+- Added option to set $casttextureshadows in Propper++
+- Added option to suffix model names in Propper++ if a conflicting .mdl is found
+- Propper++ now uses relative material paths instead of full paths in the generated model to reduce confusion
+- Added support for "obb" FGD helper (from L4D2 Hammer)
+- Added direction visualizer to trigger_catapult
+- Added default keybind for select all: Ctrl + Shift + A
+- Texture browser now renders transparent thumbnails only if the texture has $translucent, $alphatest or $additive
+- Fixed grid highlighting at small scales not working right
+- Fixed Propper++ failing if geometry with more than 65k triangles was created
+	- Now it will now auto-split meshes over that threshold
+- Fixed Propper++ not creating the materials directory
+- Fixed Enter key closing Propper++ instead of running Build + Compile sometimes
+- Fixed corrupt pixels appearing in texture thumbnails for non-square textures
+- Fixed entity_delete, entity_set_keyvalue, entity_rotate_incremental map_edit commands not working
+- Fixed vertex manipulation being unstable when moving more than 1024 vertices at the same time
+- Fixed TF2's command compile error not displaying a unique error when trying to start the game as "hl2.exe"
+- Fixed command compiler not showing user-friendly return messages
+- Maybe fixed textures using LightmappedReflective shader appearing as missing texture in some games
+- Fixed command parameters breaking in Run Map Expert if a newline was accidentally copy pasted
+	- Newlines are now removed from parameters automatically
+</div>			
+			
+<div class="patch">
 	<h1>Build 8867 (July 2nd 2024)</h1>
 	<pre>
 - Hotfix for model browser/color picker killing the renderer in Garry's Mod after July 1st update
