@@ -17,6 +17,44 @@
 			<article>
 			
 <div class="patch">
+	<h1>Build 8869 (November 17th 2024)</h1>	
+	<pre>
+- Added Portal 2 support
+- Added HLMV++ as a bundle for each branch
+	- This is optional to use and isn't required for Hammer++ to function
+- Added support for radial fog and bicubic filtering under Half Life 2 branch
+- Added option to change Lightmap Atlas padding in Propper++
+- Added option to toggle I/O delimiter (ESC instead of comma) to settings UI
+- Added Browse button to Sound browser to select sound file from disk
+- Increased maximum FGD key length from 40 to 80 (to match Portal 2 branch)
+- Changed model browser to output full path with / instead of \ slashes (for easy VScript copy pasting)
+- Further reduced brightness of fullbright materials (such as nodraw) in HDR lighting preview
+- Sprites and fullbright models are now also darker in HDR lighting preview
+- Entity order in the world now stays deterministic when adding/removing brushes or entities
+- 2D view can now be moved with arrow keys when nudging is enabled and nothing is selected
+- Fixed broken brush rendering after Half Life 2's 20th anniversary update
+- Fixed Align Entity to Floor/Ceiling by Normal not correctly preserving entity orientation
+- Fixed certain material math proxies writing the result as integer when not supposed to
+- Fixed overlays without $decal 1 flickering on walls or ceilings
+- Fixed Portal 2 fizzler materials not rendering
+- Fixed point_spotlight preview not rendering correctly inside instances
+- Fixed inconsistent/flickering cursor overrides in 2D views
+- Fixed lighting preview not updating lights when QuickHiding them
+- Fixed env_sprite becoming an ERROR model when copy pasting it and the FGD had a studio model helper
+- Fixed wrong beam brightness for point_spotlight preview
+- Fixed very short MP3 sound files not playing
+- Fixed texture browser crash when attempting to load a 1x1 DXT1 texture
+- Fixed model browser not showing models when selecting deeply nested subfolders
+- Fixed crash when attempting to render more than 121,792 opaque brush faces in one frame
+- Fixed crash caused by negative padding values in Propper++'s Lightmap Atlas
+- Fixed vertex buffer crash when rendering extremely complex collision models
+- Moved update detector to another thread, should fix a freeze on startup with no/slow internet
+- Middle mouse controls are now enabed by default for Garry's Mod branch (to match it's stock Hammer)
+- Rmoved unused "Crosshair Cursor" 2D view option that never did anything
+</div>
+			
+			
+<div class="patch">
 	<h1>Build 8868 Hotfix (October 18th 2024)</h1>	
 	<pre>
 - Hotfix for Team Fortress 2 update on October 18th, which caused Hammer++ to fail to boot on startup (again)
