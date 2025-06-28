@@ -1,0 +1,186 @@
+<html lang="en">
+	<head>
+		<title>Hammer++ : Tools</title>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="styles/main.css">
+		<link rel="stylesheet" href="styles/updates.css">
+		<link rel="icon" type=image/png href="images/favicon-32x32.png" sizes="32x32">
+	</head>
+	<body>
+
+		<div class="content">
+			<a class="logo" href="index.html">
+				<img src="images/logo.png">
+			</a>
+
+			<nav id="navbar"></nav>
+			<article>
+				<p class="info">
+					This is a collection of other tools and scripts I've made over the years<br>
+					I don't actively maintain these but perhaps others might find them useful..
+				</p>
+				
+				<br>
+						
+<div class="patch">
+	<h1>VBSP++</h1>	
+	<pre>
+VBSP++ is a modification of SDK2013 VBSP with various new features and improvements
+
+Changelog:
+- Automatically reduces brushes and brushsides usage of the map by 10-30%
+- No t-junction limit
+- No detail prop limit
+- Raised overlay limit to 1024 and internal entity limit to 16384
+- Added appid mounting if steam_appid.txt is present beside the exe
+- Added support for mounting custom shaders in mods
+- Added func_detail_blocker (like newer VBSPs)
+- Added -blocksize (useful to compute visibility faster on open, large maps)
+- Added -allowdynamicpropsasstatic (allows props without allowstatic in propdata to be used as static props)
+- Added -forcevirtualmesh (allows properly compiling power of 4 displacements like CS:GO)
+- Added parallax_obb entity support for mods that have parallax cubemaps
+- Added %compileNoShadows
+- Added func_nobevel support
+	- VBSP generates bounding box brushsides for angled geometry to improve collision accuracy
+	- But a problem is that these can eat up brushsides quickly
+	- Surround angled brushes with this to skip creating these extra brushsides
+	- Accurate collision isn't needed for areas the player can't reach anyway (like out of bounds)
+- Added -nobevel (disables brushsides for all angled geometry. I do not recommend using this, use func_nobevel instead)
+- func_occluder, func_areaportal, func_viscluster, func_nobevel, parallax_obb no longer count towards the brush limit
+- Improved clarity of some warnings and removed useless warnings
+- Fixed smoothing groups not working on func_detail
+- Fixed displacements not being rotated correctly in instances
+- Fixed missing texture cubemaps if skybox has mismatched side dimensions
+- Fixed crash if an instance overflowed brush or brushsides limit
+
+Installation:
+Place into your game's bin/x64/ folder (where normal vbsp.exe is)
+Update Hammer's game configuration to use vbspplusplus.exe as the BSP compiler
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/vbspplusplus.exe">Download</a> (Last updated: 28th June, 2025)
+</div>
+
+<div class="patch">
+	<h1>sq</h1>	
+	<pre>
+Standalone version of Squirrel language interpreter that supports dumping 
+
+Usage: sq -c myscript.nut > myscript.cnut
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/sq.zip">Download</a> (Last updated: 8th April, 2025)
+</div>
+
+<div class="patch">
+	<h1>file_to_nut</h1>	
+	<pre>
+Converts binary file to Squirrel array
+
+Usage: drag and drop a file
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/file_to_nut.exe">Download</a> (Last updated: 22nd September, 2023)
+</div>
+
+<div class="patch">
+	<h1>check_mdl</h1>	
+	<pre>
+Python script to check MDLs for corrupted vertex data
+There is an unknown compiler bug where models very rarely have corrupt LOD data
+Such corrupt models cause client crashes when decals are applied or users have lower graphics settings
+This tool can identify those so they can be recompiled
+Originally made to identify problematic props in the Greek Theme Pack for TF2
+
+Usage: install Python, run the script inside a folder of models you want to check
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/check_mdl.py">Download</a> (Last updated: 9th March, 2024)
+</div>
+
+<div class="patch">
+	<h1>cubemap2hdr</h1>	
+	<pre>
+Converts a cubemap in LDR color format to HDR
+Particularly useful for Left 4 Dead 2 where LDR cubemaps will look broken
+
+Usage: drag and drop a cubemap onto the exe
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/cubemap2hdr.exe">Download</a> (Last updated: November 11th, 2024)
+</div>
+
+<div class="patch">
+	<h1>tga2skybox</h1>	
+	<pre>
+Converts 6 tga files into a cubemap VTF, and automatically creates a LDR and HDR version
+Applies correction to the edges to blur seams as well
+Useful for fake skyboxes with WindowImposter shader
+
+Usage: run the tool and follow instructions
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tga2skybox.exe">Download</a> (Last updated: 31st May, 2024)
+</div>
+
+<div class="patch">
+	<h1>vtf_downscale</h1>	
+	<pre>
+CLI tool to downscale a VTF to a lower mipmap losslessly. Useful to reduce file size without re-compressing the texture
+Supports mass-automatic downscaling (for example to only downscale all 2048x2048 or higher textures)
+
+Usage: run from cmd to see help options
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/vtf_downscale.exe">Download</a> (Last updated: 15th August, 2024)
+</div>
+
+<div class="patch">
+	<h1>vtfstripalpha</h1>	
+	<pre>
+CLI tool to remove the alpha channel from VTFs without quality loss. Useful to reduce file size
+Supports mass-automatic detection and removal of blank (white) alpha channels
+Unfortunately, I lost the source code for this tool...
+
+Usage: run from cmd to see help options
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/vtfstripalpha.zip">Download</a> (Last updated: 24th August, 2022)
+</div>
+
+<div class="patch">
+	<h1>proptexelvtf</h1>	
+	<pre>
+Converts a prop_static lightmap (.ppl file extracted from BSP) into VTF
+
+Usage: drag and drop a .ppl onto the exe
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/proptexelvtf.exe">Download</a> (Last updated: Jan 11, 2021)
+</div>
+
+<div class="patch">
+	<h1>vtf_fix_mip2</h1>	
+	<pre>
+Removes LOD settings from VTFs
+Was useful to make some TF2 textures appear high-resolution, now obsolete as mat_picmip -10 is allowed again
+
+Usage: put the exe into the desired folder of textures and run
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/vtf_fix_mip2.exe">Download</a> (Last updated: 13th April, 2021)
+</div>
+
+<div class="patch">
+	<h1>dds_to_vtf</h1>	
+	<pre>
+Converts a DDS texture to VTF directly without quality loss (automatically chooses closest matching format)
+Mainly made this to easily convert textures from IW engine to Source, not tested on many types of DDS files
+
+Usage: drag and drop a .dds onto the exe
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/dds_to_vtf.exe">Download</a> (Last updated: 6th March, 2024)
+</div>
+
+
+			</article>			
+		</div>
+
+		<footer>
+			<a target="_blank" class="link" href="https://ko-fi.com/ficool2">
+					<img src="images/kofi.png" >
+			</a>
+			<p>
+				Hammer++ is not affiliated with Valve Corporation.
+				Like or enjoy my work? Support me on <a target="_blank" href="https://ko-fi.com/ficool2"> Ko-fi</a>.
+			</p>
+		</footer>
+
+	</body>
+	<script src="javascript/main.js"></script>
+	<script>
+		genNav();
+		addPatches();
+	</script>
+</html>
