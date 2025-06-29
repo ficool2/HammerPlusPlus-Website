@@ -66,11 +66,14 @@ function setVideos(attrs = ["autoplay", "loop", "muted"]) {
 /**
  * Sets the listeners to all the patch notes.
  */
-function addPatches() {
+function addPatches(show_first) {
 	const patches = Array.from(document.querySelectorAll(".patch"));
 
-	// The first patch note will be be active by default
-	patches[0].classList.toggle("active");
+	if (show_first)
+	{
+		// The first patch note will be be active by default
+		patches[0].classList.toggle("active");
+	}
 
 	patches.forEach(patch => {
 		patch.querySelector("h1").addEventListener("click", () => {
