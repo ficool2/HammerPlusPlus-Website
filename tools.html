@@ -82,7 +82,11 @@ Changelog:
 - Added appid mounting if steam_appid.txt is present beside the exe
 - Added -reflectivityscale
 - Added -worldtextureshadows
-	- Allows alphatest/translucent brush textures to cast proper shadows like props
+	- Allows $alphatest brush textures to cast proper shadows like props
+	- Requires -textureshadows
+- Added -translucentshadows
+	- Similar to -worldtextureshadows but for $translucent brush textures
+	- Requires -textureshadows and -worldtextureshadows
 - Improved vertex lighting for props
 	- Added -StaticPropIndirectMode to use old behavior if desired
 	- See <a target="_blank" href="https://github.com/ValveSoftware/source-sdk-2013/pull/1345">this page</a> for a comparison
