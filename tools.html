@@ -37,9 +37,11 @@ Changelog:
 - Added appid mounting if steam_appid.txt is present beside the exe
 - Added support for mounting custom shaders in mods
 - Added func_detail_blocker (like newer VBSPs)
-- Added -blocksize (useful to compute visibility faster on open, large maps)
+- Added -blocksize (default is 1024)
+	- Useful to compute visibility faster on open, large maps like surf (I recommend 2048)
+	- Using a higher blocksize also reduces your vertex count, useful to circumvent vertex limit
 - Added -allowdynamicpropsasstatic (allows props without allowstatic in propdata to be used as static props)
-- Added -forcevirtualmesh (allows properly compiling power of 4 displacements like CS:GO)
+- Added proper support for compiling power of 4 displacements (like CS:GO)
 - Added parallax_obb entity support for mods that have parallax cubemaps
 - Added func_detail_illusionary (identical to func_detail but non solid)
 - Added %compileNoShadows
