@@ -52,6 +52,8 @@ Changelog:
 	- Surround angled brushes with this to skip creating these extra brushsides
 	- Accurate collision isn't needed for areas the player can't reach anyway (like out of bounds)
 - Added -nobevel (disables brushsides for all angled geometry. I do not recommend using this, use func_nobevel instead)
+- Added optimization to automatically disable vertex lighting for props with $bumpmap/$phong
+	- Reduces time spent in VRAD with -staticproplighting
 - func_occluder, func_areaportal, func_viscluster, func_nobevel, parallax_obb no longer count towards the brush limit
 - Improved clarity of some warnings and removed useless warnings
 - Fixed smoothing groups not working on func_detail
@@ -68,7 +70,7 @@ The only supported games are 64-bit SDK2013-based games, for example:
 - Team Fortress 2, Counter-Strike: Source, Day of Defeat: Source, Half-Life 2: Deathmatch
 Garry's Mod is <span class="error">NOT</span> supported.
 
-<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/vbspplusplus.exe">Download</a> (Last updated: 28th June, 2025)
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/vbspplusplus.exe">Download</a> (Last updated: 26th July, 2025)
 </div>
 
 <div class="patch">
