@@ -17,6 +17,69 @@
 			<article>
 			
 <div class="patch">
+	<h1>Build 8870 (August 1st 2025)</h1>	
+	<pre>
+Happy 5th anniversary to Hammer++!
+
+- Added Hotspot Texturing
+	- Allows quickly applying textures to geometry by matching faces to pre-defined rectangles
+	- Useful for trims, panels etc, works similar to Source 2's Hotspots
+	- Rectangles are loaded from a .rect file, specified by $rectanglemap in the VMT
+	- Clicking "Fit" button on a hotspot-enabled material will map to nearest matching rectangle
+	- See <a href="https://developer.valvesoftware.com/wiki/Hotspot_Texturing">wiki page</a> for more information
+- Added new algorithm for UV island generation in Propper++ atlas
+	- Prevents stretching and has more consistent texel density, improves texture and lightmap quality
+	- In case of issues, old algorithm is still available as a toggle
+- Added ambient occlusion baking in Propper++ atlas
+	- See <a href="https://developer.valvesoftware.com/wiki/Hammer++/Propper++">wiki page</a> for more information
+- Added File -> Reload Particles
+	- You can open particle editor simultaneously and have changes refresh in editor
+- Added Steam mounting support by appid in gameinfo.txt in TF2 SDK-based games
+	- This was already present in previous hotfixes for TF2, but not everyone was aware/installed these hotfixes
+	- As a side effect, Hammer++ will be listed as Source SDK on Steam 
+	  Except for L4D2/Portal 2 which will use their Authoring Tools instead
+	- If you want to disable this, untick "Enable Steam support" in Hammer++ options
+- Added support for extending keyvalues and inputs/outputs via ExtendClass
+	- Previously this feature wasn't implemented and would crash
+- Added Occlusion View and "Occluder" tag in Face Edit tool
+	- Used to mark faces that should be rendered for software occlusion
+	- This feature is intended for an unreleased TF2 mod and will do nothing in official games
+	- Note: I am planning to release this feature publicly for the SDK at a later point
+- Added "Move Objects to Floor/Ceiling" in right click menu on 2D views
+- Garry's Mod: Fixed textures appearing randomly pixelated
+	- This was tied to fog preview trying to set radial fog, despite it not existing in GMod
+- Garry's Mod: Added Counter-Strike: Source and Half Life 2: Episodes mounting
+- Garry's Mod: Addons folder is now mounted by default like GMod Hammer
+	- If you want to disable addons, start Hammer++ with -noaddons parameter
+- Holding alt + left click + right click with Face Edit tool now applies continuously
+- Enabled "Classic Missing Texture" option by default
+	- However, is it now a red checkerboard to tell it apart from a VMT missing texture
+- Propper++ will now rename $color to $color2 in VMTs automatically
+- Texture browser now enforces a minimum thumbnail size of 32x32 so tiny textures are visible
+- Entity Report now shows extra info for func_instance, prop_* and info_overlay entities
+- Surface and contents flags for brush faces are now saved in the VMF ("flags" and "contents" respectively)
+- Hidden filter entities are no longer included in the list of filters in entity properties 
+- Unrecognized FGD types are now assumed to be string instead of causing a load error
+	- This is for compatibility with thirdparty engines
+- HLMV++: Added option to preview sequence walkframes
+- HLMV++: Fixed MDL not being loaded when passed as startup argument
+- Fixed thumbnails in quick texture dropdown not showing up
+- Fixed crash when changing configuration options in a VMF containing instances
+- Fixed crash when double clicking a map to load it on startup
+	- This only occured on maps with lots of unique models
+	- Caued by Hammer running out of model memory
+	- This is actually a bug in every version of Hammer!
+	- Likely also fixes random "Model is corrupt" errors in sessions
+- Fixed ←[0m markers appearing in compiler window in TF2 SDK-based games
+- Fixed "Invert Displacement Alpha" option not working under TF2 SDK-based games
+- Fixed missing support for SplineRope shader in TF2 SDK-based games
+- Fixed point_spotlight preview not reading the "Ignore Solid" Property
+- Fixed corrupt black geometry on faces in TF2 SDK-based games
+	- This only happened on the 32-bit version, you must now use 64-bit Hammer++
+- Fixed incorrect sprite colors in lighting preview HDR mode	
+</div>			
+			
+<div class="patch">
 	<h1>Build 8869 Hotfix 6 (April 21st 2025)</h1>	
 	<pre>
 - Fixed TF2 HLMV++ not loading .mdl name passed as argument
