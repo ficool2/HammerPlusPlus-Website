@@ -46,6 +46,8 @@ Happy 5th anniversary to Hammer++!
 	- This feature is intended for an unreleased TF2 mod and will do nothing in official games
 	- Note: I am planning to release this feature publicly for the SDK at a later point
 - Added "Move Objects to Floor/Ceiling" in right click menu on 2D views
+- Added support for "skyyaw" in worldspawn
+	- Intended for mods that support it
 - Garry's Mod: Fixed textures appearing randomly pixelated
 	- This was tied to fog preview trying to set radial fog, despite it not existing in GMod
 - Garry's Mod: Added Counter-Strike: Source and Half Life 2: Episodes mounting
@@ -73,6 +75,7 @@ Happy 5th anniversary to Hammer++!
 - Fixed ←[0m markers appearing in compiler window in TF2 SDK-based games
 - Fixed "Invert Displacement Alpha" option not working under TF2 SDK-based games
 - Fixed missing support for SplineRope shader in TF2 SDK-based games
+- Fixed func_detail variants such as func_detail_illusionary not casting shadows in lighting preview
 - Fixed point_spotlight preview not reading the "Ignore Solid" Property
 - Fixed corrupt black geometry on faces in TF2 SDK-based games
 	- This only happened on the 32-bit version, you must now use 64-bit Hammer++
