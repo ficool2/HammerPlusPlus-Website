@@ -142,6 +142,8 @@ Changelog:
 	- LDR lighting data will be redirected to HDR at no extra file size cost
 	- This means you don't need to compile VRAD twice for LDR and HDR users anymore (compatible with both)
 	- Passing in -ldr will still explicitly compile in LDR mode only
+	- HDR data will not be remapped if LDR data is already present
+	- Therefore if you need different LDR and HDR lighting, compile with -ldr and -hdr separately
 - Bypassed "numplanes + fakeplanes >= MAX_MAP_PLANES" limit
 	- You will never see it again!
 - Added appid mounting if steam_appid.txt is present beside the exe
@@ -192,7 +194,7 @@ Recovers majority of brush textures in the map. A bit of manual cleanup may stil
 If you encounter a protected map that does not work with this tool, let me know!
 
 Usage: drag and drop a protected BSP onto the tool
-<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/bsp_iidefeat.exe">Download</a> (Last updated: 5th August, 2025)
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/bsp_iidefeat.exe">Download</a> (Last updated: 1st September, 2025)
 </div>
 
 <div class="patch">
