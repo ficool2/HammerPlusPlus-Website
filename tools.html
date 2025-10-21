@@ -177,6 +177,8 @@ Changelog:
 - Improved vertex lighting for props
 	- Added -StaticPropIndirectMode to use old behavior if desired
 	- See <a target="_blank" href="https://github.com/ValveSoftware/source-sdk-2013/pull/1345">this page</a> for a comparison
+- Fixed maps with more than 13 million triangles taking a very, very long time to compile
+	- This bug exists in all other versions of VRAD
 - Redundant vertex lighting is skipped for lightmapped props (saves compile time and file size)
 - .dx90.vtx data is loaded for vertex lighting instead of .dx80.vtx
 - Broken vertex data for props will now be skipped over when compiling
@@ -197,7 +199,7 @@ The only supported games are 64-bit SDK2013-based games, for example:
 - Team Fortress 2, Counter-Strike: Source, Day of Defeat: Source, Half-Life 2: Deathmatch
 Garry's Mod is <span class="error">NOT</span> supported.
 
-<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/vradplusplus.exe">Download</a> (Last updated: 24th September, 2025)
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/vradplusplus.exe">Download</a> (Last updated: 21st October, 2025)
 </div>
 
 <div class="patch">
