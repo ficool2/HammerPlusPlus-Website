@@ -152,12 +152,15 @@ Changelog:
 - Scales up to 64 threads
 - Small performance optimizations
 - Shared LDR/HDR compiling:
-	- VRAD++ now always compiles in HDR mode
-	- LDR lighting data will be redirected to HDR at no extra file size cost
+	- When using -both, LDR lighting data will be redirected to HDR at no extra file size cost
 	- This means you don't need to compile VRAD twice for LDR and HDR users anymore (compatible with both)
-	- Passing in -ldr will still explicitly compile in LDR mode only
+	- Passing in -ldr or -hdr will still explicitly compile in LDR or HDR mode only, respectively
 	- HDR data will not be remapped if LDR data is already present
 	- Therefore if you need different LDR and HDR lighting, compile with -ldr and -hdr separately
+		- NOTE: before the 22/10/25 update, VRAD++ would run in HDR mode by Default
+		- This has been reverted to stock behavior, with LDR mode being default
+		- Only -both will do the data remapping
+		- This was done for compatibility with other branches which VRAD++ is being ported to
 - Bypassed "numplanes + fakeplanes >= MAX_MAP_PLANES" limit
 	- You will never see it again!
 - Added appid mounting if steam_appid.txt is present beside the exe
@@ -199,7 +202,7 @@ The only supported games are 64-bit SDK2013-based games, for example:
 - Team Fortress 2, Counter-Strike: Source, Day of Defeat: Source, Half-Life 2: Deathmatch
 Garry's Mod is <span class="error">NOT</span> supported.
 
-<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/vradplusplus.exe">Download</a> (Last updated: 21st October, 2025)
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/vradplusplus.exe">Download</a> (Last updated: 22th October, 2025)
 </div>
 
 <div class="patch">
