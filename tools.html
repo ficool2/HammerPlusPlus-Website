@@ -81,6 +81,7 @@ Changelog:
 - Fixed crash if instance name was too long
 - Fixed crash if no surfaceprops were loaded
 - Fixed bug where brushside count was varying depending on the CPU
+
 Installation:
 
 Place into your game's bin/x64/ folder (where normal vbsp.exe is)
@@ -105,6 +106,7 @@ Changelog:
 -- Produces the same results as normal VVIS
 - Scales up to 64 threads
 - Added appid mounting in gameinfo.txt
+
 Installation:
 
 Choose the correct version for your game from the zip file:
@@ -209,6 +211,43 @@ The only supported games are 64-bit SDK2013-based games, for example:
 Garry's Mod is <span class="error">NOT</span> supported.
 
 <a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/vradplusplus.exe">Download</a> (Last updated: 26th October, 2025)
+</div>
+
+<div class="patch">
+	<h1>StudioMDL++</h1>	
+	<pre>
+StudioMDL++ is a modification of SDK2013 StudioMDL with various new features and improvements
+
+Changelog:
+
+- Added appid mounting in gameinfo.txt
+- Added -nodx80 option to not emit .dx80.vtx files
+- Added "reverse" command for $sequence
+- Added "pos" and "rot" options to "match" command for animations
+- Added "copy" command for animations
+- Added basic "if"/"else"/"else if" conditionals to animations
+- Added default argument support to macros
+- Added new $endmacro terminator for macros, allows omitting \\ 
+- Made offset optional for $attachment, can be explicitly defined with "offset" token
+- Significantly faster compilation
+- Raised maximum amount of source bones to 1024
+- $collisionmodel and $replacemodel no longer require explicitly providing extension name
+- Fixed $renamebone not affecting the collision model
+- Fixed crash if source bones limit is exceeded
+- Fixed crash if blank bodygroup was used with $staticprop
+- Reduced default weight culling from 5% to 0.01%
+- Removed .sw.vtx output
+
+Installation:
+
+Place into your game's bin/x64/ folder (where normal studiomdl.exe is)
+Update Crowbar (or Hammer's) game configuration to use studiomdlplusplus.exe as the MDL compiler
+
+The only supported games are 64-bit SDK2013-based games, for example:
+- Team Fortress 2, Counter-Strike: Source, Day of Defeat: Source, Half-Life 2: Deathmatch
+Garry's Mod is <span class="error">NOT</span> supported.
+
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/studiomdlplusplus.exe">Download</a> (Last updated: 11th December, 2025)
 </div>
 
 <div class="patch">
