@@ -68,6 +68,7 @@ Changelog:
 - Added -nonamefixup to disable default instance name prefixing with "InstanceAuto"
 - Added warning if using info_lighting on dynamic entities
 - Added %compileNoShadows support
+- Added support for compiling lightmaps on Water if $lightmapwaterfog is set
 - Added support for high lightmap sizes (useful for games that support -maxlightmapdim)
 - Added support for saving "enablelightbounce" flag for static props
 - Added -nohdrcubemap to not write HDR cubemaps to BSP, useful if map is compiled in LDR only
@@ -93,7 +94,7 @@ The only supported games are 64-bit SDK2013-based games, for example:
 - Team Fortress 2, Counter-Strike: Source, Day of Defeat: Source, Half-Life 2: Deathmatch
 Garry's Mod is <span class="error">NOT</span> supported.
 
-<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/vbspplusplus.exe">Download</a> (Last updated: 11th December, 2025)
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/vbspplusplus.exe">Download</a> (Last updated: 20th December, 2025)
 </div>
 
 <div class="patch">
@@ -187,6 +188,8 @@ Changelog:
 - Added -translucentshadows
 	- Similar to -worldtextureshadows but for $translucent brush textures
 	- Requires -textureshadows and -worldtextureshadows
+- Added support for %alphatexture
+	- Allows overriding texture used for texture shadows on geometry
 - Improved vertex lighting for props
 	- Added -StaticPropIndirectMode to use old behavior if desired
 	- See <a target="_blank" href="https://github.com/ValveSoftware/source-sdk-2013/pull/1345">this page</a> for a comparison
@@ -212,7 +215,7 @@ The only supported games are 64-bit SDK2013-based games, for example:
 - Team Fortress 2, Counter-Strike: Source, Day of Defeat: Source, Half-Life 2: Deathmatch
 Garry's Mod is <span class="error">NOT</span> supported.
 
-<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/vradplusplus.exe">Download</a> (Last updated: 26th October, 2025)
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/vradplusplus.exe">Download</a> (Last updated: 20th December, 2025)
 </div>
 
 <div class="patch">
