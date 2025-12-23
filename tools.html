@@ -54,7 +54,6 @@ Changelog:
 	- Update: this is now reverted due to causing crashes on Linux servers. Slammin is also affected by this.
 - Added parallax_obb entity support for mods that have parallax cubemaps
 - Added func_detail_illusionary (identical to func_detail but non solid)
-- Added %compileNoShadows
 - Added func_nobevel support
 	- VBSP generates bounding box brushsides for angled geometry to improve collision accuracy
 	- But a problem is that these can eat up brushsides quickly
@@ -174,6 +173,12 @@ Changelog:
 - Bypassed "numplanes + fakeplanes >= MAX_MAP_PLANES" limit
 	- You will never see it again!
 - Added appid mounting in gameinfo.txt
+- Added new "light_projected" light type
+	- Behaves like a env_projectedtexture but applied at compile time to lightmaps
+	- Same properties as light_spot, with an additional texturename key (path to VTF)
+	- Outer angle controls "size" of projected angle
+	- Alpha channel is multiplied with the output light (black - no light contribution)
+	- Non-square aspect ratios and roll angle are supported
 - Added ambient occlusion baking
 	- Custom implementation that is an order of magnitude faster than AO in Slammin/CS:GO (!)
 	- Set -ambientocclusion to enable this
@@ -215,7 +220,7 @@ The only supported games are 64-bit SDK2013-based games, for example:
 - Team Fortress 2, Counter-Strike: Source, Day of Defeat: Source, Half-Life 2: Deathmatch
 Garry's Mod is <span class="error">NOT</span> supported.
 
-<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/vradplusplus.exe">Download</a> (Last updated: 20th December, 2025)
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/vradplusplus.exe">Download</a> (Last updated: 23th December, 2025)
 </div>
 
 <div class="patch">
