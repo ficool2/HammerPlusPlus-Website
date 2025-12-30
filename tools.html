@@ -225,6 +225,8 @@ Changelog:
 	- See <a target="_blank" href="https://github.com/ValveSoftware/source-sdk-2013/pull/1345">this page</a> for a comparison
 - Fixed maps with more than 13 million triangles taking a very, very long time to compile
 	- This bug exists in all other versions of VRAD
+- Fixed prop lightmaps always using "fast" lighting samples and ignoring "-extrasky"
+	- As a result, prop lightmaps will take slightly longer to compile, but will look significantly better
 - Fixed maps with radial vis (FarZ set in "env_fog_controller") drawing 3D sky in 2Dsky-only areas
 - Fixed light_environment SunSpreadAngle not using more samples under "-final"
     - Maps using a spread angle greather than 0 will take slightly longer to compile with "-extrasky" as a result, but the result looks better compared to stock
