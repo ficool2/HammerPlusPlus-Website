@@ -42,9 +42,11 @@ Changelog:
 - No t-junction limit
 - No detail prop limit
 - Raised overlay limit to 1024 and internal entity limit to 16384
+- Increased maximum switchable lights from 32 to 96
 - Added appid mounting in gameinfo.txt
 - Added support for mounting custom shaders in mods
 - Added support for custom $surfaceprops on clip brushes
+- Added support for compiling 4-way blends (for games that support it)
 - Added func_detail_blocker (like newer VBSPs)
 - Added -blocksize (default is 1024)
 	- Useful to compute visibility faster on open, large maps like surf (I recommend 2048)
@@ -72,7 +74,8 @@ Changelog:
 - Added support for saving "enablelightbounce" flag for static props
 - Added support for reading decimal values from face lightmap scales
 - Added -nohdrcubemap to not write HDR cubemaps to BSP, useful if map is compiled in LDR only
-= Added "-nobump" (disables bumpmap lightmaps on all faces)
+- Added "-nobump" (disables bumpmap lightmaps on all faces)
+- Added "-report_search_paths" to list current search paths for debugging
 - Restored support for -maxlightmapdim and -defaultluxelsize parameters
 - func_occluder, func_areaportal, func_viscluster, func_nobevel, parallax_obb no longer count towards the brush limit
 - Improved clarity of some warnings and removed useless ones
@@ -95,7 +98,7 @@ Supported branches:
 - Garry's Mod
 - 64-bit SDK2013-based games, etc: Team Fortress 2, Counter-Strike: Source, Day of Defeat: Source, Half-Life 2: Deathmatch
 
-<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/vbspplusplus.exe">Download</a> (Last updated: 20th December, 2025)
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 1st January, 2026)
 </div>
 
 <div class="patch">
@@ -120,7 +123,7 @@ Supported branches:
 - Garry's Mod (x86-x64 beta)
 - 64-bit SDK2013-based games, etc: Team Fortress 2, Counter-Strike: Source, Day of Defeat: Source, Half-Life 2: Deathmatch
 
-<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/vvisplusplus.exe">Download</a> (Last updated: 30th December, 2025)
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 1st January, 2026)
 
 
 Wall of Testimonials:
@@ -191,12 +194,16 @@ Changelog:
 	- Customize with -aoradius, -aoscale, -aopropsamples, -aofacesamples
 	- Samples are automatically adjusted for -fast and -final mode
 	- Default AO radius and scale is 32 units and 0.5 respectively
+	- Use "-aodebug" to visualize ambient occlusion	
 - Added new QMC sampler for ambient, sunlight and ambient occlusion
     - This allows lighting to converage to the ground truth faster
     - Same sampler as used by modern raytracers, such as in Blender
     - Less samples are required for a good result
     - Since less samples are required, "-final" has now been reduced to "-extrasky 8" by default (from 16)
-- Added "-aodebug" to visualize ambient occlusion	
+- Added "-StaticPropSampleScale"
+	- Controls sample multiplier for prop vertex lighting (default is 1)
+	- Defaults to 4 with "-final", which will slightly increase compile times
+	- However this will improve quality of prop lighting in areas starved of sunlight or bounced surfaces
 - Added -reflectivityscale
 - Added -worldtextureshadows
 	- Allows $alphatest brush textures to cast proper shadows like props
@@ -218,7 +225,12 @@ Changelog:
     - Note that this won't solve sunlight applying to entities shadowed by static props, as the engine ignores prop visiblity at runtime
     - See <a target="_blank" href="https://github.com/Facepunch/garrysmod-requests/issues/2932#issuecomment-3691574043">this page</a>for detailed info about this issue
 - Added support for "Patch" materials for loadng texture shadows
+- Added "-patchlightmapsize" to set minimum lightmap size for patches (default is 16)
+	- This controls how faces with lower lightmap scales get subdivided for bounced lighting
+	- Lower values will subdivide more, at the cost of increased compile time and memory usage
+	- This may sometimes solve issues with thin surfaces obstructed by geometry not receiving light
 - Added support for using decimals in lightmap scales
+- Added "-report_search_paths" to list current search paths for debugging
 - Significantly improved performance and memory usage of bounced lighting on faces with low lightmap scales
 - Improved vertex lighting for props
 	- Added -StaticPropIndirectMode to use old behavior if desired
@@ -251,7 +263,7 @@ Supported branches:
 - Garry's Mod (x86-x64 beta)
 - 64-bit SDK2013-based games, etc: Team Fortress 2, Counter-Strike: Source, Day of Defeat: Source, Half-Life 2: Deathmatch
 
-<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/vradplusplus.exe">Download</a> (Last updated: 30th December, 2025)
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 1st January, 2026)
 </div>
 
 <div class="patch">
