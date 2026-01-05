@@ -41,7 +41,7 @@ Changelog:
 	- If plane limit is exceeded, VRAD++ must be used or lighting will be broken
 - No t-junction limit
 - No detail prop limit
-- Raised overlay limit to 1024 and internal entity limit to 16384
+- Raised overlay limit to 8192 and internal entity limit to 65536
 - Increased maximum switchable lights from 32 to 96
 - Added appid mounting in gameinfo.txt
 - Added support for mounting custom shaders in mods
@@ -52,6 +52,9 @@ Changelog:
 	- Useful to compute visibility faster on open, large maps like surf (I recommend 2048)
 	- Using a higher blocksize also reduces your vertex count, useful to circumvent vertex limit
 - Added -allowdynamicpropsasstatic (allows props without allowstatic in propdata to be used as static props)
+- Added per-prop ambient occlusion toggle
+    - To use, set "disableambientocclusion 1" keyvalue on the entity
+    - Does not work on HL2/Singleplayer BSPs due to older static prop format
 - Added proper support for compiling power of 4 displacements (like CS:GO)
 	- Update: this is now reverted due to causing crashes on Linux servers. Slammin is also affected by this.
 - Added parallax_obb entity support for mods that have parallax cubemaps
@@ -67,7 +70,7 @@ Changelog:
 	- Reduces time spent in VRAD with -staticproplighting
 - Added logging if FGD has parsing errors
 - Added -nonamefixup to disable default instance name prefixing with "InstanceAuto"
-- Added `-singleplayer` option to compile maps for  HL2 (SDK13 Singleplayer) BSP format
+- Added "-singleplayer" option to compile maps for  HL2 (SDK13 Singleplayer) BSP format
 - Added warning if using info_lighting on dynamic entities
 - Added %compileNoShadows support
 - Added support for compiling lightmaps on Water if $lightmapwaterfog is set
@@ -75,12 +78,16 @@ Changelog:
 - Added support for saving "enablelightbounce" flag for static props
 - Added support for reading decimal values from face lightmap scales
 - Added -nohdrcubemap to not write HDR cubemaps to BSP, useful if map is compiled in LDR only
+    - Likewise -noldrcubemap exists to not write LDR cubemaps
 - Added "-nobump" (disables bumpmap lightmaps on all faces)
 - Added "-report_search_paths" to list current search paths for debugging
+- "-leaktest" will now stop on areaportal leaks
 - Restored support for -maxlightmapdim and -defaultluxelsize parameters
 - func_occluder, func_areaportal, func_viscluster, func_nobevel, parallax_obb no longer count towards the brush limit
 - Improved clarity of some warnings and removed useless ones
 - Fixed instances not collapsing correctly if FGD had unrecognized types
+- Fixed instance names prefixed with ! being remapped
+- Fixed remapped instance I/O always using ESC separators (fixes HL2 compatibility)
 - Fixed smoothing groups not working on func_detail
 - Fixed displacements not being rotated correctly in instances
 - Fixed occluders not being collapsed correctly in instances
@@ -102,7 +109,10 @@ Supported branches:
 Compiling maps for Half-Life 2 or SDK 2013 Singleplayer is supported
 However you must still install VBSP++ in a 64-bit game, and pass "-singleplayer" to set the correct BSP format
 
-<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 3rd January, 2026)
+Optionally, add the "tools_plusplus.fgd" FGD file into Hammer's game configuration
+Tools -> Options -> Game Configurations -> click Add beside Game Data files
+
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 5th January, 2026)
 </div>
 
 <div class="patch">
@@ -129,7 +139,7 @@ Supported branches:
 
 Maps for Half-Life 2 or SDK 2013 Singleplayer are supported. However you must still install VVIS++ in a 64-bit game
 
-<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 3rd January, 2026)
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 5th January, 2026)
 
 
 Wall of Testimonials:
@@ -180,6 +190,7 @@ Changelog:
 		- This was done for compatibility with other branches which VRAD++ is being ported to
 - Bypassed "numplanes + fakeplanes >= MAX_MAP_PLANES" limit
 	- You will never see it again!
+- Light count is now unlimited instead of capped at 8192
 - Added appid mounting in gameinfo.txt
 - Added shadow casting for dynamic props
 	- Set "vrad_model_cast_shadows 1" in the entity to enable this
@@ -207,6 +218,13 @@ Changelog:
     - Same sampler as used by modern raytracers, such as in Blender
     - Less samples are required for a good result
     - Since less samples are required, "-final" has now been reduced to "-extrasky 8" by default (from 16)
+- Added soft lights
+    - When "_light_radius" keyvalue on a light is set, the light is treated as a sphere/disk
+    - Allows for casting softer shadows
+    - Note that soft lights will take longer to compile than hard lights
+    - Added "-extrasoft" parameter to control samples for soft lights
+        * Defaults are 30, 8 on "-fast", 120 on "-final"
+    - Currently only supports "light" and "light_spot"
 - Added "-StaticPropSampleScale"
 	- Controls sample multiplier for prop vertex lighting (default is 1)
 	- Defaults to 4 with "-final", which will slightly increase compile times
@@ -245,6 +263,8 @@ Changelog:
 	- See <a target="_blank" href="https://github.com/ValveSoftware/source-sdk-2013/pull/1345">this page</a> for a comparison
 - Fixed maps with more than 13 million triangles taking a very, very long time to compile
 	- This bug exists in all other versions of VRAD
+- Fixed prop lightmaps being dumped into wrong color space with "-dumppropmaps"
+	- Prop lightmaps are also now dumped into "sp_lightmaps" directory of the game
 - Fixed prop lightmaps always using "fast" lighting samples and ignoring "-extrasky"
 	- As a result, prop lightmaps will take slightly longer to compile, but will look significantly better
 - Fixed maps with radial vis (FarZ set in "env_fog_controller") drawing 3D sky in 2Dsky-only areas
@@ -273,7 +293,10 @@ Supported branches:
 
 Maps for Half-Life 2 or SDK 2013 Singleplayer are supported. However you must still install VRAD++ in a 64-bit game
 
-<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 3rd January, 2026)
+Optionally, add the "tools_plusplus.fgd" FGD file into Hammer's game configuration
+Tools -> Options -> Game Configurations -> click Add beside Game Data files
+
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 5th January, 2026)
 </div>
 
 <div class="patch">
