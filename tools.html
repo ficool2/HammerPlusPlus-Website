@@ -222,8 +222,8 @@ Changelog:
     - When "_light_radius" keyvalue on a light is set, the light is treated as a sphere/disk
     - Allows for casting softer shadows
     - Note that soft lights will take longer to compile than hard lights
-    - Added "-extrasoft" parameter to control samples for soft lights
-        * Defaults are 30, 8 on "-fast", 120 on "-final"
+    - Added "-extrasoft" parameter to control sample multiplier for soft lights
+        * Defaults are 1, 0.25 on "-fast", 4 on "-final"
     - Currently only supports "light" and "light_spot"
 - Added "-StaticPropSampleScale"
 	- Controls sample multiplier for prop vertex lighting (default is 1)
