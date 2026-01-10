@@ -114,7 +114,7 @@ However you must still install VBSP++ in a 64-bit game, and pass "-singleplayer"
 Optionally, add the "tools_plusplus.fgd" FGD file into Hammer's game configuration
 Tools -> Options -> Game Configurations -> click Add beside Game Data files
 
-<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 6th January, 2026)
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 10th January, 2026)
 </div>
 
 <div class="patch">
@@ -141,7 +141,7 @@ Supported branches:
 
 Maps for Half-Life 2 or SDK 2013 Singleplayer are supported. However you must still install VVIS++ in a 64-bit game
 
-<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 6th January, 2026)
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 10th January, 2026)
 
 
 Wall of Testimonials:
@@ -214,6 +214,7 @@ Changelog:
 	- Customize with -aoradius, -aoscale, -aopropsamples, -aofacesamples
 	- Samples are automatically adjusted for -fast and -final mode
 	- Default AO radius and scale is 32 units and 0.5 respectively
+	- Radius in 3D sky is correctly scaled (every other VRAD AO implementation has this bug)
 	- Use "-aodebug" to visualize ambient occlusion	
 - Added new QMC sampler for ambient, sunlight and ambient occlusion
     - This allows lighting to converage to the ground truth faster
@@ -241,6 +242,7 @@ Changelog:
 	- Requires -textureshadows and -worldtextureshadows
 - Added -forcetextureshadows
 	- Forces texture shadows to be enabled on all props
+- Added DXT3 format support for texture shadows
 - Added support for %alphatexture
 	- Allows overriding texture used for texture shadows on geometry
 - Added experimental support for static props to shadow ambient cubes
@@ -264,7 +266,8 @@ Changelog:
 	- Added -StaticPropIndirectMode to use old behavior if desired
 	- See <a target="_blank" href="https://github.com/ValveSoftware/source-sdk-2013/pull/1345">this page</a> for a comparison
 - Fixed maps with more than 13 million triangles taking a very, very long time to compile
-	- This bug exists in all other versions of VRAD
+- Fixed rays missing exact diagonal corner intersections
+	- Both of these bug exists in all other versions of VRAD
 - Fixed prop lightmaps being dumped into wrong color space with "-dumppropmaps"
 	- Prop lightmaps are also now dumped into "sp_lightmaps" directory of the game
 - Fixed prop lightmaps always using "fast" lighting samples and ignoring "-extrasky"
@@ -298,7 +301,7 @@ Maps for Half-Life 2 or SDK 2013 Singleplayer are supported. However you must st
 Optionally, add the "tools_plusplus.fgd" FGD file into Hammer's game configuration
 Tools -> Options -> Game Configurations -> click Add beside Game Data files
 
-<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 6th January, 2026)
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 10th January, 2026)
 </div>
 
 <div class="patch">
