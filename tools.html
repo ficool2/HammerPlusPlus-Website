@@ -326,6 +326,9 @@ Changelog:
 
 - Multithreaded LZMA compression
     - Threads can be adjusted with "-threads N" parameter
+- ".mp3", ".wav", ".ani" and ".fxc" (shaders) files are no longer compressed
+    - This prevents caching bugs in the engine
+    - See <a target="_blank" href="https://github.com/ValveSoftware/Source-1-Games/issues/7175">this page</a> for more info
 - Supports maps that exceed soft limits such as overlays, lights and entities
 - Supports Garry's Mod
     - GMod's BSPZIP does not support compression (even though GMod's engine can load compressed maps)
