@@ -114,7 +114,7 @@ However you must still install VBSP++ in a 64-bit game, and pass "-singleplayer"
 Optionally, add the "tools_plusplus.fgd" FGD file into Hammer's game configuration
 Tools -> Options -> Game Configurations -> click Add beside Game Data files
 
-<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 10th January, 2026)
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 18th January, 2026)
 </div>
 
 <div class="patch">
@@ -141,7 +141,7 @@ Supported branches:
 
 Maps for Half-Life 2 or SDK 2013 Singleplayer are supported. However you must still install VVIS++ in a 64-bit game
 
-<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 10th January, 2026)
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 18th January, 2026)
 
 
 Wall of Testimonials:
@@ -301,7 +301,38 @@ Maps for Half-Life 2 or SDK 2013 Singleplayer are supported. However you must st
 Optionally, add the "tools_plusplus.fgd" FGD file into Hammer's game configuration
 Tools -> Options -> Game Configurations -> click Add beside Game Data files
 
-<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 10th January, 2026)
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 18th January, 2026)
+</div>
+
+<div class="patch">
+	<h1>BSPZIP++</h1>	
+	<pre>
+BSPZIP++ is a rewrite of SDK2013 BSPZIP with some improvements
+
+Changelog:
+
+- Multithreaded LZMA compression
+    - Threads can be adjusted with "-threads N" parameter
+- Supports maps that exceed soft limits such as overlays, lights and entities
+- Supports Garry's Mod
+    - GMod's BSPZIP does not support compression (even though GMod's engine can load compressed maps)
+    - Now you can use BSPZIP++ to compress maps for GMod 
+- Supports SDK2013 Singleplayer BSPs
+    - Note that compression is NOT supported on the singleplayer engine
+- Added "-verbose" flag for more detailed information
+
+Installation:
+
+Place into your game's bin/x64/ or bin/win64/ folder (where normal bspzip.exe is)
+Update the tool you use for packing (e.g. CompilePal, bspzipgui) to use bspzipplusplus.exe instead of bspzip.exe
+
+Supported branches:
+- Garry's Mod (x86-x64 beta)
+- 64-bit SDK2013-based games, etc: Team Fortress 2, Counter-Strike: Source, Day of Defeat: Source, Half-Life 2: Deathmatch
+
+Maps for Half-Life 2 or SDK 2013 Singleplayer are supported. However you must still install BSPZIP++ in a 64-bit game
+
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 18th January, 2026)
 </div>
 
 <div class="patch">
