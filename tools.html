@@ -43,6 +43,8 @@ Changelog:
 - No detail prop limit
 - Raised overlay limit to 8192 and internal entity limit to 65536
 - Increased maximum switchable lights from 32 to 96
+- "-leaktest" is now enabled by default, i.e. stops compile on leaks
+	- Added "-noleaktest" to disable this behavior
 - Added appid mounting in gameinfo.txt
 - Added support for mounting custom shaders in mods
 - Added support for custom $surfaceprops on clip brushes
@@ -82,6 +84,7 @@ Changelog:
 - Added -nohdrcubemap to not write HDR cubemaps to BSP, useful if map is compiled in LDR only
     - Likewise -noldrcubemap exists to not write LDR cubemaps
 - Added "-nobump" (disables bumpmap lightmaps on all faces)
+- Added "-maxluxelscale" (clamps maximum luxel scale, default is no limit)
 - Added "-report_search_paths" to list current search paths for debugging
 - "-leaktest" will now stop on areaportal leaks
 - Restored support for -maxlightmapdim and -defaultluxelsize parameters
@@ -253,6 +256,14 @@ Changelog:
         - "-StaticPropLighting" does not need to be enabled
     - Note that this won't solve sunlight applying to entities shadowed by static props, as the engine ignores prop visiblity at runtime
     - See <a target="_blank" href="https://github.com/Facepunch/garrysmod-requests/issues/2932#issuecomment-3691574043">this page</a>for detailed info about this issue
+- Added experimental support for named "light_environment" and "light_directional"
+    - Fixes static props having black lighting
+    - To use: you must "jail" the light entity by itself inside a nodraw cube in the void
+    - Not doing so will potentially lead to bad performance
+    - Named light environment still has engine bugs, mainly that props may have broken light after toggling the sunlight
+    - This can be workarounded by flipping the value of "r_radiosity" in console 
+         - In GMod, Lua can be used for this
+         - In singleplayer games, you can issue a command with "point_clientcommand" or VScript
 - Added support for "Patch" materials for loadng texture shadows
 - Added support for processing  HL2 (SDK13 Singleplayer) BSP formats
 - Added "-patchlightmapsize" to set minimum lightmap size for patches (default is 16)
@@ -261,6 +272,7 @@ Changelog:
 	- This may sometimes solve issues with thin surfaces obstructed by geometry not receiving light
 - Added support for using decimals in lightmap scales
 - Added "-report_search_paths" to list current search paths for debugging
+- Added "-propdebug" for tracking down what props take a long time to compile
 - Significantly improved performance and memory usage of bounced lighting on faces with low lightmap scales
 - Improved vertex lighting for props
 	- Added -StaticPropIndirectMode to use old behavior if desired
@@ -282,6 +294,7 @@ Changelog:
 - Removed memory column from BSP statistics as its useless
 - Named or styled lights are now sorted by brightness priority for faces
 	- Reduces occurence of bad lighting from overlapping named/styled lights
+- Static prop lighting is no longer skipped on "-fast" mode
 - Added -scale, -ambient, -dlight, -sky, -notexscale, -coring debug options
 - Unlimited texlight support in .rad files
 - Comments in .rad files are now skipped
