@@ -38,10 +38,10 @@ Changelog:
 
 - Automatically reduces brushes and brushsides usage of the map by 10-30% (MAX_MAP_BRUSHES, MAX_MAP_BRUSHSIDES)
 - Automatically reduces vertex usage of the map by 10-30% (MAX_MAP_VERTS)
-   - Note: this reduction will be applied once the map exceeds the limit
+   - Note: this reduction will be applied once the map exceeds the limit only, as a safety measure
+   - You can also use the new "-cullverts" parameter to always reduce verts even if the limit isn't exceeded
 - Automatically reduces planes usage of the map up to 40% if limit is hit (MAX_MAP_PLANES)
 	- If plane limit is exceeded, VRAD++ must be used or lighting will be broken
-
 - No t-junction limit
 - No detail prop limit
 - Raised overlay limit to 8192 and internal entity limit to 65536
