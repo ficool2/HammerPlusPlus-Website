@@ -37,8 +37,11 @@ VBSP++ is a modification of SDK2013 VBSP with various new features and improveme
 Changelog:
 
 - Automatically reduces brushes and brushsides usage of the map by 10-30% (MAX_MAP_BRUSHES, MAX_MAP_BRUSHSIDES)
+- Automatically reduces vertex usage of the map by 10-30% (MAX_MAP_VERTS)
+   - Note: this reduction will be applied once the map exceeds the limit
 - Automatically reduces planes usage of the map up to 40% if limit is hit (MAX_MAP_PLANES)
 	- If plane limit is exceeded, VRAD++ must be used or lighting will be broken
+
 - No t-junction limit
 - No detail prop limit
 - Raised overlay limit to 8192 and internal entity limit to 65536
@@ -76,6 +79,9 @@ Changelog:
 - Added -nonamefixup to disable default instance name prefixing with "InstanceAuto"
 - Added "-singleplayer" option to compile maps for  HL2 (SDK13 Singleplayer) BSP format
 - Added warning if using info_lighting on dynamic entities
+- Added sanity check for NaN/Inf values in the VMF
+- Added check for brushes going outside of map grid
+    - This prevents the "Map coordinate extents are too large!!" error in-game
 - Added %compileNoShadows support
 - Added support for compiling lightmaps on Water if $lightmapwaterfog is set
 - Added support for high lightmap sizes (useful for games that support -maxlightmapdim)
@@ -100,6 +106,8 @@ Changelog:
 - Fixed crash if an instance overflowed brush or brushsides limit
 - Fixed crash if instance name was too long
 - Fixed crash if no surfaceprops were loaded
+- Fixed crash if map had more than 32768 texinfo
+- Fixed crash if displacement face had less than 3 points
 - Fixed bug where brushside count was varying depending on the CPU
 
 Installation:
@@ -117,7 +125,7 @@ However you must still install VBSP++ in a 64-bit game, and pass "-singleplayer"
 Optionally, add the "tools_plusplus.fgd" FGD file into Hammer's game configuration
 Tools -> Options -> Game Configurations -> click Add beside Game Data files
 
-<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 18th January, 2026)
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 29th January, 2026)
 </div>
 
 <div class="patch">
@@ -330,6 +338,8 @@ Changelog:
     - This prevents caching bugs in the engine
     - See <a target="_blank" href="https://github.com/ValveSoftware/source-sdk-2013/issues/1322">this page</a> for more info
 - Supports maps that exceed soft limits such as overlays, lights and entities
+- Supports shared LDR/HDR data from VRAD++
+    - This prevents map sizes from inflating after packing content
 - Supports Garry's Mod
     - GMod's BSPZIP does not support compression (even though GMod's engine can load compressed maps)
     - Now you can use BSPZIP++ to compress maps for GMod 
@@ -348,7 +358,7 @@ Supported branches:
 
 Maps for Half-Life 2 or SDK 2013 Singleplayer are supported. However you must still install BSPZIP++ in a 64-bit game
 
-<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 18th January, 2026)
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 28th January, 2026)
 </div>
 
 <div class="patch">
