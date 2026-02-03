@@ -96,6 +96,7 @@ Changelog:
 - Restored support for -maxlightmapdim and -defaultluxelsize parameters
 - func_occluder, func_areaportal, func_viscluster, func_nobevel, parallax_obb no longer count towards the brush limit
 - Improved clarity of some warnings and removed useless ones
+- Renamed waterindices to primindices (less misleading name)
 - Fixed instances not collapsing correctly if FGD had unrecognized types
 - Fixed instance names prefixed with ! being remapped
 - Fixed remapped instance I/O always using ESC separators (fixes HL2 compatibility)
@@ -125,7 +126,7 @@ However you must still install VBSP++ in a 64-bit game, and pass "-singleplayer"
 Optionally, add the "tools_plusplus.fgd" FGD file into Hammer's game configuration
 Tools -> Options -> Game Configurations -> click Add beside Game Data files
 
-<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 30th January, 2026)
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 3rd February, 2026)
 </div>
 
 <div class="patch">
@@ -221,7 +222,7 @@ Changelog:
 	- Renamed to "light_spot" after compilation so it can be toggled in-game 
 - Added ambient occlusion baking
 	- Custom implementation that is an order of magnitude faster than AO in Slammin/CS:GO (!)
-	- Set -ambientocclusion to enable this
+	- Set -ambientocclusion or -ao to enable this
 	- Customize with -aoradius, -aoscale, -aopropsamples, -aofacesamples
 	- Samples are automatically adjusted for -fast and -final mode
 	- Default AO radius and scale is 32 units and 0.5 respectively
@@ -278,10 +279,16 @@ Changelog:
 	- This controls how faces with lower lightmap scales get subdivided for bounced lighting
 	- Lower values will subdivide more, at the cost of increased compile time and memory usage
 	- This may sometimes solve issues with thin surfaces obstructed by geometry not receiving light
+- Added "-choptexlights"
+	- Allows subdivision of faces that have texlights
+	- Can create more smoother-looking lights from faces but may take longer to compute
 - Added support for using decimals in lightmap scales
 - Added "-report_search_paths" to list current search paths for debugging
 - Added "-propdebug" for tracking down what props take a long time to compile
 - Significantly improved performance and memory usage of bounced lighting on faces with low lightmap scales
+- Slightly improved displacement bounced lighting to be more granular
+     - Benefits thin/small displacements the most
+     - Added "-DisplacementLightingOld" to use old calculations
 - Improved vertex lighting for props
 	- Added -StaticPropIndirectMode to use old behavior if desired
 	- See <a target="_blank" href="https://github.com/ValveSoftware/source-sdk-2013/pull/1345">this page</a> for a comparison
@@ -322,7 +329,7 @@ Maps for Half-Life 2 or SDK 2013 Singleplayer are supported. However you must st
 Optionally, add the "tools_plusplus.fgd" FGD file into Hammer's game configuration
 Tools -> Options -> Game Configurations -> click Add beside Game Data files
 
-<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 30th January, 2026)
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 3rd February, 2026)
 </div>
 
 <div class="patch">
