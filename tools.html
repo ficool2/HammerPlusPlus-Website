@@ -88,7 +88,8 @@ Changelog:
 - Added support for saving "enablelightbounce" flag for static props
 - Added support for reading decimal values from face lightmap scales
 - Added -nohdrcubemap to not write HDR cubemaps to BSP, useful if map is compiled in LDR only
-    - Likewise -noldrcubemap exists to not write LDR cubemaps
+    - Likewise "-noldrcubemap" exists to not write LDR cubemaps
+	- "-nodefaultcubemap" disables both cubemaps
 - Added "-nobump" (disables bumpmap lightmaps on all faces)
 - Added "-maxluxelscale" (clamps maximum luxel scale, default is no limit)
 - Added "-report_search_paths" to list current search paths for debugging
@@ -103,6 +104,7 @@ Changelog:
 - Fixed smoothing groups not working on func_detail
 - Fixed displacements not being rotated correctly in instances
 - Fixed occluders not being collapsed correctly in instances
+- Fixed cubemap side IDs not being remapped in instances
 - Fixed missing texture cubemaps if skybox has mismatched side dimensions
 - Fixed crash if an instance overflowed brush or brushsides limit
 - Fixed crash if instance name was too long
@@ -110,6 +112,7 @@ Changelog:
 - Fixed crash if map had more than 32768 texinfo
 - Fixed crash if displacement face had less than 3 points
 - Fixed bug where brushside count was varying depending on the CPU
+- Deprecated manifests
 
 Installation:
 
@@ -126,7 +129,7 @@ However you must still install VBSP++ in a 64-bit game, and pass "-singleplayer"
 Optionally, add the "tools_plusplus.fgd" FGD file into Hammer's game configuration
 Tools -> Options -> Game Configurations -> click Add beside Game Data files
 
-<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 13th February, 2026)
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 12th March, 2026)
 </div>
 
 <div class="patch">
@@ -282,6 +285,15 @@ Changelog:
 - Added "-choptexlights"
 	- Allows subdivision of faces that have texlights
 	- Can create more smoother-looking lights from faces but may take longer to compute
+- Added "-fastradial" for using fast radiosity gathering like in "-fast" mode
+- Added support for "-LargeDispSampleRadius"
+- Added "-dispsamplefactor"
+	- Controls radius of lighting influence multiplier for displacements. Default is 1
+	- Higher values such as 2.5 or 3 may fix black splotches on very large stretched displacements
+- Added "-disppatchsamplefactor"
+	- Controls radius of *bounced* lighting influence multiplier for displacements. Default is 1
+	- Higher values may fix splotches of dark lighting on large, stretched displacements
+	- "-LargeDispSampleRadius" is the same as "-disppatchsamplefactor 2.2"
 - Added support for using decimals in lightmap scales
 - Added "-report_search_paths" to list current search paths for debugging
 - Added "-propdebug" for tracking down what props take a long time to compile
@@ -293,6 +305,7 @@ Changelog:
 	- Added -StaticPropIndirectMode to use old behavior if desired
 	- See <a target="_blank" href="https://github.com/ValveSoftware/source-sdk-2013/pull/1345">this page</a> for a comparison
 - Fixed maps with more than 13 million triangles taking a very, very long time to compile
+- Fixed black seams appearing on displacements in "-fast" mode
 - Fixed rays missing exact diagonal corner intersections
 	- Both of these bug exists in all other versions of VRAD
 - Fixed prop lightmaps being dumped into wrong color space with "-dumppropmaps"
@@ -302,6 +315,8 @@ Changelog:
 - Fixed maps with radial vis (FarZ set in "env_fog_controller") drawing 3D sky in 2Dsky-only areas
 - Fixed light_environment SunSpreadAngle not using more samples under "-final"
     - Maps using a spread angle greather than 0 will take slightly longer to compile with "-extrasky" as a result, but the result looks better compared to stock
+- Fixed prop lightmaps causing very, very long compile times on models with invalid UVs
+- Fixed "-OnlyStaticProps" crashing
 - Redundant vertex lighting is skipped for lightmapped props (saves compile time and file size)
 - .dx90.vtx data is loaded for vertex lighting instead of .dx80.vtx
 - Broken vertex data for props will now be skipped over when compiling
@@ -329,7 +344,7 @@ Maps for Half-Life 2 or SDK 2013 Singleplayer are supported. However you must st
 Optionally, add the "tools_plusplus.fgd" FGD file into Hammer's game configuration
 Tools -> Options -> Game Configurations -> click Add beside Game Data files
 
-<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 13th February, 2026)
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 12th March, 2026)
 </div>
 
 <div class="patch">
