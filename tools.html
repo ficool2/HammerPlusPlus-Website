@@ -36,10 +36,11 @@ VBSP++ is a modification of SDK2013 VBSP with various new features and improveme
 
 Changelog:
 
-- Automatically reduces brushes and brushsides usage of the map by 10-30% (MAX_MAP_BRUSHES, MAX_MAP_BRUSHSIDES)
-- Automatically reduces vertex usage of the map by 10-30% (MAX_MAP_VERTS)
-   - Note: this reduction will be applied once the map exceeds the limit only, as a safety measure
-   - You can also use the new "-cullverts" parameter to always reduce verts even if the limit isn't exceeded
+- Reduces brushes and brushsides usage of the map by 10-30% (MAX_MAP_BRUSHES, MAX_MAP_BRUSHSIDES)
+	- Note: this reduction will be applied once the map exceeds the limit
+- Reduces vertex usage of the map by 10-30% (MAX_MAP_VERTS)
+	- Note: this reduction will be applied once the map exceeds the limit
+	- You can also use the new "-cullverts" parameter to always reduce verts even if the limit isn't exceeded
 - Automatically reduces planes usage of the map up to 40% if limit is hit (MAX_MAP_PLANES)
 	- If plane limit is exceeded, VRAD++ must be used or lighting will be broken
 - No t-junction limit
@@ -64,6 +65,7 @@ Changelog:
 - Added proper support for compiling power of 4 displacements (like CS:GO)
 	- Update: this is now reverted due to causing crashes on Linux servers. Slammin is also affected by this.
 - Added parallax_obb entity support for mods that have parallax cubemaps
+	- Also inserts extra data for PCC on models
 - Added func_detail_illusionary (identical to func_detail but non solid)
 - Added func_nobevel support
 	- VBSP generates bounding box brushsides for angled geometry to improve collision accuracy
@@ -93,6 +95,14 @@ Changelog:
 - Added "-nobump" (disables bumpmap lightmaps on all faces)
 - Added "-maxluxelscale" (clamps maximum luxel scale, default is no limit)
 - Added "-report_search_paths" to list current search paths for debugging
+- Added ability to insert default options from gameinfo
+	- To use this, make a "Tools" section in your "gameinfo.txt"
+	- Use "vbsp", "vvis", "vrad" and "studiomdl" keys, with the values being options to add
+- Added experimental support for compiling different static prop formats
+	- Use "-staticpropformat" to switch to these formats
+	- Supported formats: v6 (HL2), v7 v8 (L4D), v9 (L4D2), v10 (TF2, default), v11-v12 (CSGO), v13 (Strata), v14 (new)
+	- This does NOT mean you can compile maps that work for the aforementioned games yet
+	- Mainly useful for Garry's Mod, it now means you can compile maps with prop rendercolor and scaling
 - "-leaktest" will now stop on areaportal leaks
 - Restored support for -maxlightmapdim and -defaultluxelsize parameters
 - func_occluder, func_areaportal, func_viscluster, func_nobevel, parallax_obb no longer count towards the brush limit
@@ -101,6 +111,8 @@ Changelog:
 - Fixed instances not collapsing correctly if FGD had unrecognized types
 - Fixed instance names prefixed with ! being remapped
 - Fixed remapped instance I/O always using ESC separators (fixes HL2 compatibility)
+- Fixed recursive instance paths not working
+- Fixed cubemaps not being transformed inside instances
 - Fixed smoothing groups not working on func_detail
 - Fixed displacements not being rotated correctly in instances
 - Fixed occluders not being collapsed correctly in instances
@@ -129,7 +141,7 @@ However you must still install VBSP++ in a 64-bit game, and pass "-singleplayer"
 Optionally, add the "tools_plusplus.fgd" FGD file into Hammer's game configuration
 Tools -> Options -> Game Configurations -> click Add beside Game Data files
 
-<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 12th March, 2026)
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 28th March, 2026)
 </div>
 
 <div class="patch">
@@ -156,7 +168,7 @@ Supported branches:
 
 Maps for Half-Life 2 or SDK 2013 Singleplayer are supported. However you must still install VVIS++ in a 64-bit game
 
-<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 13th February, 2026)
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 28th March, 2026)
 
 
 Wall of Testimonials:
@@ -260,6 +272,11 @@ Changelog:
 - Added DXT3 format support for texture shadows
 - Added support for %alphatexture
 	- Allows overriding texture used for texture shadows on geometry
+- Added geometric edge pairing for brush entities
+	- This helps reduce seams where they touch world geometry or other entities
+	- Added "-nopairgeometricedges" option to disable this behavior
+	" "vrad_brush_pair_edges" keyvalue can be used to disable this on a per-entity basis
+	- Also added "-nopairedges" to disable edge pairing on the same entity
 - Added experimental support for static props to shadow ambient cubes
     - Disabled by default, use "-propambient" to enable
     - Uses collision model of the static prop as the approximation
@@ -294,7 +311,9 @@ Changelog:
 	- Controls radius of *bounced* lighting influence multiplier for displacements. Default is 1
 	- Higher values may fix splotches of dark lighting on large, stretched displacements
 	- "-LargeDispSampleRadius" is the same as "-disppatchsamplefactor 2.2"
+- Added "-indirectonly" to only bake indirect light
 - Added support for using decimals in lightmap scales
+- Added support for reading static prop formats v7 to v14
 - Added "-report_search_paths" to list current search paths for debugging
 - Added "-propdebug" for tracking down what props take a long time to compile
 - Significantly improved performance and memory usage of bounced lighting on faces with low lightmap scales
@@ -321,6 +340,8 @@ Changelog:
 - .dx90.vtx data is loaded for vertex lighting instead of .dx80.vtx
 - Broken vertex data for props will now be skipped over when compiling
 - Fixed bug where broken vertex data in props skipped vertex lighting for other props
+- Fixed oversight where indirect lighting wasn't blended correctly with non-bump vs bump neighboring faces
+- Fixed rare crash related to surfaceprop parsing
 - Removed memory column from BSP statistics as its useless
 - Named or styled lights are now sorted by brightness priority for faces
 	- Reduces occurence of bad lighting from overlapping named/styled lights
@@ -344,7 +365,7 @@ Maps for Half-Life 2 or SDK 2013 Singleplayer are supported. However you must st
 Optionally, add the "tools_plusplus.fgd" FGD file into Hammer's game configuration
 Tools -> Options -> Game Configurations -> click Add beside Game Data files
 
-<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 12th March, 2026)
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 28th March, 2026)
 </div>
 
 <div class="patch">
@@ -380,7 +401,7 @@ Supported branches:
 
 Maps for Half-Life 2 or SDK 2013 Singleplayer are supported. However you must still install BSPZIP++ in a 64-bit game
 
-<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 13th February, 2026)
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 28th March, 2026)
 </div>
 
 <div class="patch">
@@ -398,14 +419,33 @@ Changelog:
 - Added basic "if"/"else"/"else if" conditionals to animations
 - Added default argument support to macros
 - Added new $endmacro terminator for macros, allows omitting \\ 
+- Added numeric input support for "$contents"
+- Added better warnings for invalid bounding boxes in animations
+- Added "-noremap" to disable sequence remapping with existing models
+- Added "gmtime" option for "$sequence"s to flag as synced to UTC time
+	- Note: this requires mod support
+- Added check for overflowing cmdlists
 - Made offset optional for $attachment, can be explicitly defined with "offset" token
 - Significantly faster compilation
 - Raised maximum amount of bones in the SOURCE mesh to 1024 (the output bone limit is still 128)
 - $collisionmodel and $replacemodel no longer require explicitly providing extension name
+- Implemented new rules for bone collapsing that prevent unexpected behavior, see below:
+	- If bone is marked by $alwayscollapse, its always collapsed no exceptions
+	- If bone is assigned to a vertex at any LOD, dont collapse
+	- If bone is used as a hitbox, don't collapse
+	- If bone is a $definebone, dont collapse
+	- If bone is used in an animation, dont collapse
+	- If bone is procedural, don't collapse
+	- If bone is part of ikchain, don't collapse
+	- If bone is used as $attachment, don't collapse
+	- If bone is used as $bonemerge, don't collapse
+	- Otherwise, collapse
 - Fixed $renamebone not affecting the collision model
 - Fixed crash if source bones limit is exceeded
 - Fixed crash if blank bodygroup was used with $staticprop
+- Fixed bogus animation data being printed in console
 - Reduced default weight culling from 5% to 0.01%
+- Removed limit for max number of animations
 - Removed .sw.vtx output
 
 Installation:
@@ -417,7 +457,7 @@ The only supported games are 64-bit SDK2013-based games, for example:
 - Team Fortress 2, Counter-Strike: Source, Day of Defeat: Source, Half-Life 2: Deathmatch
 Garry's Mod is <span class="error">NOT</span> supported.
 
-<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/studiomdlplusplus.exe">Download</a> (Last updated: 11th December, 2025)
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/studiomdlplusplus.exe">Download</a> (Last updated: 28th March, 2026)
 </div>
 
 <div class="patch">
