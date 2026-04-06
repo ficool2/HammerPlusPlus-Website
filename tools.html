@@ -77,14 +77,18 @@ Changelog:
 - Added optimization to automatically disable vertex lighting for props with $bumpmap/$phong
 	- Reduces time spent in VRAD with -staticproplighting
 	- Use "-showineligiblevertexlitprops" to show what props were marked ineligible for vertex lighting
+	- Use "-noineligiblevertexlitprops" to disable this optimization (disabled by default with "-csgo" parameter)
 - Added logging if FGD has parsing errors
 - Added -nonamefixup to disable default instance name prefixing with "InstanceAuto"
 - Added "-singleplayer" option to compile maps for  HL2 (SDK13 Singleplayer) BSP format
+- Added "-l4d2", "-portal2", "-asw", "-csgo" options to compile maps for L4D2, Portal 2, Alien Swarm and CS:GO BSP formats
+	- CS:GO support is experimental and has not been tested
 - Added warning if using info_lighting on dynamic entities
 - Added sanity check for NaN/Inf values in the VMF
 - Added check for brushes going outside of map grid
     - This prevents the "Map coordinate extents are too large!!" error in-game
 - Added %compileNoShadows support
+- Added %compileTeam support
 - Added support for compiling lightmaps on Water if $lightmapwaterfog is set
 - Added support for high lightmap sizes (useful for games that support -maxlightmapdim)
 - Added support for saving "enablelightbounce" flag for static props
@@ -98,11 +102,14 @@ Changelog:
 - Added ability to insert default options from gameinfo
 	- To use this, make a "Tools" section in your "gameinfo.txt"
 	- Use "vbsp", "vvis", "vrad" and "studiomdl" keys, with the values being options to add
+- Added "func_simpleladder" format support (used by L4D2)
+	- If your mod supports it, you can also compile this ladder format with "-simpleladders" parameter
 - Added experimental support for compiling different static prop formats
 	- Use "-staticpropformat" to switch to these formats
 	- Supported formats: v6 (HL2), v7 v8 (L4D), v9 (L4D2), v10 (TF2, default), v11-v12 (CSGO), v13 (Strata), v14 (new)
-	- This does NOT mean you can compile maps that work for the aforementioned games yet
 	- Mainly useful for Garry's Mod, it now means you can compile maps with prop rendercolor and scaling
+- Blocklight and blockLOS tooltextures no longer cut out faces from other "func_detail"
+	- This change was made to support L4D2 maps, which rely on this change
 - "-leaktest" will now stop on areaportal leaks
 - Restored support for -maxlightmapdim and -defaultluxelsize parameters
 - func_occluder, func_areaportal, func_viscluster, func_nobevel, parallax_obb no longer count towards the brush limit
@@ -129,20 +136,30 @@ Changelog:
 
 Installation:
 
+Extract the zip and launch the "toolsplusplus_installer.exe" installer.
+
+Manual installation (if installer doesn't work):
 Place into your game's bin/x64/ or bin/win64/ folder (where normal vbsp.exe is)
 Update Hammer's game configuration to use vbspplusplus.exe as the BSP compiler
 
-Supported branches:
+Supported branches
+- Team Fortress 2 (including Counter-Strike: Source, Day of Defeat: Source, Half-Life 2: Deathmatch)
 - Garry's Mod
-- 64-bit SDK2013-based games, etc: Team Fortress 2, Counter-Strike: Source, Day of Defeat: Source, Half-Life 2: Deathmatch
-
-Compiling maps for Half-Life 2 or SDK 2013 Singleplayer is supported
-However you must still install VBSP++ in a 64-bit game, and pass "-singleplayer" to set the correct BSP format
+- SDK 2013 Multiplayer
+- SDK 2013 Singleplayer (including Half-Life 2 and Portal 1)
+	- Add "-singleplayer" parameter to compile the correct BSP format
+- Left 4 Dead 2
+	- Add "-l4d2" parameter to compile the correct BSP format
+- Portal 2 (partially)
+	- Add "-portal2" parameter to compile the correct BSP format
+	- func_instance_io_proxy is not yet supported, use stock VBSP for now
+- Alien Swarm
+	- Add "-asw" parameter to compile the correct BSP format
 
 Optionally, add the "tools_plusplus.fgd" FGD file into Hammer's game configuration
 Tools -> Options -> Game Configurations -> click Add beside Game Data files
 
-<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 2nd April, 2026)
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 6th April, 2026)
 </div>
 
 <div class="patch">
@@ -160,6 +177,10 @@ Changelog:
 
 Installation:
 
+Extract the zip and launch the "toolsplusplus_installer.exe" installer.
+
+Manual installation (if installer doesn't work):
+
 Extract VVIS++ from the download and place it anywhere. This tool is fully standalone
 Update Hammer's game configuration to use vvisplusplus.exe as the VIS compiler
 
@@ -174,7 +195,7 @@ Supported branches
 - Counter-Strike: Global Offensive
 - SFM
 
-<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 31st March, 2026)
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 6th April, 2026)
 
 
 Wall of Testimonials:
@@ -300,7 +321,7 @@ Changelog:
          - In GMod, Lua can be used for this
          - In singleplayer games, you can issue a command with "point_clientcommand" or VScript
 - Added support for "Patch" materials for loadng texture shadows
-- Added support for processing  HL2 (SDK13 Singleplayer) BSP formats
+- Added support for processing L4D2, Portal 2 and HL2 (SDK13 Singleplayer) BSP formats
 - Added "-patchlightmapsize" to set minimum lightmap size for patches (default is 16)
 	- This controls how faces with lower lightmap scales get subdivided for bounced lighting
 	- Lower values will subdivide more, at the cost of increased compile time and memory usage
@@ -345,9 +366,11 @@ Changelog:
 - Redundant vertex lighting is skipped for lightmapped props (saves compile time and file size)
 - .dx90.vtx data is loaded for vertex lighting instead of .dx80.vtx
 - Broken vertex data for props will now be skipped over when compiling
+- VPhysics is now an optional dependency (will compile successfully if its missing)
 - Fixed bug where broken vertex data in props skipped vertex lighting for other props
 - Fixed oversight where indirect lighting wasn't blended correctly with non-bump vs bump neighboring faces
 - Fixed rare crash related to surfaceprop parsing
+- Fixed multiple "light_environment" or "light_directional" entities stomping over leaf sky flags
 - Removed memory column from BSP statistics as its useless
 - Named or styled lights are now sorted by brightness priority for faces
 	- Reduces occurence of bad lighting from overlapping named/styled lights
@@ -359,19 +382,28 @@ Changelog:
 
 Installation:
 
+Extract the zip and launch the "toolsplusplus_installer.exe" installer.
+
+Manual installation (if installer doesn't work):
+
 Place into your game's bin/x64/ or bin/win64/ folder (where normal vrad.exe is)
 Update Hammer's game configuration to use vradplusplus.exe as the RAD compiler
 
 Supported branches:
 - Garry's Mod (x86-x64 beta)
 - 64-bit SDK2013-based games, etc: Team Fortress 2, Counter-Strike: Source, Day of Defeat: Source, Half-Life 2: Deathmatch
+- Left 4 Dead 2
+- Portal 2
+- Alien Swarm
+- Half Life 2
+- SDK 2013 singleplayer
 
 Maps for Half-Life 2 or SDK 2013 Singleplayer are supported. However you must still install VRAD++ in a 64-bit game
 
 Optionally, add the "tools_plusplus.fgd" FGD file into Hammer's game configuration
 Tools -> Options -> Game Configurations -> click Add beside Game Data files
 
-<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 2nd April, 2026)
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 6th April, 2026)
 </div>
 
 <div class="patch">
@@ -407,7 +439,7 @@ Supported branches:
 
 Maps for Half-Life 2 or SDK 2013 Singleplayer are supported. However you must still install BSPZIP++ in a 64-bit game
 
-<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 28th March, 2026)
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 6th April, 2026)
 </div>
 
 <div class="patch">
@@ -466,7 +498,7 @@ The only supported games are 64-bit SDK2013-based games, for example:
 - Team Fortress 2, Counter-Strike: Source, Day of Defeat: Source, Half-Life 2: Deathmatch
 Garry's Mod is <span class="error">NOT</span> supported.
 
-<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.exe">Download</a> (Last updated: 2nd April, 2026)
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.exe">Download</a> (Last updated: 6th April, 2026)
 </div>
 
 <div class="patch">
