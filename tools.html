@@ -82,7 +82,13 @@ Changelog:
 - Added -nonamefixup to disable default instance name prefixing with "InstanceAuto"
 - Added "-singleplayer" option to compile maps for  HL2 (SDK13 Singleplayer) BSP format
 - Added "-l4d2", "-portal2", "-asw", "-csgo" options to compile maps for L4D2, Portal 2, Alien Swarm and CS:GO BSP formats
-	- CS:GO support is experimental and has not been tested
+	- VBSP++ will automatically compile the correct format if it recognizes the "SteamAppId" in the gameinfo.txt
+	- Recognized games:
+	- HL2, Portal 1, Synergy, Entropy Zero, Entropy Zero 2, SDK2013 Singleplayer: "-singleplayer"
+	- L4D2: "-l4d2"
+	- Portal 2: "-portal2"
+	- Alien Swarm, AS: Reactive Drop: "-asw"
+	- CS2 (Legacy), CSGO, Insurgency, Day of Infamy, Black Mesa: "-csgo"
 - Added warning if using info_lighting on dynamic entities
 - Added sanity check for NaN/Inf values in the VMF
 - Added check for brushes going outside of map grid
@@ -149,17 +155,16 @@ Supported branches
 - SDK 2013 Singleplayer (including Half-Life 2 and Portal 1)
 	- Add "-singleplayer" parameter to compile the correct BSP format
 - Left 4 Dead 2
-	- Add "-l4d2" parameter to compile the correct BSP format
 - Portal 2 (partially)
-	- Add "-portal2" parameter to compile the correct BSP format
 	- func_instance_io_proxy is not yet supported, use stock VBSP for now
 - Alien Swarm
-	- Add "-asw" parameter to compile the correct BSP format
+- CS:GO
+
 
 Optionally, add the "tools_plusplus.fgd" FGD file into Hammer's game configuration
 Tools -> Options -> Game Configurations -> click Add beside Game Data files
 
-<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 6th April, 2026)
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 7th April, 2026)
 </div>
 
 <div class="patch">
@@ -403,7 +408,7 @@ Maps for Half-Life 2 or SDK 2013 Singleplayer are supported. However you must st
 Optionally, add the "tools_plusplus.fgd" FGD file into Hammer's game configuration
 Tools -> Options -> Game Configurations -> click Add beside Game Data files
 
-<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 6th April, 2026)
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 7th April, 2026)
 </div>
 
 <div class="patch">
