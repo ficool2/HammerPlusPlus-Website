@@ -81,7 +81,8 @@ Changelog:
 - Added logging if FGD has parsing errors
 - Added -nonamefixup to disable default instance name prefixing with "InstanceAuto"
 - Added "-singleplayer" option to compile maps for  HL2 (SDK13 Singleplayer) BSP format
-- Added "-l4d2", "-portal2", "-asw", "-csgo" options to compile maps for L4D2, Portal 2, Alien Swarm and CS:GO BSP formats
+- Added "-l4d2", "-portal2", "-asw", 'insurgency", "-csgo" options
+	- Allows compiling maps for L4D2, Portal 2, Alien Swarm, Insurgency, and CS:GO BSP formats respectively
 	- VBSP++ will automatically compile the correct format if it recognizes the "SteamAppId" in the gameinfo.txt
 	- Recognized games:
 	- HL2, Portal 1, Synergy, Entropy Zero, Entropy Zero 2, SDK2013 Singleplayer: "-singleplayer"
@@ -164,7 +165,7 @@ Supported branches
 Optionally, add the "tools_plusplus.fgd" FGD file into Hammer's game configuration
 Tools -> Options -> Game Configurations -> click Add beside Game Data files
 
-<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 7th April, 2026)
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 12th April, 2026)
 </div>
 
 <div class="patch">
@@ -374,6 +375,7 @@ Changelog:
 - VPhysics is now an optional dependency (will compile successfully if its missing)
 - Fixed bug where broken vertex data in props skipped vertex lighting for other props
 - Fixed oversight where indirect lighting wasn't blended correctly with non-bump vs bump neighboring faces
+- Fixed textureshadows defined in the .rad file not working if slashes were different
 - Fixed rare crash related to surfaceprop parsing
 - Fixed multiple "light_environment" or "light_directional" entities stomping over leaf sky flags
 - Removed memory column from BSP statistics as its useless
@@ -408,7 +410,7 @@ Maps for Half-Life 2 or SDK 2013 Singleplayer are supported. However you must st
 Optionally, add the "tools_plusplus.fgd" FGD file into Hammer's game configuration
 Tools -> Options -> Game Configurations -> click Add beside Game Data files
 
-<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 7th April, 2026)
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 12th April, 2026)
 </div>
 
 <div class="patch">
