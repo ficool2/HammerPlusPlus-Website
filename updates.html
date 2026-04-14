@@ -17,6 +17,37 @@
 			<article>
 			
 <div class="patch">
+	<h1>Build 8871 (April 14th 2026)</h1>	
+	<pre>
+- Fixed crashes after Garry's Mod update on 13/04/26
+- Spawnflags in entities now have their flag number shown
+- "Open Source" in Texture Browser can now open VMTs inside VPKs
+- Improved texture projection with Propper++ to reduce seams on complex geometry
+- Object Properties window title now shows number of objects selected
+- Changed default Propper++ AO Atlas Fudge to 0.1
+- NaN/Inf values in displacements are now converted to zero on VMF load
+- Added support for previewing non-uniform scale on static props
+- Added Ctrl + Scroll wheel rescale bind on static props
+- Fixed incorrect rotation when converting non-static props with Propper++
+- Fixed poor performance of "Move To World" tool when converting hundreds of objects
+- Fixed poor performance of "Mark" button in Face Edit sheet on big maps
+- Fixed detail models being incorrectly culled
+- Fixed doubled rotation with env_projectedtexture
+- Fixed autoplay sequences not previewing
+- Fixed default poseparameter values being slightly off
+- Fixed "Reload" button in Texture Browser not fully reloading the VMT
+- Fixed the infamous displacement vertex explosion bug
+	- This is a bug in every version of Hammer except CSGO branch
+- Fixed crash when using Move Object to Nearest Floor/Ceiling with empty classname
+- Fixed being able to drag and drop non-VMF files onto the editor
+- Fixed Propper++ atlas feature crashing in Portal 2 and L4D2
+- Fixed incorrect Propper++ output with non-uniform scaling
+- Fixed startup crash if recent files had non-English characters in file path
+- Fixed a case of HDR lighting preview flickering
+- Removed -steam from default game launch options in L4D2
+</div>			
+			
+<div class="patch">
 	<h1>Build 8870 (August 1st 2025)</h1>	
 	<pre>
 Happy 5th anniversary to Hammer++!
