@@ -91,11 +91,17 @@ Changelog:
 	- Alien Swarm, AS: Reactive Drop: "-asw"
 	- CS2 (Legacy), CSGO, Insurgency, Day of Infamy, Black Mesa: "-csgo"
 - Added warning if using info_lighting on dynamic entities
+- Added warning if static prop hull generation takes a long time
 - Added sanity check for NaN/Inf values in the VMF
 - Added check for brushes going outside of map grid
     - This prevents the "Map coordinate extents are too large!!" error in-game
+- Added "-warnMissingInstances" to ignore missing instance VMFs
 - Added %compileNoShadows support
 - Added %compileTeam support
+- Added new "%compileNormal" parameter for brush materials
+	- This forces vertex normals on the face to all be the same
+	- Useful to make fake 2D skyboxes without needing a HDR texture (via "UnlitGeneric" cubemap) 
+	- Example: %compileNormal "[1 0 0]"
 - Added support for compiling lightmaps on Water if $lightmapwaterfog is set
 - Added support for high lightmap sizes (useful for games that support -maxlightmapdim)
 - Added support for saving "enablelightbounce" flag for static props
@@ -115,11 +121,15 @@ Changelog:
 	- Use "-staticpropformat" to switch to these formats
 	- Supported formats: v6 (HL2), v7 v8 (L4D), v9 (L4D2), v10 (TF2, default), v11-v12 (CSGO), v13 (Strata), v14 (new)
 	- Mainly useful for Garry's Mod, it now means you can compile maps with prop rendercolor and scaling
+- Added support for variable brush, displacement and texinfo limit
+	- Change them via "-maxbrushes", "-maxdispinfo" and "-maxtexinfo" respectively
+	- NOTE: This will only work on engines that support the higher limit
 - Blocklight and blockLOS tooltextures no longer cut out faces from other "func_detail"
 	- This change was made to support L4D2 maps, which rely on this change
 - "-leaktest" will now stop on areaportal leaks
 - Restored support for -maxlightmapdim and -defaultluxelsize parameters
 - func_occluder, func_areaportal, func_viscluster, func_nobevel, parallax_obb no longer count towards the brush limit
+- Improved performance of "Fixing up env_cubemap materials" step
 - Improved clarity of some warnings and removed useless ones
 - Renamed waterindices to primindices (less misleading name)
 - Fixed instances not collapsing correctly if FGD had unrecognized types
@@ -165,7 +175,7 @@ Supported branches
 Optionally, add the "tools_plusplus.fgd" FGD file into Hammer's game configuration
 Tools -> Options -> Game Configurations -> click Add beside Game Data files
 
-<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 12th April, 2026)
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 21st April, 2026)
 </div>
 
 <div class="patch">
@@ -176,8 +186,8 @@ VVIS++ is a modification of SDK2013 VVIS, with the main upgrade being massive im
 Changelog:
 
 - Huge performance improvement over normal VVIS. Speed up ranges from 50% to 2700% faster (!!)
--- See this <a target="_blank" href="https://i.imgur.com/AdXWITy.png">benchmark</a> image for a comparison
--- Produces the same results as normal VVIS
+	- See this <a target="_blank" href="https://i.imgur.com/AdXWITy.png">benchmark</a> image for a comparison
+	- Produces the same results as normal VVIS
 - Scales up to 64 threads
 - Added appid mounting in gameinfo.txt
 
@@ -201,7 +211,7 @@ Supported branches
 - Counter-Strike: Global Offensive
 - SFM
 
-<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 6th April, 2026)
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 21st April, 2026)
 
 
 Wall of Testimonials:
@@ -310,6 +320,15 @@ Changelog:
 	- Added "-nopairgeometricedges" option to disable this behavior
 	- "vrad_brush_pair_edges" keyvalue can be used to disable this on a per-entity basis
 	- Also added "-nopairedges" to disable edge pairing on the same entity
+- Added Light Culling
+	- Significantly improves performance for open maps that use a lot of lights
+	- Greatly reduces lightmap filesize of the map when using named lights
+	- Comparison on an open map: 
+		- 4 minutes 23 seconds -> 3 minutes 1 second
+		- File size: 62 MB -> 52 MB
+	- "-nolightcull" can be used to disable this if it causes problems
+	- "minlightcullintensity" can be used to adjust the intensity cutoff threshold
+	- Default is 1 which is negligible levels of lighting
 - Added experimental support for static props to shadow ambient cubes
     - Disabled by default, use "-propambient" to enable
     - Uses collision model of the static prop as the approximation
@@ -356,6 +375,8 @@ Changelog:
 - Improved vertex lighting for props
 	- Added -StaticPropIndirectMode to use old behavior if desired
 	- See <a target="_blank" href="https://github.com/ValveSoftware/source-sdk-2013/pull/1345">this page</a> for a comparison
+- Improved performance of static prop loading when using "-StaticPropPolys"
+	- This also fixes hangs on very large and sparse props
 - Fixed maps with more than 13 million triangles taking a very, very long time to compile
 - Fixed black seams appearing on displacements in "-fast" mode
 - Fixed rays missing exact diagonal corner intersections
@@ -410,7 +431,7 @@ Maps for Half-Life 2 or SDK 2013 Singleplayer are supported. However you must st
 Optionally, add the "tools_plusplus.fgd" FGD file into Hammer's game configuration
 Tools -> Options -> Game Configurations -> click Add beside Game Data files
 
-<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 12th April, 2026)
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 21st April, 2026)
 </div>
 
 <div class="patch">
