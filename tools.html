@@ -149,6 +149,8 @@ Changelog:
 - Fixed crash if map had more than 32768 texinfo
 - Fixed crash if displacement face had less than 3 points
 - Fixed bug where brushside count was varying depending on the CPU
+- Fixed incorrect collisions on certain angled brushes
+	- See <a target="_blank" href="https://github.com/ValveSoftware/source-sdk-2013/issues/1903">this page</a> for more info
 - Deprecated manifests
 - Deprecated func_viscluster entity
 
@@ -176,7 +178,7 @@ Supported branches
 Optionally, add the "tools_plusplus.fgd" FGD file into Hammer's game configuration
 Tools -> Options -> Game Configurations -> click Add beside Game Data files
 
-<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 25th April, 2026)
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 30th April, 2026)
 </div>
 
 <div class="patch">
@@ -191,6 +193,7 @@ Changelog:
 	- Produces the same results as normal VVIS
 - Scales up to 64 threads
 - Added appid mounting in gameinfo.txt
+- Fixed only first env_fog_controller's FarZ clip distance being considered for radial vis
 
 Installation:
 
@@ -212,7 +215,7 @@ Supported branches
 - Counter-Strike: Global Offensive
 - SFM
 
-<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 25th April, 2026)
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 30th April, 2026)
 
 
 Wall of Testimonials:
@@ -432,7 +435,7 @@ Maps for Half-Life 2 or SDK 2013 Singleplayer are supported. However you must st
 Optionally, add the "tools_plusplus.fgd" FGD file into Hammer's game configuration
 Tools -> Options -> Game Configurations -> click Add beside Game Data files
 
-<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 25th April, 2026)
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 30th April, 2026)
 </div>
 
 <div class="patch">
@@ -468,7 +471,7 @@ Supported branches:
 
 Maps for Half-Life 2 or SDK 2013 Singleplayer are supported. However you must still install BSPZIP++ in a 64-bit game
 
-<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 25th April, 2026)
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 30th April, 2026)
 </div>
 
 <div class="patch">
@@ -497,8 +500,10 @@ Changelog:
 	- "nocull" parameter can be added to an $animation to disable culling
 - Made offset optional for $attachment, can be explicitly defined with "offset" token
 - Significantly faster compilation
+- Significantly improved loading speed of SMD files
 - Raised maximum amount of bones in the SOURCE mesh to 1024 (the output bone limit is still 128)
 - $collisionmodel and $replacemodel no longer require explicitly providing extension name
+- Macros now fallback to `$definevariable`s if not found in macro parameters
 - Implemented new rules for bone collapsing that prevent unexpected behavior, see below:
 	- If bone is marked by $alwayscollapse, its always collapsed no exceptions
 	- If bone is assigned to a vertex at any LOD, dont collapse
@@ -513,6 +518,7 @@ Changelog:
 - Fixed $renamebone not affecting the collision model
 - Fixed crash if source bones limit is exceeded
 - Fixed crash if blank bodygroup was used with $staticprop
+- Fixed crash if source mesh had too many vertexes/faces
 - Fixed bogus animation data being printed in console
 - Reduced default weight culling from 5% to 0.01%
 - Removed limit for max number of animations
@@ -527,7 +533,7 @@ The only supported games are 64-bit SDK2013-based games, for example:
 - Team Fortress 2, Counter-Strike: Source, Day of Defeat: Source, Half-Life 2: Deathmatch
 Garry's Mod is <span class="error">NOT</span> supported.
 
-<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 6th April, 2026)
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 30th April, 2026)
 </div>
 
 <div class="patch">
