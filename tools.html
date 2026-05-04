@@ -92,6 +92,7 @@ Changelog:
 	- CS2 (Legacy), CSGO, Insurgency, Day of Infamy, Black Mesa: "-csgo"
 - Added warning if using info_lighting on dynamic entities
 - Added warning if static prop hull generation takes a long time
+- Added warning if overlay has no faces assigned
 - Added sanity check for NaN/Inf values in the VMF
 - Added check for brushes going outside of map grid
     - This prevents the "Map coordinate extents are too large!!" error in-game
@@ -123,7 +124,7 @@ Changelog:
 	- Supported formats: v6 (HL2), v7 v8 (L4D), v9 (L4D2), v10 (TF2, default), v11-v12 (CSGO), v13 (Strata), v14 (new)
 	- Mainly useful for Garry's Mod, it now means you can compile maps with prop rendercolor and scaling
 - Added support for variable brush, displacement and texinfo limit
-	- Change them via "-maxbrushes", "-maxdispinfo" and "-maxtexinfo" respectively
+	- Change them via "-maxbrushes", "-maxbrushsides", "-maxdispinfo" and "-maxtexinfo" respectively
 	- NOTE: This will only work on engines that support the higher limit
 - Blocklight and blockLOS tooltextures no longer cut out faces from other "func_detail"
 	- This change was made to support L4D2 maps, which rely on this change
@@ -178,7 +179,7 @@ Supported branches
 Optionally, add the "tools_plusplus.fgd" FGD file into Hammer's game configuration
 Tools -> Options -> Game Configurations -> click Add beside Game Data files
 
-<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 30th April, 2026)
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 4th May, 2026)
 </div>
 
 <div class="patch">
@@ -215,7 +216,7 @@ Supported branches
 - Counter-Strike: Global Offensive
 - SFM
 
-<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 30th April, 2026)
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 4th May, 2026)
 
 
 Wall of Testimonials:
@@ -435,7 +436,7 @@ Maps for Half-Life 2 or SDK 2013 Singleplayer are supported. However you must st
 Optionally, add the "tools_plusplus.fgd" FGD file into Hammer's game configuration
 Tools -> Options -> Game Configurations -> click Add beside Game Data files
 
-<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 30th April, 2026)
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 4th May, 2026)
 </div>
 
 <div class="patch">
@@ -471,7 +472,7 @@ Supported branches:
 
 Maps for Half-Life 2 or SDK 2013 Singleplayer are supported. However you must still install BSPZIP++ in a 64-bit game
 
-<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 30th April, 2026)
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 4th May, 2026)
 </div>
 
 <div class="patch">
@@ -533,7 +534,7 @@ The only supported games are 64-bit SDK2013-based games, for example:
 - Team Fortress 2, Counter-Strike: Source, Day of Defeat: Source, Half-Life 2: Deathmatch
 Garry's Mod is <span class="error">NOT</span> supported.
 
-<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 30th April, 2026)
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 4th May, 2026)
 </div>
 
 <div class="patch">
