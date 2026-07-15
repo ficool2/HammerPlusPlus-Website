@@ -66,6 +66,7 @@ Changelog:
 	- Update: this is now reverted due to causing crashes on Linux servers. Slammin is also affected by this.
 - Added parallax_obb entity support for mods that have parallax cubemaps
 	- Also inserts extra data for PCC on models
+	- Warns you if the entity is setup incorrectly
 - Added func_detail_illusionary (identical to func_detail but non solid)
 - Added func_nobevel support
 	- VBSP generates bounding box brushsides for angled geometry to improve collision accuracy
@@ -92,6 +93,7 @@ Changelog:
 	- CS2 (Legacy), CSGO, Insurgency, Day of Infamy, Black Mesa: "-csgo"
 - Added warning if using info_lighting on dynamic entities
 - Added warning if static prop hull generation takes a long time
+- Added warning if overlay has no faces assigned
 - Added sanity check for NaN/Inf values in the VMF
 - Added check for brushes going outside of map grid
     - This prevents the "Map coordinate extents are too large!!" error in-game
@@ -113,6 +115,9 @@ Changelog:
 - Added "-maxluxelscale" (clamps maximum luxel scale, default is no limit)
 - Added "-report_search_paths" to list current search paths for debugging
 - Added "-missingmaterial" option to replace missing brush materials with the desired material name
+- Added "-forcematerial" option to force all brush materials to be replaced with the desired name 
+- Added "-entfirst" parameter 
+	- Forces a specific entity classname to always be sorted first in the list of entities
 - Added ability to insert default options from gameinfo
 	- To use this, make a "Tools" section in your "gameinfo.txt"
 	- Use "vbsp", "vvis", "vrad" and "studiomdl" keys, with the values being options to add
@@ -123,7 +128,7 @@ Changelog:
 	- Supported formats: v6 (HL2), v7 v8 (L4D), v9 (L4D2), v10 (TF2, default), v11-v12 (CSGO), v13 (Strata), v14 (new)
 	- Mainly useful for Garry's Mod, it now means you can compile maps with prop rendercolor and scaling
 - Added support for variable brush, displacement and texinfo limit
-	- Change them via "-maxbrushes", "-maxdispinfo" and "-maxtexinfo" respectively
+	- Change them via "-maxbrushes", "-maxbrushsides", "-maxdispinfo" and "-maxtexinfo" respectively
 	- NOTE: This will only work on engines that support the higher limit
 - Blocklight and blockLOS tooltextures no longer cut out faces from other "func_detail"
 	- This change was made to support L4D2 maps, which rely on this change
@@ -143,12 +148,16 @@ Changelog:
 - Fixed occluders not being collapsed correctly in instances
 - Fixed cubemap side IDs not being remapped in instances
 - Fixed missing texture cubemaps if skybox has mismatched side dimensions
+- Fixed max overlays per face actually being 63 rather than 64 due to a faulty check
+- Fixed crashes if brush texture name was more than 128 characters
 - Fixed crash if an instance overflowed brush or brushsides limit
 - Fixed crash if instance name was too long
 - Fixed crash if no surfaceprops were loaded
 - Fixed crash if map had more than 32768 texinfo
 - Fixed crash if displacement face had less than 3 points
 - Fixed bug where brushside count was varying depending on the CPU
+- Fixed incorrect collisions on certain angled brushes
+	- See <a target="_blank" href="https://github.com/ValveSoftware/source-sdk-2013/issues/1903">this page</a> for more info
 - Deprecated manifests
 - Deprecated func_viscluster entity
 
@@ -176,7 +185,7 @@ Supported branches
 Optionally, add the "tools_plusplus.fgd" FGD file into Hammer's game configuration
 Tools -> Options -> Game Configurations -> click Add beside Game Data files
 
-<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 25th April, 2026)
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 23 June 2026)
 </div>
 
 <div class="patch">
@@ -191,6 +200,7 @@ Changelog:
 	- Produces the same results as normal VVIS
 - Scales up to 64 threads
 - Added appid mounting in gameinfo.txt
+- Fixed only first env_fog_controller's FarZ clip distance being considered for radial vis
 
 Installation:
 
@@ -212,7 +222,7 @@ Supported branches
 - Counter-Strike: Global Offensive
 - SFM
 
-<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 25th April, 2026)
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 23 June 2026)
 
 
 Wall of Testimonials:
@@ -328,8 +338,10 @@ Changelog:
 		- 4 minutes 23 seconds -> 3 minutes 1 second
 		- File size: 62 MB -> 52 MB
 	- "-nolightcull" can be used to disable this if it causes problems
-	- "minlightcullintensity" can be used to adjust the intensity cutoff threshold
-	- Default is 1 which is negligible levels of lighting
+	- "-minlightcullintensity" can be used to adjust the intensity cutoff threshold
+	- "-minstyledlightcullintensity" is similar but for named-lights, higher than usual threshold
+	- Default is 0.01 which is negligible levels of lighting
+	- For named lights, the default is 1 as they increase filesize and lower in-game performance
 - Added experimental support for static props to shadow ambient cubes
     - Disabled by default, use "-propambient" to enable
     - Uses collision model of the static prop as the approximation
@@ -432,7 +444,7 @@ Maps for Half-Life 2 or SDK 2013 Singleplayer are supported. However you must st
 Optionally, add the "tools_plusplus.fgd" FGD file into Hammer's game configuration
 Tools -> Options -> Game Configurations -> click Add beside Game Data files
 
-<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 25th April, 2026)
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 23 June 2026)
 </div>
 
 <div class="patch">
@@ -468,7 +480,7 @@ Supported branches:
 
 Maps for Half-Life 2 or SDK 2013 Singleplayer are supported. However you must still install BSPZIP++ in a 64-bit game
 
-<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 25th April, 2026)
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 22 June 2026)
 </div>
 
 <div class="patch">
@@ -478,6 +490,10 @@ StudioMDL++ is a modification of SDK2013 StudioMDL with various new features and
 
 Changelog:
 
+- Significantly faster compilation
+- Significantly improved loading speed of SMD files
+- Supports compiling unlimited number of vertices
+- Raised maximum output file size to 32mb
 - Added appid mounting in gameinfo.txt
 - Added -nodx80 option to not emit .dx80.vtx files
 - Added "reverse" command for $sequence
@@ -489,16 +505,22 @@ Changelog:
 - Added numeric input support for "$contents"
 - Added better warnings for invalid bounding boxes in animations
 - Added "-noremap" to disable sequence remapping with existing models
+- Added "$bbox [meshname 1] [meshname 2] ..." to calculate bounding box from specified mesh only
+- Added "$setvariable" - similar to "$definevariable" but can override a previous variable
 - Added "gmtime" option for "$sequence"s to flag as synced to UTC time
 	- Note: this requires mod support
 - Added check for overflowing cmdlists
 - Added "-cullanims" parameter to remove unreferenced $animations
 	- This can significantly reduce file size on large animation sets such as thirdperson animations
 	- "nocull" parameter can be added to an $animation to disable culling
+- Added warning if duplicate variable is defined via "$definevariable"
+- Added error if duplicate macro is defined
+- Weight for "activity" is now optional, defaults to -1 if not specified
 - Made offset optional for $attachment, can be explicitly defined with "offset" token
-- Significantly faster compilation
+- Missing bone name in "$weightlist" is now a warning instead of error
 - Raised maximum amount of bones in the SOURCE mesh to 1024 (the output bone limit is still 128)
 - $collisionmodel and $replacemodel no longer require explicitly providing extension name
+- Macros now fallback to "$definevariable"s if not found in macro parameters
 - Implemented new rules for bone collapsing that prevent unexpected behavior, see below:
 	- If bone is marked by $alwayscollapse, its always collapsed no exceptions
 	- If bone is assigned to a vertex at any LOD, dont collapse
@@ -513,6 +535,8 @@ Changelog:
 - Fixed $renamebone not affecting the collision model
 - Fixed crash if source bones limit is exceeded
 - Fixed crash if blank bodygroup was used with $staticprop
+- Fixed crash if source mesh had too many vertexes/faces
+- Fixed swapped variable names in "missing control bone X for procedural bone Y" error
 - Fixed bogus animation data being printed in console
 - Reduced default weight culling from 5% to 0.01%
 - Removed limit for max number of animations
@@ -527,7 +551,60 @@ The only supported games are 64-bit SDK2013-based games, for example:
 - Team Fortress 2, Counter-Strike: Source, Day of Defeat: Source, Half-Life 2: Deathmatch
 Garry's Mod is <span class="error">NOT</span> supported.
 
-<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 6th April, 2026)
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 22 June 2026)
+</div>
+
+
+<div class="patch">
+	<h1>Faceposer++</h1>	
+	<pre>
+Faceposer++ is a modification of SDK2013 Faceposer with various new features and improvements
+
+Changelog:
+
+- Upgraded to 64-bit process
+- Supports LipSinc (IMS) phoneme extraction out-of-the-box
+- Upgraded graphics
+	- Uses DirectX 9 instead of 8
+	- Uses newer Windows UI stylining
+	- Antialiasing is enabled
+	- Basic material proxies are supported (prevents burn overlays on TF2 characters)
+- Improved startup times
+- Added MP3 and OGG audio support
+- Added support for VPK sounds in phoneme editor
+- Added phonemes text file support for MP3/OGG files
+- Added reload sounds button in Sound Browser
+- Added mouse-based zooming for phoneme editor
+- Added shift hotkey scrolling for phoneme editor
+- Emotion files from TF2 are now loaded automatically
+- Space hotkey now toggles pause in choreo view
+- Phoneme editor now zooms in/out faster and uses proportional zooming
+- Fixed missing icons (they are embedded in the executable now)
+- Fixed stuttery audio playback
+- Fixed phoneme editor offset resetting on resize/scroll
+- Fixed background color not working
+- Fixed crash if speech API did not load successfully
+- Fixed crash if a word had no phonemes
+- Fixed crash if realigning word with no phonemes
+- Fixed crash if pressing flex buttons with no scene
+- Fixed crash on shutdown from materials
+- Fixed window disappearing from the taskbar on startup
+- Fixed active model not changing when switching with Recent Files list
+- Fixed model list being loaded in reverse order
+- Fixed ground floor not rendering correctly
+- Fixed missing materials from the various rendering/control panel modes
+- Fixed float precision loss in rendering waveforms at high zoom
+
+Installation:
+
+Place into your game's bin/x64/ folder (where normal hlfaceposer.exe is)
+Launch the hlfaceposerplusplus.exe
+
+The only supported games are 64-bit SDK2013-based games, for example:
+- Team Fortress 2, Counter-Strike: Source, Day of Defeat: Source, Half-Life 2: Deathmatch
+Garry's Mod is <span class="error">NOT</span> supported.
+
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/hlfaceposerplusplus.zip">Download</a> (Last updated: 25 June 2026)
 </div>
 
 <div class="patch">
