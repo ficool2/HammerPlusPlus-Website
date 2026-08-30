@@ -138,6 +138,7 @@ Changelog:
 - Improved performance of "Fixing up env_cubemap materials" step
 - Improved clarity of some warnings and removed useless ones
 - Renamed waterindices to primindices (less misleading name)
+- Displacements with bad physics will now throw a warning rather than fatal error
 - Fixed instances not collapsing correctly if FGD had unrecognized types
 - Fixed instance names prefixed with ! being remapped
 - Fixed remapped instance I/O always using ESC separators (fixes HL2 compatibility)
@@ -155,6 +156,7 @@ Changelog:
 - Fixed crash if no surfaceprops were loaded
 - Fixed crash if map had more than 32768 texinfo
 - Fixed crash if displacement face had less than 3 points
+- Fixed crash when processing an empty brush in visleaf splits
 - Fixed bug where brushside count was varying depending on the CPU
 - Fixed incorrect collisions on certain angled brushes
 	- See <a target="_blank" href="https://github.com/ValveSoftware/source-sdk-2013/issues/1903">this page</a> for more info
@@ -185,7 +187,7 @@ Supported branches
 Optionally, add the "tools_plusplus.fgd" FGD file into Hammer's game configuration
 Tools -> Options -> Game Configurations -> click Add beside Game Data files
 
-<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 23 June 2026)
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 30 August 2026)
 </div>
 
 <div class="patch">
@@ -222,7 +224,7 @@ Supported branches
 - Counter-Strike: Global Offensive
 - SFM
 
-<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 23 June 2026)
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 30 August 2026)
 
 
 Wall of Testimonials:
@@ -302,6 +304,12 @@ Changelog:
     - Same sampler as used by modern raytracers, such as in Blender
     - Less samples are required for a good result
     - Since less samples are required, "-final" has now been reduced to "-extrasky 8" by default (from 16)
+- Added support for lightmap alpha output (for games that support CSM)
+	- Use the `-lightmapformat` option to enable this
+	- `rgbeastyle3` is what games on CS:GO branch use
+- Added support for prop vertex lighting alpha
+	- Use `-propalpha` to enable this
+	- Writes sun contribution amount to alpha channel
 - Added soft lights
     - When "_light_radius" keyvalue on a light is set, the light is treated as a sphere/disk
     - Allows for casting softer shadows
@@ -314,6 +322,9 @@ Changelog:
 	- Defaults to 4 with "-final", which will slightly increase compile times
 	- However this will improve quality of prop lighting in areas starved of sunlight or bounced surfaces
 - Added -reflectivityscale
+- Added -globalreflectivityscale
+	- Unlike `-reflectivityscale`, this scales bounced light on props and ambient cubes alongside brushes
+	- You should always use this instead of `-reflectivityscale` (preserved for compatibility)
 - Added -worldtextureshadows
 	- Allows $alphatest brush textures to cast proper shadows like props
 	- Requires -textureshadows
@@ -323,7 +334,7 @@ Changelog:
 	- Requires -textureshadows and -worldtextureshadows
 - Added -forcetextureshadows
 	- Forces texture shadows to be enabled on all props
-- Added DXT3 format support for texture shadows
+- Added DXT3 and BC7 format support for texture shadows
 - Added support for %alphatexture
 	- Allows overriding texture used for texture shadows on geometry
 - Added geometric edge pairing for brush entities
@@ -444,7 +455,7 @@ Maps for Half-Life 2 or SDK 2013 Singleplayer are supported. However you must st
 Optionally, add the "tools_plusplus.fgd" FGD file into Hammer's game configuration
 Tools -> Options -> Game Configurations -> click Add beside Game Data files
 
-<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 23 June 2026)
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 30 August 2026)
 </div>
 
 <div class="patch">
@@ -480,7 +491,7 @@ Supported branches:
 
 Maps for Half-Life 2 or SDK 2013 Singleplayer are supported. However you must still install BSPZIP++ in a 64-bit game
 
-<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 22 June 2026)
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 30 August 2026)
 </div>
 
 <div class="patch">
@@ -520,6 +531,7 @@ Changelog:
 - Missing bone name in "$weightlist" is now a warning instead of error
 - Raised maximum amount of bones in the SOURCE mesh to 1024 (the output bone limit is still 128)
 - $collisionmodel and $replacemodel no longer require explicitly providing extension name
+- Unused materials are now removed from the final model (i.e. part of $animations or collision model only)
 - Macros now fallback to "$definevariable"s if not found in macro parameters
 - Implemented new rules for bone collapsing that prevent unexpected behavior, see below:
 	- If bone is marked by $alwayscollapse, its always collapsed no exceptions
@@ -539,7 +551,7 @@ Changelog:
 - Fixed swapped variable names in "missing control bone X for procedural bone Y" error
 - Fixed bogus animation data being printed in console
 - Reduced default weight culling from 5% to 0.01%
-- Removed limit for max number of animations
+- Removed limit for max number of meshes and animations
 - Removed .sw.vtx output
 
 Installation:
@@ -551,7 +563,7 @@ The only supported games are 64-bit SDK2013-based games, for example:
 - Team Fortress 2, Counter-Strike: Source, Day of Defeat: Source, Half-Life 2: Deathmatch
 Garry's Mod is <span class="error">NOT</span> supported.
 
-<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 22 June 2026)
+<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 30 August 2026)
 </div>
 
 
