@@ -6,6 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="styles/main.css">
 		<link rel="stylesheet" href="styles/updates.css">
+		<link rel="stylesheet" href="styles/tools.css">
 		<link rel="icon" type=image/png href="images/favicon-32x32.png" sizes="32x32">
 	</head>
 	<body>
@@ -17,25 +18,119 @@
 
 			<nav id="navbar"></nav>
 			<article>
-				<p class="info">
-					This is a collection of other tools and scripts I've made over the years
-					<br>
-					I don't actively maintain these but perhaps others might find them useful..
-					<br><br>
-					Discord to discuss the tools: <a target="_blank" href="https://discord.com/invite/YrV35cCqgE">Join</a>
-					<br><br>
-					<span class="error">NOTE</span>: If you intend to redistribute the map compilers in your Source mod,<br>you must ask me for permission. DM me at @ficool2 on Discord
-				</p>
 				
 				<br>
 						
-<div class="patch">
-	<h1>VBSP++</h1>	
-	<pre>
-VBSP++ is a modification of SDK2013 VBSP with various new features and improvements
+<section class="toolspp">
+	<h1 class="toolspp-title">Tools++</h1>
+	<p class="toolspp-blurb">
+		The compilers we are developing for <a target="_blank" href="https://store.steampowered.com/app/3557890/Mann_Versus_Zombies/">Mann Versus Zombies</a>
+	</p>
 
-Changelog:
+	<div class="toolspp-includes">
+		<h2 class="box-title">Includes</h2>
+		<table>
+		<tbody>
+			<tr>
+				<th>VBSP++</th>
+				<td>Higher map limits (brushes, planes, vertexes) and better stability</td>
+			</tr>
+			<tr>
+				<th>VVIS++</th>
+				<td>Orders of magnitude faster performance</td>
+			</tr>
+			<tr>
+				<th>VRAD++</th>
+				<td>Quicker compiles, new lighting features</td>
+			</tr>
+			<tr>
+				<th>BSPZIP++</th>
+				<td>Multi-threaded compression</td>
+			</tr>
+			<tr>
+				<th>StudioMDL++</th>
+				<td>New macro syntax, higher limits, more useful warnings</td>
+			</tr>
+		</tbody>
+		</table>
+	</div>
 
+	<div class="toolspp-download">
+		<h2 class="box-title">Download</h2>
+		<div class="toolspp-download-body">
+		<div class="os-select">
+			<a class="os-option" download target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools++_windows.zip">
+				<span class="os-name">Windows</span>
+				<img src="images/windows.png" alt="Windows">
+			</a>
+			<a class="os-option" download target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools++_linux.tar.gz">
+				<span class="os-name">Linux</span>
+				<img src="images/tux.png" alt="Linux">
+			</a>
+		</div>
+
+		<span class="toolspp-date">Last updated: 30 August 2026</span>
+		<br>
+		<p class="info">
+			 Chat about the tools in the official <a target="_blank" href="https://discord.com/invite/YrV35cCqgE">Discord</a>
+			<a class="discord-link" target="_blank" href="https://discord.com/invite/YrV35cCqgE">
+				<img src="images/Discord_logo.png" alt="Discord">
+			</a>
+			<br><br>
+			<span class="error">NOTE</span>: If you intend to redistribute the map compilers in your Source mod,<br>you must ask me for permission. DM me at @ficool2 on Discord
+		</p>
+		</div>
+	</div>
+
+	<div class="toolspp-install">
+		<h2 class="box-title">Installation</h2>
+		<pre>
+The ++ tools are now fully standalone. Extract the contents anywhere you want, such as onto your Desktop.
+
+Then point your apps at the tools:
+
+   Hammer -> Options -> Build Programs -> BSP executable   -> vbsp++
+   Hammer -> Options -> Build Programs -> VIS executable   -> vvis++
+   Hammer -> Options -> Build Programs -> RAD executable   -> vrad++
+   Hammer -> Options -> Build Programs -> MDL executable   -> studiomdl++
+   Packing tool (CompilePal, bspzipgui, ...)               -> bspzip++
+   Crowbar -> Set Up Games -> Model Compiler               -> studiomdl++
+
+Optionally, add the included "tools_plusplus.fgd" FGD file into Hammer's game configuration
+Tools -> Options -> Game Configurations -> click Add beside Game Data files
+
+Supported games:
+- Garry's Mod
+- All Valve Source 1 games (the ++ compilers will try autodetect BSP settings based on appid in gameinfo.txt)
+- Sourcemods on old or new SDK 2013
+- Insurgency (requires "-lightmapformat rgbea" in VRAD)
+
+Unsupported games may work by adjusting options such as "-bspformat", "-lightmapformat", "-staticpropformat"
+
+</pre>
+	</div>
+
+	<div class="toolspp-carousel">
+		<h2 class="box-title">Showcase</h2>
+		<div class="carousel">
+		<div class="carousel-tabs">
+			<button class="carousel-tab" data-tool="VBSP++">VBSP++</button>
+			<button class="carousel-tab" data-tool="VVIS++">VVIS++</button>
+			<button class="carousel-tab" data-tool="VRAD++">VRAD++</button>
+			<button class="carousel-tab" data-tool="BSPZIP++">BSPZIP++</button>
+			<button class="carousel-tab" data-tool="StudioMDL++">StudioMDL++</button>
+		</div>
+
+		<div class="carousel-slides">
+<div class="slide" data-tool="VBSP++">
+	<div class="gallery">
+		<div class="gallery-frame">
+				<img class="gallery-image selected" src="images/vbsp_limits.png" alt="VBSP++ screenshot">
+		</div>
+	</div>
+	<div class="patch changelog">
+		<h1>Changelog</h1>
+		<pre>
 - Reduces brushes and brushsides usage of the map by 10-30% (MAX_MAP_BRUSHES, MAX_MAP_BRUSHSIDES)
 	- Note: this reduction will be applied once the map exceeds the limit
 - Reduces vertex usage of the map by 10-30% (MAX_MAP_VERTS)
@@ -53,6 +148,7 @@ Changelog:
 - Added support for mounting custom shaders in mods
 - Added support for custom $surfaceprops on clip brushes
 - Added support for compiling 4-way blends (for games that support it)
+- Added support for reading model vertex formats from newer games (CS:GO)
 - Added func_detail_blocker (like newer VBSPs)
 - Added -blocksize (default is 1024)
 	- Useful to compute visibility faster on open, large maps like surf (I recommend 2048)
@@ -75,6 +171,7 @@ Changelog:
 	- Accurate collision isn't needed for areas the player can't reach anyway (like out of bounds)
 	- You can also specifiy a "vbsp_nobevel" 1 keyvalue in a brush entity to disable bevels
 - Added -nobevel (disables brushsides for all angled geometry. I do not recommend using this, use func_nobevel instead)
+- Added support for func_instance_io_proxy entity
 - Added optimization to automatically disable vertex lighting for props with $bumpmap/$phong
 	- Reduces time spent in VRAD with -staticproplighting
 	- Use "-showineligiblevertexlitprops" to show what props were marked ineligible for vertex lighting
@@ -138,6 +235,8 @@ Changelog:
 - Improved performance of "Fixing up env_cubemap materials" step
 - Improved clarity of some warnings and removed useless ones
 - Renamed waterindices to primindices (less misleading name)
+- Replaced VPhysics (Havok) dependency with Box3D
+	- This speeds up the "Building Physics collision data..." step significantly
 - Displacements with bad physics will now throw a warning rather than fatal error
 - Fixed instances not collapsing correctly if FGD had unrecognized types
 - Fixed instance names prefixed with ! being remapped
@@ -150,6 +249,7 @@ Changelog:
 - Fixed cubemap side IDs not being remapped in instances
 - Fixed missing texture cubemaps if skybox has mismatched side dimensions
 - Fixed max overlays per face actually being 63 rather than 64 due to a faulty check
+- Fixed unknown detail object warning being spammed for the same material
 - Fixed crashes if brush texture name was more than 128 characters
 - Fixed crash if an instance overflowed brush or brushsides limit
 - Fixed crash if instance name was too long
@@ -162,71 +262,27 @@ Changelog:
 	- See <a target="_blank" href="https://github.com/ValveSoftware/source-sdk-2013/issues/1903">this page</a> for more info
 - Deprecated manifests
 - Deprecated func_viscluster entity
-
-Installation:
-
-Extract the zip and launch the "toolsplusplus_installer.exe" installer.
-
-Manual installation (if installer doesn't work):
-Place into your game's bin/x64/ or bin/win64/ folder (where normal vbsp.exe is)
-Update Hammer's game configuration to use vbspplusplus.exe as the BSP compiler
-
-Supported branches
-- Team Fortress 2 (including Counter-Strike: Source, Day of Defeat: Source, Half-Life 2: Deathmatch)
-- Garry's Mod
-- SDK 2013 Multiplayer
-- SDK 2013 Singleplayer (including Half-Life 2 and Portal 1)
-	- Add "-singleplayer" parameter to compile the correct BSP format
-- Left 4 Dead 2
-- Portal 2 (partially)
-	- func_instance_io_proxy is not yet supported, use stock VBSP for now
-- Alien Swarm
-- CS:GO
-
-
-Optionally, add the "tools_plusplus.fgd" FGD file into Hammer's game configuration
-Tools -> Options -> Game Configurations -> click Add beside Game Data files
-
-<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 30 August 2026)
+</pre>
+	</div>
 </div>
-
-<div class="patch">
-	<h1>VVIS++</h1>	
-	<pre>
-VVIS++ is a modification of SDK2013 VVIS, with the main upgrade being massive improvement in compile time
-
-Changelog:
-
+<div class="slide" data-tool="VVIS++">
+	<div class="gallery">
+		<div class="gallery-frame">
+				<img class="gallery-image selected" src="images/vvis_benchmark.png" alt="VVIS++ screenshot">
+		</div>
+	</div>
+	<div class="patch changelog">
+		<h1>Changelog</h1>
+		<pre>
 - Huge performance improvement over normal VVIS. Speed up ranges from 50% to 2700% faster (!!)
 	- See this <a target="_blank" href="https://i.imgur.com/AdXWITy.png">benchmark</a> image for a comparison
 	- Produces the same results as normal VVIS
 - Scales up to 64 threads
 - Added appid mounting in gameinfo.txt
 - Fixed only first env_fog_controller's FarZ clip distance being considered for radial vis
-
-Installation:
-
-Extract the zip and launch the "toolsplusplus_installer.exe" installer.
-
-Manual installation (if installer doesn't work):
-
-Extract VVIS++ from the download and place it anywhere. This tool is fully standalone
-Update Hammer's game configuration to use vvisplusplus.exe as the VIS compiler
-
-Supported branches
-- Team Fortress 2 (including Counter-Strike: Source, Day of Defeat: Source, Half-Life 2: Deathmatch)
-- Garry's Mod
-- SDK 2013 Multiplayer
-- SDK 2013 Singleplayer (including Half-Life 2)
-- Left 4 Dead 1 and Left 4 Dead 2
-- Portal 1 and Portal 2
-- Alien Swarm
-- Counter-Strike: Global Offensive
-- SFM
-
-<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 30 August 2026)
-
-
+</pre>
+	</div>
+	<pre class="slide-post">
 Wall of Testimonials:
 - "wow"
 - "I am shocked that my map now compiles in 20 seconds, took 5-10 mins before"
@@ -252,15 +308,28 @@ Wall of Testimonials:
 - "4:56:30 time elapsed (gmod vvis), 5:43 time elapsed (vis++), i wish i was joking"
 - "its great god bless vvis++"
 - "From 24 hours to around 20mins. It's amazing. I was getting ready to not have a computer the whole day"
+</pre>
 </div>
-
-<div class="patch">
-	<h1>VRAD++</h1>	
-	<pre>
-VRAD++ is a modification of SDK2013 VRAD with various new features and improvements
-
-Changelog:
-
+<div class="slide" data-tool="VRAD++">
+	<div class="gallery">
+		<div class="gallery-frame">
+			<button type="button" class="gallery-arrow" data-dir="-1" aria-label="Previous image">&#8249;</button>
+				<img class="gallery-image selected" src="images/vrad_projectedlights.png" alt="VRAD++ screenshot">
+				<img class="gallery-image" src="images/vrad_qmc.png" alt="VRAD++ screenshot">
+				<img class="gallery-image" src="images/vrad_soft_lights.png" alt="VRAD++ screenshot">
+				<img class="gallery-image" src="images/vrad_staticpropsamplescale.png" alt="VRAD++ screenshot">
+			<button type="button" class="gallery-arrow" data-dir="1" aria-label="Next image">&#8250;</button>
+		</div>
+		<div class="gallery-dots">
+			<button type="button" class="gallery-dot selected" data-index="0" aria-label="Image 1"></button>
+			<button type="button" class="gallery-dot" data-index="1" aria-label="Image 2"></button>
+			<button type="button" class="gallery-dot" data-index="2" aria-label="Image 3"></button>
+			<button type="button" class="gallery-dot" data-index="3" aria-label="Image 4"></button>
+		</div>
+	</div>
+	<div class="patch changelog">
+		<h1>Changelog</h1>
+		<pre>
 - Scales up to 64 threads
 - Small performance optimizations
 - Shared LDR/HDR compiling:
@@ -392,6 +461,8 @@ Changelog:
 - Added support for reading static prop formats v7 to v14
 - Added "-report_search_paths" to list current search paths for debugging
 - Added "-propdebug" for tracking down what props take a long time to compile
+- Added parallel KD tree building, speeds up "Setting up ray-trace acceleration structure..." step
+- Added support for VTF 7.6, including CPU compression
 - Significantly improved performance and memory usage of bounced lighting on faces with low lightmap scales
 - Slightly improved displacement bounced lighting to be more granular
      - Benefits thin/small displacements the most
@@ -420,6 +491,7 @@ Changelog:
 - VPhysics is now an optional dependency (will compile successfully if its missing)
 - Fixed bug where broken vertex data in props skipped vertex lighting for other props
 - Fixed oversight where indirect lighting wasn't blended correctly with non-bump vs bump neighboring faces
+- Fixed non-deterministic data output in displacement lump
 - Fixed textureshadows defined in the .rad file not working if slashes were different
 - Fixed rare crash related to surfaceprop parsing
 - Fixed multiple "light_environment" or "light_directional" entities stomping over leaf sky flags
@@ -431,40 +503,18 @@ Changelog:
 - Unlimited texlight support in .rad files
 - Comments in .rad files are now skipped
 - Cleaned up formatting of some messages and warnings
-
-Installation:
-
-Extract the zip and launch the "toolsplusplus_installer.exe" installer.
-
-Manual installation (if installer doesn't work):
-
-Place into your game's bin/x64/ or bin/win64/ folder (where normal vrad.exe is)
-Update Hammer's game configuration to use vradplusplus.exe as the RAD compiler
-
-Supported branches:
-- Garry's Mod (x86-x64 beta)
-- 64-bit SDK2013-based games, etc: Team Fortress 2, Counter-Strike: Source, Day of Defeat: Source, Half-Life 2: Deathmatch
-- Left 4 Dead 2
-- Portal 2
-- Alien Swarm
-- Half Life 2
-- SDK 2013 singleplayer
-
-Maps for Half-Life 2 or SDK 2013 Singleplayer are supported. However you must still install VRAD++ in a 64-bit game
-
-Optionally, add the "tools_plusplus.fgd" FGD file into Hammer's game configuration
-Tools -> Options -> Game Configurations -> click Add beside Game Data files
-
-<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 30 August 2026)
+</pre>
+	</div>
 </div>
-
-<div class="patch">
-	<h1>BSPZIP++</h1>	
-	<pre>
-BSPZIP++ is a rewrite of SDK2013 BSPZIP with some improvements
-
-Changelog:
-
+<div class="slide" data-tool="BSPZIP++">
+	<div class="gallery">
+		<div class="gallery-frame">
+				<img class="gallery-image selected" src="images/bspzip_speed.png" alt="BSPZIP++ screenshot">
+		</div>
+	</div>
+	<div class="patch changelog">
+		<h1>Changelog</h1>
+		<pre>
 - Multithreaded LZMA compression
     - Threads can be adjusted with "-threads N" parameter
 - ".mp3", ".wav", ".ogg", ".ani" and ".vcs" (shaders) files are no longer compressed
@@ -479,28 +529,18 @@ Changelog:
 - Supports SDK2013 Singleplayer BSPs
     - Note that compression is NOT supported on the singleplayer engine
 - Added "-verbose" flag for more detailed information
-
-Installation:
-
-Place into your game's bin/x64/ or bin/win64/ folder (where normal bspzip.exe is)
-Update the tool you use for packing (e.g. CompilePal, bspzipgui) to use bspzipplusplus.exe instead of bspzip.exe
-
-Supported branches:
-- Garry's Mod (x86-x64 beta)
-- 64-bit SDK2013-based games, etc: Team Fortress 2, Counter-Strike: Source, Day of Defeat: Source, Half-Life 2: Deathmatch
-
-Maps for Half-Life 2 or SDK 2013 Singleplayer are supported. However you must still install BSPZIP++ in a 64-bit game
-
-<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 30 August 2026)
+</pre>
+	</div>
 </div>
-
-<div class="patch">
-	<h1>StudioMDL++</h1>	
-	<pre>
-StudioMDL++ is a modification of SDK2013 StudioMDL with various new features and improvements
-
-Changelog:
-
+<div class="slide" data-tool="StudioMDL++">
+	<div class="gallery">
+		<div class="gallery-frame">
+				<img class="gallery-image selected" src="images/studiomdl_macros.png" alt="StudioMDL++ screenshot">
+		</div>
+	</div>
+	<div class="patch changelog">
+		<h1>Changelog</h1>
+		<pre>
 - Significantly faster compilation
 - Significantly improved loading speed of SMD files
 - Supports compiling unlimited number of vertices
@@ -553,20 +593,18 @@ Changelog:
 - Reduced default weight culling from 5% to 0.01%
 - Removed limit for max number of meshes and animations
 - Removed .sw.vtx output
-
-Installation:
-
-Place into your game's bin/x64/ folder (where normal studiomdl.exe is)
-Update Crowbar (or Hammer's) game configuration to use studiomdlplusplus.exe as the MDL compiler
-
-The only supported games are 64-bit SDK2013-based games, for example:
-- Team Fortress 2, Counter-Strike: Source, Day of Defeat: Source, Half-Life 2: Deathmatch
-Garry's Mod is <span class="error">NOT</span> supported.
-
-<a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tools_plusplus.zip">Download</a> (Last updated: 30 August 2026)
+</pre>
+	</div>
 </div>
+		</div>
+		</div>
+	</div>
+</section>
 
 
+<section class="other-tools">
+	<h1 class="other-tools-toggle">Other tools</h1>
+	<div class="other-tools-body">
 <div class="patch">
 	<h1>Faceposer++</h1>	
 	<pre>
@@ -617,6 +655,7 @@ The only supported games are 64-bit SDK2013-based games, for example:
 Garry's Mod is <span class="error">NOT</span> supported.
 
 <a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/hlfaceposerplusplus.zip">Download</a> (Last updated: 25 June 2026)
+</pre>
 </div>
 
 <div class="patch">
@@ -680,6 +719,7 @@ Changelog:
 <a target="_blank" href="https://github.com/ficool2/VTFLib/releases/download/4.2.2/VTFEdit++.zip">Download</a> (Last updated: 23rd August, 2026)
 
 <a target="_blank" href="https://github.com/ficool2/VTFLib">Source Code</a>
+</pre>
 </div>
 
 <div class="patch">
@@ -694,6 +734,7 @@ Changelog:
 - Studiomdl warnings/errors are now highlighted yellow and red respectively
 
 <a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/Crowbar++.exe">Download</a> (Last updated: 6th August, 2026)
+</pre>
 </div>
 
 <div class="patch">
@@ -712,6 +753,7 @@ Updated 14th October: fixed bugs with light recovery, corrupt lumps are now skip
 
 Usage: run from cmd to see help options
 <a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/bsp_iidefeat.exe">Download</a> (Last updated: 14th October, 2025)
+</pre>
 </div>
 
 <div class="patch">
@@ -725,6 +767,7 @@ Originally made to identify problematic props in the Greek Theme Pack for TF2
 
 Usage: install Python, run the script inside a folder of models you want to check
 <a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/check_mdl.py">Download</a> (Last updated: 9th March, 2024)
+</pre>
 </div>
 
 <div class="patch">
@@ -735,6 +778,7 @@ Particularly useful for Left 4 Dead 2 where LDR cubemaps will look broken
 
 Usage: drag and drop a cubemap onto the exe
 <a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/cubemap2hdr.exe">Download</a> (Last updated: November 11th, 2024)
+</pre>
 </div>
 
 <div class="patch">
@@ -746,6 +790,7 @@ Useful for fake skyboxes with WindowImposter shader
 
 Usage: run the tool and follow instructions
 <a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/tga2skybox.exe">Download</a> (Last updated: 31st May, 2024)
+</pre>
 </div>
 
 <div class="patch">
@@ -756,6 +801,7 @@ Supports mass-automatic downscaling (for example to only downscale all 2048x2048
 
 Usage: run from cmd to see help options
 <a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/vtf_downscale.exe">Download</a> (Last updated: 15th August, 2024)
+</pre>
 </div>
 
 <div class="patch">
@@ -767,6 +813,7 @@ Unfortunately, I lost the source code for this tool...
 
 Usage: run from cmd to see help options
 <a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/vtfstripalpha.zip">Download</a> (Last updated: 24th August, 2022)
+</pre>
 </div>
 
 <div class="patch">
@@ -776,6 +823,7 @@ Converts a prop_static lightmap (.ppl file extracted from BSP) into VTF
 
 Usage: drag and drop a .ppl onto the exe
 <a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/proptexelvtf.exe">Download</a> (Last updated: Jan 11, 2021)
+</pre>
 </div>
 
 <div class="patch">
@@ -786,6 +834,7 @@ Was useful to make some TF2 textures appear high-resolution, now obsolete as mat
 
 Usage: put the exe into the desired folder of textures and run
 <a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/vtf_fix_mip2.exe">Download</a> (Last updated: 13th April, 2021)
+</pre>
 </div>
 
 <div class="patch">
@@ -796,6 +845,7 @@ Mainly made this to easily convert textures from IW engine to Source, not tested
 
 Usage: drag and drop a .dds onto the exe
 <a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/dds_to_vtf.exe">Download</a> (Last updated: 6th March, 2024)
+</pre>
 </div>
 
 <div class="patch">
@@ -805,6 +855,7 @@ Converts binary file to Squirrel array
 
 Usage: drag and drop a file
 <a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/file_to_nut.exe">Download</a> (Last updated: 22nd September, 2023)
+</pre>
 </div>
 
 <div class="patch">
@@ -814,8 +865,10 @@ Standalone version of Squirrel language interpreter that supports bytecode disas
 
 Usage: sq -c myscript.nut > myscript.cnut
 <a target="_blank" href="https://github.com/ficool2/misc_tools/releases/download/v1/sq.exe">Download</a> (Last updated: 8th April, 2025)
+</pre>
 </div>
-
+	</div>
+</section>
 
 			</article>			
 		</div>
@@ -835,5 +888,7 @@ Usage: sq -c myscript.nut > myscript.cnut
 	<script>
 		genNav();
 		addPatches(false);
+		setupToolsPlusPlus();
+		setupOtherTools();
 	</script>
 </html>

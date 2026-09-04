@@ -67,7 +67,7 @@ function setVideos(attrs = ["autoplay", "loop", "muted"]) {
  * Sets the listeners to all the patch notes.
  */
 function addPatches(show_first) {
-	const patches = Array.from(document.querySelectorAll(".patch"));
+	const patches = Array.from(document.querySelectorAll(".patch:not(.changelog)"));
 
 	if (show_first)
 	{
@@ -88,5 +88,101 @@ function addPatches(show_first) {
 		// Use spaces instead of tabs for the notes
 		const pre = patch.querySelector("pre");
 		pre.innerHTML = pre.innerHTML.replaceAll("\t", "   ");
+	})
+}
+
+/**
+ * Sets up the Tools++ stuff
+ */
+function setupToolsPlusPlus() {
+	const section = document.querySelector(".toolspp");
+	if (!section) return;
+
+	// use spaces instead of tabs
+	section.querySelectorAll(".slide pre, .toolspp-install pre").forEach(pre => {
+		pre.innerHTML = pre.innerHTML.replaceAll("\t", "   ");
+	})
+
+	// changelogs
+	const changelogs = Array.from(section.querySelectorAll(".patch.changelog"));
+	let changelogOpen = false;
+
+	changelogs.forEach(changelog => {
+		changelog.querySelector("h1").addEventListener("click", () => {
+			changelogOpen = !changelogOpen;
+			changelogs.forEach(c => c.classList.toggle("active", changelogOpen));
+		})
+	})
+
+	// one gallery per tool
+	section.querySelectorAll(".gallery").forEach(gallery => setupGallery(gallery));
+
+	// carosel
+	const tabs = Array.from(section.querySelectorAll(".carousel-tab"));
+	const slides = Array.from(section.querySelectorAll(".slide"));
+	let index = 0;
+
+	const select = i => {
+		index = (i + slides.length) % slides.length;
+		tabs.forEach((t, n) => t.classList.toggle("selected", n === index));
+		slides.forEach((s, n) => s.classList.toggle("selected", n === index));
+	};
+
+	tabs.forEach((tab, i) => tab.addEventListener("click", () => select(i)));
+	section.querySelectorAll(".carousel-arrow").forEach(arrow => {
+		arrow.addEventListener("click", () => select(index + Number(arrow.dataset.dir)));
+	})
+
+	// show this by default
+	select(Math.max(0, tabs.findIndex(t => t.dataset.tool === "VRAD++")));
+}
+
+
+/**
+ * Cycles the images of a single gallery on a timer
+ */
+function setupGallery(gallery, interval = 5000) {
+	const images = Array.from(gallery.querySelectorAll(".gallery-image"));
+	if (images.length < 2) return;
+
+	const dots = Array.from(gallery.querySelectorAll(".gallery-dot"));
+	let index = 0;
+	let timer = null;
+
+	const select = i => {
+		index = (i + images.length) % images.length;
+		images.forEach((img, n) => img.classList.toggle("selected", n === index));
+		dots.forEach((dot, n) => dot.classList.toggle("selected", n === index));
+	};
+
+	const restart = () => {
+		clearInterval(timer);
+		timer = setInterval(() => select(index + 1), interval);
+	};
+
+	const goto = i => {
+		select(i);
+		restart();
+	};
+
+	gallery.querySelectorAll(".gallery-arrow").forEach(arrow => {
+		arrow.addEventListener("click", () => goto(index + Number(arrow.dataset.dir)));
+	})
+	dots.forEach((dot, i) => dot.addEventListener("click", () => goto(i)));
+
+	// don't slide while hovered
+	gallery.addEventListener("mouseenter", () => clearInterval(timer));
+	gallery.addEventListener("mouseleave", restart);
+
+	restart();
+}
+
+function setupOtherTools() {
+	const section = document.querySelector(".other-tools");
+	if (!section) return;
+
+	// colapse by default
+	section.querySelector(".other-tools-toggle").addEventListener("click", () => {
+		section.classList.toggle("active");
 	})
 }

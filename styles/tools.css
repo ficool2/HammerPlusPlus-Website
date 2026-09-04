@@ -1,0 +1,308 @@
+.toolspp {
+  border: 2px solid #be00be;
+  border-radius: 10px;
+  background-color: #1f1f1f;
+  box-shadow: inset 0 0 25px -10px #be00be;
+  padding: 1em;
+  margin-bottom: 2em;
+}
+.toolspp .toolspp-title {
+  font-size: 2em;
+  text-align: center;
+  text-shadow: 0 0 10px #ff00ff;
+  margin: 0;
+}
+.toolspp .toolspp-blurb {
+  text-align: center;
+  margin: 0.5em 0 1em;
+}
+
+.toolspp-includes {
+  margin-bottom: 1.5em;
+}
+.toolspp-includes > table {
+  color: white;
+  font: inherit;
+  width: 100%;
+  border-collapse: collapse;
+  background-color: black;
+  border: 2px solid #be00be;
+  border-top: none;
+  border-radius: 0 0 10px 10px;
+  overflow: hidden;
+}
+.toolspp-includes th,
+.toolspp-includes td {
+  border-top: 1px solid rgba(190, 0, 190, 0.5);
+  padding: 0.4em 0.75em;
+  text-align: left;
+  vertical-align: top;
+}
+.toolspp-includes th {
+  white-space: nowrap;
+  color: #ff00ff;
+  width: 1%;
+}
+.toolspp-includes tr:first-child th,
+.toolspp-includes tr:first-child td {
+  border-top: none;
+}
+
+.box-title {
+  background-color: black;
+  box-shadow: inset 0 0 25px -10px #be00be;
+  border: 2px solid #be00be;
+  border-radius: 10px 10px 0 0;
+  padding: 0.25em;
+  margin: 0;
+  font-size: 1.35em;
+  text-align: center;
+}
+
+.toolspp-download {
+  margin-bottom: 1.5em;
+}
+.toolspp-download .toolspp-date {
+  display: block;
+  text-align: center;
+  margin-top: 1em;
+  opacity: 0.8;
+}
+.toolspp-download .info {
+  margin-bottom: 0;
+}
+
+.toolspp-download-body {
+  background-color: black;
+  border: 2px solid #be00be;
+  border-top: none;
+  border-radius: 0 0 10px 10px;
+  padding: 1em;
+}
+
+.os-select {
+  display: flex;
+  justify-content: center;
+  gap: 1.5em;
+  flex-wrap: wrap;
+}
+.os-select .os-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4em;
+  background-color: black;
+  color: white;
+  text-decoration: none;
+  font-family: inherit;
+  font-size: 1em;
+  cursor: pointer;
+  padding: 0.6em 1.2em;
+  border: 2px solid #444;
+  border-radius: 10px;
+  transition: border-color 0.25s, box-shadow 0.25s, background-color 0.25s;
+}
+.os-select .os-option > img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  transition: filter 0.25s;
+}
+.os-select .os-option .os-name {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+.os-select .os-option:hover, .os-select .os-option:focus-visible, .os-select .os-option:active {
+  border-color: #ff00ff;
+  background-color: rgb(53, 0, 49);
+  box-shadow: 0 0 15px 2px #ff00ff, inset 0 0 20px -8px #ff00ff;
+}
+.os-select .os-option:hover > img, .os-select .os-option:focus-visible > img, .os-select .os-option:active > img {
+  filter: drop-shadow(0 0 6px #ff00ff);
+}
+
+.discord-link {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 0;
+}
+.discord-link > img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  transition: filter 0.25s, transform 0.25s;
+}
+.discord-link:hover > img {
+  filter: drop-shadow(0 0 8px #ff00ff);
+  transform: scale(1.1);
+}
+
+.toolspp-install {
+  margin-bottom: 1.5em;
+}
+.toolspp-install > pre {
+  background-color: black;
+  border: 2px solid #be00be;
+  border-top: none;
+  border-radius: 0 0 10px 10px;
+  padding: 0.5em;
+  overflow-x: auto;
+  font-size: 0.9em;
+  margin: 0;
+}
+
+.toolspp-carousel {
+  margin-bottom: 1.5em;
+}
+
+.carousel {
+  background-color: black;
+  border: 2px solid #be00be;
+  border-top: none;
+  border-radius: 0 0 10px 10px;
+  padding: 0.5em;
+}
+.carousel .carousel-tabs {
+  display: flex;
+  gap: 0.4em;
+  overflow-x: auto;
+}
+.carousel .carousel-tabs .carousel-tab {
+  flex: 1;
+  white-space: nowrap;
+  background-color: black;
+  color: white;
+  font-family: inherit;
+  font-size: 1em;
+  cursor: pointer;
+  padding: 0.4em 0.8em;
+  border: 2px solid #be00be;
+  border-radius: 8px;
+  transition: background-color 0.25s, box-shadow 0.25s;
+}
+.carousel .carousel-tabs .carousel-tab:hover {
+  background-color: rgb(53, 0, 49);
+}
+.carousel .carousel-tabs .carousel-tab.selected {
+  background-color: rgb(53, 0, 49);
+  border-color: #ff00ff;
+  box-shadow: 0 0 10px 0 #ff00ff;
+}
+
+.carousel-slides {
+  margin-top: 0.75em;
+}
+.carousel-slides .slide {
+  display: none;
+}
+.carousel-slides .slide.selected {
+  display: block;
+}
+.carousel-slides .slide > pre {
+  background-color: black;
+  border: 2px solid #be00be;
+  border-radius: 10px;
+  padding: 0.5em;
+  overflow-x: auto;
+  font-size: 0.9em;
+  margin: 0.75em 0 0;
+}
+.carousel-slides .slide > pre:empty {
+  display: none;
+}
+
+.gallery {
+  margin-bottom: 0.75em;
+}
+.gallery .gallery-frame {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #be00be;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: black;
+  height: 600px;
+}
+.gallery .gallery-frame .gallery-image {
+  display: none;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+.gallery .gallery-frame .gallery-image.selected {
+  display: block;
+}
+.gallery .gallery-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.65);
+  color: white;
+  border: 2px solid #be00be;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.6em;
+  line-height: 1;
+  padding: 0.1em 0.4em;
+  transition: background-color 0.25s, box-shadow 0.25s;
+}
+.gallery .gallery-arrow:hover {
+  background-color: rgb(53, 0, 49);
+  box-shadow: 0 0 10px 0 #ff00ff;
+}
+.gallery .gallery-arrow[data-dir="-1"] {
+  left: 0.5em;
+}
+.gallery .gallery-arrow[data-dir="1"] {
+  right: 0.5em;
+}
+.gallery .gallery-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5em;
+  margin-top: 0.5em;
+}
+.gallery .gallery-dots .gallery-dot {
+  width: 12px;
+  height: 12px;
+  padding: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: #333;
+  border: 2px solid #be00be;
+  transition: background-color 0.25s, box-shadow 0.25s;
+}
+.gallery .gallery-dots .gallery-dot.selected {
+  background-color: #ff00ff;
+  box-shadow: 0 0 8px 0 #ff00ff;
+}
+
+.other-tools > .other-tools-toggle {
+  background-color: black;
+  box-shadow: inset 0 0 25px -10px #be00be;
+  border: 2px solid #be00be;
+  padding: 0.25em;
+  cursor: pointer;
+  font-size: 1.5em;
+  text-align: center;
+}
+.other-tools > .other-tools-body {
+  display: none;
+  padding-top: 1em;
+}
+.other-tools.active > .other-tools-body {
+  display: block;
+}
+
+@media (max-width: 800px) {
+  .gallery .gallery-frame {
+    height: 350px;
+  }
+}
+
+/*# sourceMappingURL=tools.css.map */
