@@ -374,10 +374,10 @@ Wall of Testimonials:
     - Less samples are required for a good result
     - Since less samples are required, "-final" has now been reduced to "-extrasky 8" by default (from 16)
 - Added support for lightmap alpha output (for games that support CSM)
-	- Use the `-lightmapformat` option to enable this
-	- `rgbeastyle3` is what games on CS:GO branch use
+	- Use the "-lightmapformat" option to enable this
+	- "rgbeastyle3" is what games on CS:GO branch use
 - Added support for prop vertex lighting alpha
-	- Use `-propalpha` to enable this
+	- Use "-propalpha" to enable this
 	- Writes sun contribution amount to alpha channel
 - Added soft lights
     - When "_light_radius" keyvalue on a light is set, the light is treated as a sphere/disk
@@ -392,8 +392,8 @@ Wall of Testimonials:
 	- However this will improve quality of prop lighting in areas starved of sunlight or bounced surfaces
 - Added -reflectivityscale
 - Added -globalreflectivityscale
-	- Unlike `-reflectivityscale`, this scales bounced light on props and ambient cubes alongside brushes
-	- You should always use this instead of `-reflectivityscale` (preserved for compatibility)
+	- Unlike "-reflectivityscale", this scales bounced light on props and ambient cubes alongside brushes
+	- You should always use this instead of "-reflectivityscale" (preserved for compatibility)
 - Added -worldtextureshadows
 	- Allows $alphatest brush textures to cast proper shadows like props
 	- Requires -textureshadows
