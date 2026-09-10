@@ -69,7 +69,7 @@
 			</a>
 		</div>
 
-		<span class="toolspp-date">Last updated: 4 September 2026</span>
+		<span class="toolspp-date">Last updated: 10 September 2026</span>
 		<br>
 		<p class="info">
 			 Chat about the tools in the official <a target="_blank" href="https://discord.com/invite/YrV35cCqgE">Discord</a>
@@ -205,6 +205,7 @@ Unsupported games may work by adjusting options such as "-bspformat", "-lightmap
 - Added support for high lightmap sizes (useful for games that support -maxlightmapdim)
 - Added support for saving "enablelightbounce" flag for static props
 - Added support for reading decimal values from face lightmap scales
+- Added overlay trimming, this fixes the "overlay too many faces" error automatically
 - Added -nohdrcubemap to not write HDR cubemaps to BSP, useful if map is compiled in LDR only
     - Likewise "-noldrcubemap" exists to not write LDR cubemaps
 	- "-nodefaultcubemap" disables both cubemaps
@@ -240,6 +241,7 @@ Unsupported games may work by adjusting options such as "-bspformat", "-lightmap
 - Displacements with bad physics will now throw a warning rather than fatal error
 - Fixed instances not collapsing correctly if FGD had unrecognized types
 - Fixed instance names prefixed with ! being remapped
+- Fixed "ivVecLine" FGD fields not remapping correctly inside instances
 - Fixed remapped instance I/O always using ESC separators (fixes HL2 compatibility)
 - Fixed recursive instance paths not working
 - Fixed cubemaps not being transformed inside instances
@@ -318,6 +320,7 @@ Wall of Testimonials:
 				<img class="gallery-image" src="images/vrad_qmc.png" alt="VRAD++ screenshot">
 				<img class="gallery-image" src="images/vrad_soft_lights.png" alt="VRAD++ screenshot">
 				<img class="gallery-image" src="images/vrad_staticpropsamplescale.png" alt="VRAD++ screenshot">
+				<img class="gallery-image" src="images/vrad_gpuperf.png" alt="VRAD++ performance">
 			<button type="button" class="gallery-arrow" data-dir="1" aria-label="Next image">&#8250;</button>
 		</div>
 		<div class="gallery-dots">
@@ -330,6 +333,17 @@ Wall of Testimonials:
 	<div class="patch changelog">
 		<h1>Changelog</h1>
 		<pre>
+- Added GPU acceleration
+	- Enabled by default
+	- Depending on hardware, speedups are 3x-40x faster on all maps
+	- If your GPU does not support raytracing, VRAD++ will fallback to the CPU
+	- `-cpu` can be used to disable the GPU raytracer if needed
+	- Performance and stability will vary depending on how much VRAM your system and map is using
+	- Minimum requirements for GPU acceleration:
+		- Nvidia: RTX 2000 series or better
+		- AMD: RX 6000 Series or Radeon 680M+
+		- Intel: Arc A Series
+	- Your drivers must support Vulkan 1.3+. Ensure drivers are up-to-date for best stability.
 - Scales up to 64 threads
 - Small performance optimizations
 - Shared LDR/HDR compiling:
@@ -406,6 +420,7 @@ Wall of Testimonials:
 - Added DXT3 and BC7 format support for texture shadows
 - Added support for %alphatexture
 	- Allows overriding texture used for texture shadows on geometry
+- Added supersampling to displacements, which makes them look cleaner with high frequency lightmaps
 - Added geometric edge pairing for brush entities
 	- This helps reduce seams where they touch world geometry or other entities
 	- Added "-nopairgeometricedges" option to disable this behavior
@@ -472,6 +487,8 @@ Wall of Testimonials:
 	- See <a target="_blank" href="https://github.com/ValveSoftware/source-sdk-2013/pull/1345">this page</a> for a comparison
 - Improved performance of static prop loading when using "-StaticPropPolys"
 	- This also fixes hangs on very large and sparse props
+- Texture shadows now have bilinear filtering on GPU for improved quality
+- Shushed "too many light styles" warning as it got spammed too much
 - Fixed maps with more than 13 million triangles taking a very, very long time to compile
 - Fixed black seams appearing on displacements in "-fast" mode
 - Fixed rays missing exact diagonal corner intersections
