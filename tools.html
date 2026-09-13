@@ -338,6 +338,8 @@ Wall of Testimonials:
 	- Enabled by default
 	- Depending on hardware, speedups are 3x-40x faster on all maps
 	- If your GPU does not support raytracing, VRAD++ will fallback to the CPU
+	- Linux AMD only: If your GPU is unsupported, set the env var "RADV_EXPERIMENTAL=emulate_rt"
+		- This enables software raytracing emulation, which appears to still be faster than CPU
 	- `-cpu` can be used to disable the GPU raytracer if needed
 	- Performance and stability will vary depending on how much VRAM your system and map is using
 	- Minimum requirements for GPU acceleration:
