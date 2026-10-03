@@ -69,7 +69,7 @@
 			</a>
 		</div>
 
-		<span class="toolspp-date">Last updated: 15 September 2026</span>
+		<span class="toolspp-date">Last updated: 3 October 2026</span>
 		<br>
 		<p class="info">
 			 Chat about the tools in the official <a target="_blank" href="https://discord.com/invite/YrV35cCqgE">Discord</a>
@@ -206,6 +206,7 @@ Unsupported games may work by adjusting options such as "-bspformat", "-lightmap
 - Added support for saving "enablelightbounce" flag for static props
 - Added support for reading decimal values from face lightmap scales
 - Added overlay trimming, this fixes the "overlay too many faces" error automatically
+* Added "%inheritbumpmap" for overlay materials which allows copying bumpmap from the brush surface
 - Added -nohdrcubemap to not write HDR cubemaps to BSP, useful if map is compiled in LDR only
     - Likewise "-noldrcubemap" exists to not write LDR cubemaps
 	- "-nodefaultcubemap" disables both cubemaps
@@ -232,6 +233,7 @@ Unsupported games may work by adjusting options such as "-bspformat", "-lightmap
 	- This change was made to support L4D2 maps, which rely on this change
 - "-leaktest" will now stop on areaportal leaks
 - Restored support for -maxlightmapdim and -defaultluxelsize parameters
+- Added "-maxdisplightmapdim" to override lightmap size for displacements
 - func_occluder, func_areaportal, func_viscluster, func_nobevel, parallax_obb no longer count towards the brush limit
 - Improved performance of "Fixing up env_cubemap materials" step
 - Improved clarity of some warnings and removed useless ones
@@ -341,6 +343,8 @@ Wall of Testimonials:
 	- Linux AMD only: If your GPU is unsupported, set the env var "RADV_EXPERIMENTAL=emulate_rt"
 		- This enables software raytracing emulation, which appears to still be faster than CPU
 	- `-cpu` can be used to disable the GPU raytracer if needed
+	- For GPU without raytracing support: "-gpusoftwarert" can be used
+		- Note: this might be SLOWER than CPU, don't expect a performance gain with this!
 	- Performance and stability will vary depending on how much VRAM your system and map is using
 	- Minimum requirements for GPU acceleration:
 		- Nvidia: RTX 2000 series or better
@@ -420,6 +424,7 @@ Wall of Testimonials:
 	- Requires -textureshadows and -worldtextureshadows
 - Added -forcetextureshadows
 	- Forces texture shadows to be enabled on all props
+- Added support for skins on static props for texture shadows
 - Added DXT3 and BC7 format support for texture shadows
 - Added support for %alphatexture
 	- Allows overriding texture used for texture shadows on geometry
