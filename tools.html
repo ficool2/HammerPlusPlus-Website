@@ -776,6 +776,30 @@ Changelog:
 </div>
 
 <div class="patch">
+	<h1>Blender Source Tools++</h1>
+	<pre>
+Modified version of Blender Source Tools v3.4.1 with extra features
+
+Changelog:
+
+- Added "Point at Children" bone import option - this attempts to recover a connected skeleton
+    - Orientations are fixed up automatically on import/export from/to Source by tagging the bones with a property
+- Added support for importing/exporting bone scale keyframes (this must be enabled in export options, off by default)
+    - Only works on engine branches that support it! This will not work in Valve games.
+- Added backwards compatibility down to Blender 3.1
+- Added warning if exporting unweighted vertices
+- Added option to change bone armature shape between Stick and Octahedron
+- Added saving of import options between sessions
+- Turned off implicit blender bone by default
+- Lowered DMX anim epsilon (prevents very fine movement from being lost)
+- Last used import axis is now saved
+- Meshes can now be imported with Euler bone orientations
+
+<a target="_blank" href="https://github.com/ficool2/BlenderSourceTools/releases">Download</a> (Last updated: 10th October, 2026)
+</pre>
+</div>
+
+<div class="patch">
 	<h1>bsp_iidefeat</h1>	
 	<pre>
 Tool to recover map textures from the infamous IID nodraw anti-decompile protection on BSPs
