@@ -69,7 +69,7 @@
 			</a>
 		</div>
 
-		<span class="toolspp-date">Last updated: 3 October 2026</span>
+		<span class="toolspp-date">Last updated: 26 October 2026</span>
 		<br>
 		<p class="info">
 			 Chat about the tools in the official <a target="_blank" href="https://discord.com/invite/YrV35cCqgE">Discord</a>
@@ -153,6 +153,7 @@ Unsupported games may work by adjusting options such as "-bspformat", "-lightmap
 - Added -blocksize (default is 1024)
 	- Useful to compute visibility faster on open, large maps like surf (I recommend 2048)
 	- Using a higher blocksize also reduces your vertex count, useful to circumvent vertex limit
+	- "-blocksize 0" is also supported, this may reduce vertices/planes more than a higher blocksize
 - Added -allowdynamicpropsasstatic (allows any props to used as static props)
 	- Note that some props might work right with this, particularly props that aren't compiled with "$staticprop"
 - Added per-prop ambient occlusion toggle
@@ -215,6 +216,7 @@ Unsupported games may work by adjusting options such as "-bspformat", "-lightmap
 - Added "-report_search_paths" to list current search paths for debugging
 - Added "-missingmaterial" option to replace missing brush materials with the desired material name
 - Added "-forcematerial" option to force all brush materials to be replaced with the desired name 
+- Added "-propdebug" to track down misbehaving prop models
 - Added "-entfirst" parameter 
 	- Forces a specific entity classname to always be sorted first in the list of entities
 - Added ability to insert default options from gameinfo
@@ -235,6 +237,7 @@ Unsupported games may work by adjusting options such as "-bspformat", "-lightmap
 - Restored support for -maxlightmapdim and -defaultluxelsize parameters
 - Added "-maxdisplightmapdim" to override lightmap size for displacements
 - func_occluder, func_areaportal, func_viscluster, func_nobevel, parallax_obb no longer count towards the brush limit
+- Implemented multi-threaded BSP partitioning
 - Improved performance of "Fixing up env_cubemap materials" step
 - Improved clarity of some warnings and removed useless ones
 - Renamed waterindices to primindices (less misleading name)
@@ -281,6 +284,8 @@ Unsupported games may work by adjusting options such as "-bspformat", "-lightmap
 - Huge performance improvement over normal VVIS. Speed up ranges from 50% to 2700% faster (!!)
 	- See this <a target="_blank" href="https://i.imgur.com/AdXWITy.png">benchmark</a> image for a comparison
 	- Produces the same results as normal VVIS
+- Specialized speedup for CPUs that support AVX512 and AVX2
+	- AVX512 is generally ~50% faster than AVX2
 - Scales up to 64 threads
 - Added appid mounting in gameinfo.txt
 - Fixed only first env_fog_controller's FarZ clip distance being considered for radial vis
@@ -342,7 +347,7 @@ Wall of Testimonials:
 	- If your GPU does not support raytracing, VRAD++ will fallback to the CPU
 	- Linux AMD only: If your GPU is unsupported, set the env var "RADV_EXPERIMENTAL=emulate_rt"
 		- This enables software raytracing emulation, which appears to still be faster than CPU
-	- `-cpu` can be used to disable the GPU raytracer if needed
+	- "-cpu" can be used to disable the GPU raytracer if needed
 	- For GPU without raytracing support: "-gpusoftwarert" can be used
 		- Note: this might be SLOWER than CPU, don't expect a performance gain with this!
 	- Performance and stability will vary depending on how much VRAM your system and map is using
@@ -483,6 +488,8 @@ Wall of Testimonials:
 - Added "-indirectonly" to only bake indirect light
 - Added support for using decimals in lightmap scales
 - Added support for reading static prop formats v7 to v14
+- Added support for "_lightsrad" keyvalue in worldspawn properties
+    - This is an alternative to passing "-lights" per-map
 - Added "-report_search_paths" to list current search paths for debugging
 - Added "-propdebug" for tracking down what props take a long time to compile
 - Added parallel KD tree building, speeds up "Setting up ray-trace acceleration structure..." step
@@ -570,8 +577,11 @@ Wall of Testimonials:
 		<pre>
 - Significantly faster compilation
 - Significantly improved loading speed of SMD files
+- More helpful error messages for syntax errors, now shows location/context
+	- Also correctly handles macros and includes
 - Supports compiling unlimited number of vertices and materials
 - Raised maximum output file size to 32mb
+- Added "-outdir" command to redirect where model output goes
 - Added appid mounting in gameinfo.txt
 - Added -nodx80 option to not emit .dx80.vtx files
 - Added "reverse" command for $sequence
@@ -582,6 +592,10 @@ Wall of Testimonials:
 - Added new $endmacro terminator for macros, allows omitting \\ 
 - Added numeric input support for "$contents"
 - Added better warnings for invalid bounding boxes in animations
+- Added support for compiling scale in animations
+	- Only works in engine branches that support it!
+- Added $retarget command
+	- Only works in Mann Versus Zombies engine branch
 - Added "-noremap" to disable sequence remapping with existing models
 - Added "$bbox [meshname 1] [meshname 2] ..." to calculate bounding box from specified mesh only
 - Added "$setvariable" - similar to "$definevariable" but can override a previous variable
@@ -595,10 +609,15 @@ Wall of Testimonials:
 - Added error if duplicate macro is defined
 - Weight for "activity" is now optional, defaults to -1 if not specified
 - Made offset optional for $attachment, can be explicitly defined with "offset" token
+- $proceduralbones now resolves directories
+- Added support for "baseang" in procedural bones
+- $scale is now respected in procedural bones
 - Missing bone name in "$weightlist" is now a warning instead of error
 - Raised maximum amount of bones in the SOURCE mesh to 1024 (the output bone limit is still 128)
 - $collisionmodel and $replacemodel no longer require explicitly providing extension name
 - Unused materials are now removed from the final model (i.e. part of $animations or collision model only)
+- Unknown animation block is now a warning instead of hard error
+- Blendwidth is now inferred automatically for 1D rows
 - Macros now fallback to "$definevariable"s if not found in macro parameters
 - Implemented new rules for bone collapsing that prevent unexpected behavior, see below:
 	- If bone is marked by $alwayscollapse, its always collapsed no exceptions
@@ -612,13 +631,16 @@ Wall of Testimonials:
 	- If bone is used as $bonemerge, don't collapse
 	- Otherwise, collapse
 - Fixed $renamebone not affecting the collision model
+- Fixed non-deterministic MDL output
 - Fixed crash if source bones limit is exceeded
 - Fixed crash if blank bodygroup was used with $staticprop
 - Fixed crash if source mesh had too many vertexes/faces
 - Fixed swapped variable names in "missing control bone X for procedural bone Y" error
 - Fixed bogus animation data being printed in console
+- Fixed false macro expansion error if end of file didn't have a newline
 - Reduced default weight culling from 5% to 0.01%
 - Removed limit for max number of meshes and animations
+- Removed weightlist limit
 - Removed .sw.vtx output
 </pre>
 	</div>
